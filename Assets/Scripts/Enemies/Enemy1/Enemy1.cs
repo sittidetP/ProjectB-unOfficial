@@ -9,6 +9,7 @@ public class Enemy1 : Entity
 
     [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] BaseMoveStateData moveStateData;
+    [SerializeField] BaseArgoStateData argoStateData;
     public override void Awake()
     {
         base.Awake();
