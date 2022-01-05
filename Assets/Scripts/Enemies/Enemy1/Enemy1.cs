@@ -15,6 +15,7 @@ public class Enemy1 : Entity
 
         Core.Movement.InitialFacingDirection(-1);
 
+        //Add comment
         IdleState = new E1_IdleState(this, StateMachine, "idle", idleStateData, this);
         MoveState = new E1_MoveState(this, StateMachine, "move", moveStateData, this);
     }
