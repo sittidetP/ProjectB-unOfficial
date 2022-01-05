@@ -10,13 +10,15 @@ public class Enemy1 : Entity
     [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] BaseMoveStateData moveStateData;
     [SerializeField] BaseArgoStateData argoStateData;
+
+    [SerializeField] Transform meleeHitboxPosition;
     public override void Awake()
     {
         base.Awake();
 
         Core.Movement.InitialFacingDirection(-1);
 
-        IdleState = new E1_IdleState(this, StateMachine, "idle", idleStateData, this);
+        IdleState = new E1_IdleState(this, StateMachine, "idle", argoStateData, idleStateData, this);
         MoveState = new E1_MoveState(this, StateMachine, "move", moveStateData, this);
     }
 

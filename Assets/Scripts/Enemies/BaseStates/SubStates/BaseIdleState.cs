@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseIdleState : State
+public class BaseIdleState : BaseArgoState
 {
-    protected BaseIdleStateData stateData;
+    protected BaseIdleStateData idleStateData;
 
     protected bool isIdleOver;
 
-    public BaseIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseIdleStateData stateData) : base(entity, stateMachine, animBoolName)
+    public BaseIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, BaseIdleStateData idleStateData) : base(entity, stateMachine, animBoolName, stateData)
     {
-        this.stateData = stateData;
+        this.idleStateData = idleStateData;
     }
 
     public override void Enter()
@@ -26,7 +26,7 @@ public class BaseIdleState : State
 
         core.Movement.SetVelocityX(0.0f);
 
-        if(Time.time > startTime + stateData.idleTime)
+        if(Time.time > startTime + idleStateData.idleTime)
         {
             isIdleOver = true;
         }
