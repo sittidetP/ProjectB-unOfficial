@@ -12,6 +12,8 @@ public class Enemy1 : Entity
     [SerializeField] BaseArgoStateData argoStateData;
 
     [SerializeField] Transform meleeHitboxPosition;
+
+    float gizmosDrawRadius = 0.25f;
     public override void Awake()
     {
         base.Awake();
@@ -34,6 +36,6 @@ public class Enemy1 : Entity
             facing = Core.Movement.FacingDirection;
         }
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), 1.0f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
     }
 }
