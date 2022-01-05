@@ -37,5 +37,9 @@ public class Enemy1 : Entity
         }
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.maxArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(meleeHitboxPosition.position, argoStateData.closeToPlayerRadius);
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minArgoDistance: 3
   maxArgoDistance: 6
-  closeToPlayerDistance: 1
+  closeToPlayerRadius: 0.75
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
