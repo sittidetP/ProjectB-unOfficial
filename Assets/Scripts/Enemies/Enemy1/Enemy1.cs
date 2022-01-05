@@ -26,4 +26,14 @@ public class Enemy1 : Entity
     {
         StateMachine.Initialize(IdleState);
     }
+
+    private void OnDrawGizmos() {
+        int facing = -1;
+
+        if(Core != null){
+            facing = Core.Movement.FacingDirection;
+        }
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), 1.0f);
+    }
 }
