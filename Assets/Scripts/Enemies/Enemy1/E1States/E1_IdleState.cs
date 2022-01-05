@@ -20,7 +20,7 @@ public class E1_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
-        if(Time.time > startTime + stateData.idleTime)
+        if(isIdleOver)
         {
             core.Movement.Filp();
             stateMachine.ChangeState(enemy.MoveState);
