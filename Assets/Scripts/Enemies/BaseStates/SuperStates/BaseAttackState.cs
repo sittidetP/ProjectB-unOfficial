@@ -10,5 +10,16 @@ public class BaseAttackState : BaseArgoState
         this.attackPosition = attackPosition;
     }
 
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        if(!canPerformCloseRangeAction){
+
+        }else{
+            
+        }
+    }
+
 
 }

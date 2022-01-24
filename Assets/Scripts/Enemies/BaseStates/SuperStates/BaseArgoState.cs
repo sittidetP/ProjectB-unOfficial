@@ -6,21 +6,28 @@ using UnityEngine;
 
 public class BaseArgoState : State
 {
-    protected BaseArgoStateData stateData;
+    protected BaseArgoStateData argoStateData;
 
     protected bool isMinArgoRange;
     protected bool isMaxArgoRange;
     protected bool canPerformCloseRangeAction;
     public BaseArgoState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData) : base(entity, stateMachine, animBoolName)
     {
-        this.stateData = stateData;
+        this.argoStateData = stateData;
     }
     public override void DoChecks()
     {
         base.DoChecks();
 
-        isMinArgoRange = Physics2D.Raycast(entity.transform.position, entity.transform.right, stateData.minArgoDistance, entity.Core.CollisionSenses.getWhatIsGround());
-        isMaxArgoRange = Physics2D.Raycast(entity.transform.position, entity.transform.right, stateData.maxArgoDistance, entity.Core.CollisionSenses.getWhatIsGround());
-        canPerformCloseRangeAction = Physics2D.Raycast(entity.transform.position, entity.transform.right, stateData.closeToPlayerDistance, stateData.whatIsPlayer);
+        isMinArgoRange = Physics2D.Raycast(entity.transform.position, entity.transform.right, argoStateData.minArgoDistance, entity.Core.CollisionSenses.getWhatIsGround());
+        isMaxArgoRange = Physics2D.Raycast(entity.transform.position, entity.transform.right, argoStateData.maxArgoDistance, entity.Core.CollisionSenses.getWhatIsGround());
+        canPerformCloseRangeAction = Physics2D.Raycast(entity.transform.position, entity.transform.right, argoStateData.closeToPlayerDistance, argoStateData.whatIsPlayer);
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+        /*
+        Debug.Log("canPerformCloseRangeAction : " + canPerformCloseRangeAction);*/
     }
 }

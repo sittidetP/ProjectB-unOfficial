@@ -7,6 +7,7 @@ public class BaseIdleState : BaseArgoState
     protected BaseIdleStateData idleStateData;
 
     protected bool isIdleOver;
+    protected bool isPlayerClosed;
 
     public BaseIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, BaseIdleStateData idleStateData) : base(entity, stateMachine, animBoolName, stateData)
     {
