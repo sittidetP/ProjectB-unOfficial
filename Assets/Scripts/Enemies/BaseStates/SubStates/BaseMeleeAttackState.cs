@@ -28,10 +28,13 @@ public class BaseMeleeAttackState : BaseAttackState
         Collider2D[] detectedObject = Physics2D.OverlapCircleAll(attackPosition.position, meleeAttackData.HitboxRadius, argoStateData.whatIsPlayer);
 
         foreach(Collider2D obj in detectedObject){
-            IDamageable damageable = obj.GetComponent<IDamageable>();
+            IDamageable damageable = obj.GetComponentInChildren<IDamageable>();
 
             if(damageable != null){
+                //Debug.Log("player not null");
                 damageable.Damage(meleeAttackData.attackDamage);
+            }else{
+                //Debug.Log("player null");
             }
         }
     }
