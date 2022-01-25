@@ -20,13 +20,14 @@ public class AggressiveWeapon : Weapon
         WeaponAttackDetails details = weaponData.AttackDetails[attackCounter];
         foreach(IDamageable item in detectedDamageable.ToList())
         {
+            
             item.Damage(details.damageAmount);
         }
     }
 
     public void AddToDetected(Collider2D collider)
     {
-        IDamageable damageable = collider.GetComponent<IDamageable>();
+        IDamageable damageable = collider.GetComponentInChildren<IDamageable>();
 
         if(damageable != null)
         {
@@ -36,7 +37,7 @@ public class AggressiveWeapon : Weapon
 
     public void RemoveFromDetected(Collider2D collider)
     {
-        IDamageable damageable = collider.GetComponent<IDamageable>();
+        IDamageable damageable = collider.GetComponentInChildren<IDamageable>();
 
         if(damageable != null)
         {
