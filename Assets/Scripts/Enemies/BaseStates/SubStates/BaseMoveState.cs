@@ -7,7 +7,7 @@ public class BaseMoveState : BaseArgoState
     protected BaseMoveStateData stateData;
 
     protected bool isGroundedL;
-    public BaseMoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData,BaseMoveStateData moveStateData) : base(entity, stateMachine, animBoolName, argoStateData)
+    public BaseMoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye, BaseMoveStateData moveStateData) : base(entity, stateMachine, animBoolName, argoStateData, enemyEye)
     {
         this.stateData = moveStateData;
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class E1_MoveState : BaseMoveState
 {
     Enemy1 enemy;
-    public E1_MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, BaseMoveStateData stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, argoStateData, stateData)
+    public E1_MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye, BaseMoveStateData stateData, Enemy1 enemy) : base(entity, stateMachine, animBoolName, argoStateData, enemyEye, stateData)
     {
         this.enemy = enemy;
     }

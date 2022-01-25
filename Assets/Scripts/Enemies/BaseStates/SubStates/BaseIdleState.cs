@@ -9,7 +9,7 @@ public class BaseIdleState : BaseArgoState
     protected bool isIdleOver;
     protected bool isPlayerClosed;
 
-    public BaseIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, BaseIdleStateData idleStateData) : base(entity, stateMachine, animBoolName, stateData)
+    public BaseIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye, BaseIdleStateData idleStateData) : base(entity, stateMachine, animBoolName, stateData, enemyEye)
     {
         this.idleStateData = idleStateData;
     }

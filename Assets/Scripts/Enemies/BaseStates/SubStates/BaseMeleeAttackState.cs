@@ -7,7 +7,7 @@ public class BaseMeleeAttackState : BaseAttackState
     private float stopAttactTime;
     protected bool canAttack;
     BaseMeleeAttackStateData meleeAttackData;
-    public BaseMeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform attackPosition, BaseMeleeAttackStateData meleeAttackData) : base(entity, stateMachine, animBoolName, stateData, attackPosition)
+    public BaseMeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye,Transform attackPosition, BaseMeleeAttackStateData meleeAttackData) : base(entity, stateMachine, animBoolName, stateData, enemyEye, attackPosition)
     {
         this.meleeAttackData = meleeAttackData;
     }

@@ -12,6 +12,7 @@ public class Enemy1 : Entity
     [SerializeField] BaseMoveStateData moveStateData;
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
+    [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
 
     AttackStateToAnimation atk2ani;
@@ -23,9 +24,9 @@ public class Enemy1 : Entity
 
         Core.Movement.InitialFacingDirection(-1);
 
-        IdleState = new E1_IdleState(this, StateMachine, "idle", argoStateData, idleStateData, this);
-        MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, moveStateData, this);
-        MeleeState = new E1_MeleeState(this, StateMachine, "attack", argoStateData, meleeHitboxPosition, meleeAttackStateData, this);
+        IdleState = new E1_IdleState(this, StateMachine, "idle", argoStateData, enemyEye,idleStateData, this);
+        MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, enemyEye,moveStateData, this);
+        MeleeState = new E1_MeleeState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
     }
 
     private void Start()
@@ -42,13 +43,18 @@ public class Enemy1 : Entity
             facing = Core.Movement.FacingDirection;
         }
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
-        Gizmos.DrawWireSphere(transform.position + new Vector3(argoStateData.maxArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
+        if(enemyEye != null){
+            Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
+            Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.maxArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
+        }
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(meleeHitboxPosition.position, meleeAttackStateData.HitboxRadius);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)Vector2.right * facing * argoStateData.closeToPlayerDistance);
+        if(enemyEye != null){
+            Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * facing * argoStateData.closeToPlayerDistance);
+        }
+        
     }
 }

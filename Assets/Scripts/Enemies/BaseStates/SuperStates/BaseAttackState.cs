@@ -6,7 +6,7 @@ public class BaseAttackState : BaseArgoState
 {
     protected Transform attackPosition;
 
-    public BaseAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform attackPosition) : base(entity, stateMachine, animBoolName, stateData)
+    public BaseAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye,Transform attackPosition) : base(entity, stateMachine, animBoolName, stateData, enemyEye)
     {
         this.attackPosition = attackPosition;
     }
