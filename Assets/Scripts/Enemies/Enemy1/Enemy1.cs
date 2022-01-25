@@ -6,13 +6,15 @@ public class Enemy1 : Entity
 {
     public E1_IdleState IdleState {get; private set;}
     public E1_MoveState MoveState{get; private set;}
+    public E1_MeleeState MeleeState {get; private set;}
 
     [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] BaseMoveStateData moveStateData;
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
-
     [SerializeField] Transform meleeHitboxPosition;
+
+    
 
     float gizmosDrawRadius = 0.25f;
     public override void Awake()
