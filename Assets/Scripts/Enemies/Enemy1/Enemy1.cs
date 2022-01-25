@@ -14,7 +14,7 @@ public class Enemy1 : Entity
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
     [SerializeField] Transform meleeHitboxPosition;
 
-    
+    AttackStateToAnimation atk2ani;
 
     float gizmosDrawRadius = 0.25f;
     public override void Awake()
@@ -24,11 +24,14 @@ public class Enemy1 : Entity
         Core.Movement.InitialFacingDirection(-1);
 
         IdleState = new E1_IdleState(this, StateMachine, "idle", argoStateData, idleStateData, this);
-        MoveState = new E1_MoveState(this, StateMachine, "move", moveStateData, this);
+        MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, moveStateData, this);
+        MeleeState = new E1_MeleeState(this, StateMachine, "attack", argoStateData, meleeHitboxPosition, meleeAttackStateData, this);
     }
 
     private void Start()
     {
+        atk2ani = GetComponent<AttackStateToAnimation>();
+        atk2ani.setAttackState(MeleeState);
         StateMachine.Initialize(IdleState);
     }
 

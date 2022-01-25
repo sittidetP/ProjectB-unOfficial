@@ -536,7 +536,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -106131343
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -744,7 +744,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -106131343
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -8298335142436343970, guid: b4f7357ff2159654cba08fd8b2837b03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1224,6 +1224,7 @@ GameObject:
   - component: {fileID: 1015707884}
   - component: {fileID: 1015707885}
   - component: {fileID: 1015707886}
+  - component: {fileID: 1015707887}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: Untagged
@@ -1244,6 +1245,7 @@ Transform:
   m_Children:
   - {fileID: 431075142}
   - {fileID: 37205455}
+  - {fileID: 1286947140}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1286,7 +1288,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1778711737
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3225832317793331946, guid: 393a0821a4d2c1041a85e29c84403b03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1382,6 +1384,18 @@ MonoBehaviour:
   argoStateData: {fileID: 11400000, guid: 7a92db4ba52632745813c25d813cb767, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: cb08416a7ba05ba4882c1ef586ddb7ee, type: 2}
   meleeHitboxPosition: {fileID: 37205455}
+--- !u!114 &1015707887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015707880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643401e6ca3a2e149be8ed415c327818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1043126401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2725,36 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1286947139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286947140}
+  m_Layer: 7
+  m_Name: enemyEye
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286947140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286947139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.484, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015707881}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462731850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,7 +2846,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -106131343
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseMoveState : State
+public class BaseMoveState : BaseArgoState
 {
     protected BaseMoveStateData stateData;
 
     protected bool isGroundedL;
-    public BaseMoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseMoveStateData stateData) : base(entity, stateMachine, animBoolName)
+    public BaseMoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData,BaseMoveStateData moveStateData) : base(entity, stateMachine, animBoolName, argoStateData)
     {
-        this.stateData = stateData;
+        this.stateData = moveStateData;
     }
 
     public override void DoChecks()

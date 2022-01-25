@@ -23,6 +23,8 @@ public class BaseMeleeAttackState : BaseAttackState
     {
         base.AnimationTrigger();
 
+        Debug.Log("hit Player");
+
         Collider2D[] detectedObject = Physics2D.OverlapCircleAll(attackPosition.position, meleeAttackData.HitboxRadius, argoStateData.whatIsPlayer);
 
         foreach(Collider2D obj in detectedObject){

@@ -11,9 +11,9 @@ public class BaseArgoState : State
     protected bool isMinArgoRange;
     protected bool isMaxArgoRange;
     protected bool canPerformCloseRangeAction;
-    public BaseArgoState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData) : base(entity, stateMachine, animBoolName)
+    public BaseArgoState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData) : base(entity, stateMachine, animBoolName)
     {
-        this.argoStateData = stateData;
+        this.argoStateData = argoStateData;
     }
     public override void DoChecks()
     {

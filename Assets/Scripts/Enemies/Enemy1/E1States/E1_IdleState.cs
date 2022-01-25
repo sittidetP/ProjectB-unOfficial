@@ -24,6 +24,8 @@ public class E1_IdleState : BaseIdleState
         {
             core.Movement.Filp();
             stateMachine.ChangeState(enemy.MoveState);
+        }else if(canPerformCloseRangeAction){
+            stateMachine.ChangeState(enemy.MeleeState);
         }
     }
 }
