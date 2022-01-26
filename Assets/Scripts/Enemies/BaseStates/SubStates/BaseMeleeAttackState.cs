@@ -54,6 +54,7 @@ public class BaseMeleeAttackState : BaseAttackState
         base.Exit();
 
         canAttack = false;
+        isAnimationFinished = true;
     }
 
     public override void AnimationFinishTrigger()
