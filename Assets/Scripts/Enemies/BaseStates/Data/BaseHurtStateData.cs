@@ -7,4 +7,6 @@ using UnityEngine;
 public class BaseHurtStateData : ScriptableObject
 {
     public float hurtDuration = 1.0f;
+
+    public Material hurtMaterial;
 }

@@ -1383,6 +1383,7 @@ MonoBehaviour:
   moveStateData: {fileID: 11400000, guid: 52f586e47a9ece74eb03c76fe065494e, type: 2}
   argoStateData: {fileID: 11400000, guid: 7a92db4ba52632745813c25d813cb767, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: cb08416a7ba05ba4882c1ef586ddb7ee, type: 2}
+  hurtStateData: {fileID: 11400000, guid: c7976417c8cb03d469f40e923fa2de14, type: 2}
   enemyEye: {fileID: 1286947140}
   meleeHitboxPosition: {fileID: 37205455}
 --- !u!114 &1015707887
