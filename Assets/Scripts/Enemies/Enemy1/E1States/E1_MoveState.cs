@@ -17,7 +17,7 @@ public class E1_MoveState : BaseMoveState
         if(Time.time > startTime + stateData.moveDuration|| !isGroundedL)
         {
             stateMachine.ChangeState(enemy.IdleState);
-        }else if(canPerformCloseRangeAction){
+        }else if(canPerformCloseRangeAction && enemy.MeleeState.getCanAttack()){
             stateMachine.ChangeState(enemy.MeleeState);
         }
     }

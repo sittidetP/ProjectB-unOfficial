@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseMeleeAttackState : BaseAttackState
 {
     private float stopAttactTime;
-    protected bool canAttack;
+    protected bool canAttack = true;
     BaseMeleeAttackStateData meleeAttackData;
     public BaseMeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye,Transform attackPosition, BaseMeleeAttackStateData meleeAttackData) : base(entity, stateMachine, animBoolName, stateData, enemyEye, attackPosition)
     {
@@ -15,7 +15,7 @@ public class BaseMeleeAttackState : BaseAttackState
     public override void Enter()
     {
         base.Enter();
-        canAttack = true;
+        //canAttack = true;
         core.Movement.SetVelocityX(meleeAttackData.attackVelocity);
     }
 
@@ -42,19 +42,11 @@ public class BaseMeleeAttackState : BaseAttackState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if(Time.time > stopAttactTime + meleeAttackData.cooldownTime){
-            isAnimationFinished = false;
-            canAttack = true;
-        }
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        canAttack = false;
-        isAnimationFinished = true;
     }
 
     public override void AnimationFinishTrigger()
@@ -63,5 +55,14 @@ public class BaseMeleeAttackState : BaseAttackState
 
         stopAttactTime = Time.time;
         canAttack = false;
+    }
+
+    public bool getCanAttack(){
+        if(Time.time > stopAttactTime + meleeAttackData.cooldownTime){
+            canAttack = true;
+        }else{
+            canAttack = false;
+        }
+        return canAttack;
     }
 }

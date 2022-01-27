@@ -14,10 +14,8 @@ public class E1_MeleeState : BaseMeleeAttackState
     {
         base.LogicUpdate();
 
-        if(!canPerformCloseRangeAction){
-            stateMachine.ChangeState(enemy1.IdleState);
-        }else if(canAttack){
-            stateMachine.ChangeState(enemy1.MeleeState);
+        if(!canAttack){
+            stateMachine.ChangeState(enemy1.MoveState);
         }
     }
 }
