@@ -48,7 +48,9 @@ public class Enemy1 : Entity
     {
         base.Update();
 
-        if(Core.Combat.getIsDamaged()){
+        if(Core.Stats.getIsDead()){
+            StateMachine.ChangeState(DeadState);
+        }else if(Core.Combat.getIsDamaged()){
             StateMachine.ChangeState(HurtState);
         }
     }
