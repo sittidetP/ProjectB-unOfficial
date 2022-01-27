@@ -10,12 +10,15 @@ public class Entity : MonoBehaviour
 
     public Core Core { get; private set; }
 
+    public StateToAnimation StateToAnimation {get; private set;}
+
     private Vector2 workspace;
 
     public virtual void Awake() {
         Core = GetComponentInChildren<Core>();
         StateMachine = new FiniteStateMachine();
         Animator = GetComponent<Animator>();
+        StateToAnimation = GetComponent<StateToAnimation>();
     }
 
     public virtual void Update(){

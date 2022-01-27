@@ -9,11 +9,11 @@ public class AttackStateToAnimation : MonoBehaviour
     public void setAttackState(BaseAttackState attackState){
         this.attackState = attackState;
     }
-    public void AnimationTrigger(){
+    public void AttackAnimationTrigger(){
         attackState.AnimationTrigger();
     }
 
-    public void AnimationFinishTrigger(){
+    public void AttackAnimationFinishTrigger(){
         attackState.AnimationFinishTrigger();
     }
 }

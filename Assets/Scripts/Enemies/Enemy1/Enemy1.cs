@@ -34,7 +34,7 @@ public class Enemy1 : Entity
         MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, enemyEye,moveStateData, this);
         MeleeState = new E1_MeleeState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         HurtState = new E1_HurtState(this, StateMachine, "hurt", hurtStateData, sr, this);
-        DeadState = new E1_DeadState(this, StateMachine, "dead");
+        DeadState = new E1_DeadState(this, StateMachine, "dead", this);
     }
 
     private void Start()

@@ -11,7 +11,5 @@ public class BaseDeadState : State
     public override void Enter()
     {
         base.Enter();
-
-        entity.gameObject.SetActive(false);
     }
 }

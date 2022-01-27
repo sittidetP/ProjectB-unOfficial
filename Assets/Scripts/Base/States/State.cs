@@ -7,6 +7,7 @@ public class State
     protected FiniteStateMachine stateMachine;
     protected Core core;
     protected Entity entity;
+    protected StateToAnimation stateToAnimation;
 
     protected float startTime;
 
@@ -21,6 +22,7 @@ public class State
         this.stateMachine = stateMachine;
         this.core = entity.Core;
         this.animBoolName = animBoolName;
+        this.stateToAnimation = entity.StateToAnimation;
     }
 
     public virtual void Enter()
@@ -31,6 +33,7 @@ public class State
         startTime = Time.time;
         isAnimationFinished = false;
         isExitingState = false;
+        stateToAnimation.setState(this);
     }
 
     public virtual void Exit()
