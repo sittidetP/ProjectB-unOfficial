@@ -8,6 +8,7 @@ public class Enemy1 : Entity
     public E1_MoveState MoveState{get; private set;}
     public E1_MeleeState MeleeState {get; private set;}
     public E1_HurtState HurtState {get; private set;}
+    public E1_DeadState DeadState {get; private set;}
 
     [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] BaseMoveStateData moveStateData;
@@ -33,6 +34,7 @@ public class Enemy1 : Entity
         MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, enemyEye,moveStateData, this);
         MeleeState = new E1_MeleeState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         HurtState = new E1_HurtState(this, StateMachine, "hurt", hurtStateData, sr, this);
+        DeadState = new E1_DeadState(this, StateMachine, "dead");
     }
 
     private void Start()
