@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerAbilityState
 {
-    private float startDash;    
+    private float startDash;
     private float onMidAirTime;
     private float endMidAirTime;
 
-    private bool isDashFromGround;
+    private bool isDashFromGround; //Check Dash From Ground to MidAir
+    private bool isDashOnGround; //Check Dash on Ground or MidAir when start to dash
 
     private Vector2 lastAfterImagePos;
 
@@ -41,12 +42,21 @@ public class PlayerDashState : PlayerAbilityState
         playerGScale = core.Movement.RB.gravityScale;
         player.InputHandler.UseDashInput();
         startDash = Time.time;
-        if (isGrounded)
+        if (core.CollisionSenses.Ground)
         {
-            isDashFromGround = true;
-        }
-        else
-        {
+            Debug.Log("dash on ground");
+            isDashOnGround = true;
+            if (isGrounded)
+            {
+                isDashFromGround = true;
+            }
+            else
+            {
+                isDashFromGround = false;
+            }
+        }else{
+            Debug.Log("dash on midair");
+            isDashOnGround = false;
             isDashFromGround = false;
         }
     }
@@ -65,16 +75,17 @@ public class PlayerDashState : PlayerAbilityState
             core.Movement.RB.gravityScale = 0f;
         }
 
-        if (!isGrounded && isDashFromGround)
+
+        if (!isGrounded && isDashFromGround && isDashOnGround)
         {
             onMidAirTime = Time.time;
             isDashFromGround = false;
         }
 
-        if(Time.time >= startDash + playerStateData.dashDuration)
+        if (Time.time >= startDash + playerStateData.dashDuration)
         {
             core.Movement.RB.drag = 0f;
-            if (!isGrounded)
+            if (!isGrounded && isDashOnGround)
             {
                 endMidAirTime = Time.time;
             }
@@ -101,7 +112,7 @@ public class PlayerDashState : PlayerAbilityState
         Debug.Log("endMidAirTime : " + endMidAirTime);
         Debug.Log("onMidAir : " + onMidAirTime);
         */
-        if ((endMidAirTime - onMidAirTime > playerStateData.coyoteTime))
+        if ((endMidAirTime - onMidAirTime > playerStateData.coyoteTime && isDashOnGround))
         {
             return true; //Can't Coyote
         }
@@ -124,7 +135,7 @@ public class PlayerDashState : PlayerAbilityState
 
     private void CheckIfShouldPlaceAfterImage()
     {
-        if(Vector2.Distance(player.transform.position, lastAfterImagePos) >= playerStateData.distBetweenAfterImage)
+        if (Vector2.Distance(player.transform.position, lastAfterImagePos) >= playerStateData.distBetweenAfterImage)
         {
             PlaceAfterImage();
         }
