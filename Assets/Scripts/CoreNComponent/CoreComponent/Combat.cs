@@ -13,6 +13,8 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     private bool isDamged = false;
 
     [SerializeField] private float knockbackTime = 0.2f;
+
+    private bool isAttackedFromBehind = false;
     
     public override void LogicUpdate(){
         CheckKnockback();
@@ -21,13 +23,24 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     public void Damage(float amount)
     {
         if(canDamage){
-            Debug.Log("Can Hit");
+            //Debug.Log("Can Hit");
             isDamged = true;
             core.Stats.DecreaseHealth(amount);
         }else{
-            Debug.Log("Can't Hit");
+            //Debug.Log("Can't Hit");
         }
         
+    }
+
+    public void Damage(float amount, int attackedDirection){
+        Damage(amount);
+        if(attackedDirection == core.Movement.FacingDirection){
+            //Debug.Log("Behind true");
+            isAttackedFromBehind = true;
+        }else{
+            //Debug.Log("Behind false");
+            isAttackedFromBehind = false;
+        }
     }
 
     public void knockback(Vector2 angle, float strength, int direction)
@@ -55,5 +68,9 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 
     public bool getIsDamaged(){
         return isDamged;
+    }
+
+    public bool getIsAttackedFormBehind(){
+        return isAttackedFromBehind;
     }
 }

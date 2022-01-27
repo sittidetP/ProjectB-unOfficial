@@ -10,12 +10,29 @@ public class E1_HurtState : BaseHurtState
         this.enemy1 = enemy1;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        core.Movement.SetVelocityZero();
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        if(isHurtOver){
-            stateMachine.ChangeState(enemy1.IdleState);
+        if (isHurtOver)
+        {
+            if (core.Combat.getIsAttackedFormBehind())
+            {
+                core.Movement.Filp();
+            }
+            stateMachine.ChangeState(enemy1.MoveState);
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 }

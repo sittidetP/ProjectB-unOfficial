@@ -21,7 +21,7 @@ public class AggressiveWeapon : Weapon
         foreach(IDamageable item in detectedDamageable.ToList())
         {
             
-            item.Damage(details.damageAmount);
+            item.Damage(details.damageAmount, core.Movement.FacingDirection);
         }
     }
 
