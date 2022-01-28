@@ -13,15 +13,19 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     private bool isDamged = false;
 
     [SerializeField] private float knockbackTime = 0.2f;
+    [SerializeField] private float damageCooldown = 0.2f;
+    private float damageTime;
 
     private bool isAttackedFromBehind = false;
     
     public override void LogicUpdate(){
         CheckKnockback();
+        CheckCanDamage();
     }
 
     public void Damage(float amount)
     {
+        damageTime = Time.time;
         if(canDamage){
             //Debug.Log("Can Hit");
             isDamged = true;
@@ -29,7 +33,14 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
         }else{
             //Debug.Log("Can't Hit");
         }
-        
+    }
+
+    public void CheckCanDamage(){
+        if(Time.time > damageTime + damageCooldown){
+            canDamage = true;
+        }else{
+            canDamage = false;
+        }
     }
 
     public void Damage(float amount, int attackedDirection){

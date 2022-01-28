@@ -21,7 +21,7 @@ public class BaseHurtState : State
 
         isHurtOver = false;
 
-        core.Combat.setCanDamage(false);
+        //core.Combat.setCanDamage(false);
     }
 
     public override void LogicUpdate()
@@ -40,7 +40,7 @@ public class BaseHurtState : State
         base.Exit();
 
         sr.material = normalMaterial;
-        core.Combat.setCanDamage(true);
+        //core.Combat.setCanDamage(true);
         core.Combat.setIsNotDamage();
     }
 }
