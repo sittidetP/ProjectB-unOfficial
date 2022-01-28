@@ -24,6 +24,9 @@ public class PlayerStateData : ScriptableObject
     public float dashGLinearDrag = 10f;
     public float distBetweenAfterImage = 0.5f;
 
+    [Header("Dead State")]
+    public float deadFadeOutTime = 0.5f;
+    public float alphaMultiple = 0.1f;
     [Header("Hurt effect")]
     public int amountOfBlinks = 15;
 }

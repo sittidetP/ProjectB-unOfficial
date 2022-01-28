@@ -15,7 +15,8 @@ public class Player : Entity
 
     public PlayerHurtState HurtState {get; private set;}
 
-    public PlayerWaitState WaitState { get; private set; }
+    public PlayerWaitState WaitState {get; private set; }
+    public PlayerDeadState DeadState {get; private set;}
     public PlayerInputHandler InputHandler { get; private set; }
 
     [SerializeField] PlayerStateData playerStateData;
@@ -38,6 +39,7 @@ public class Player : Entity
         DashState = new PlayerDashState(this, StateMachine, "dash", playerStateData);
         WaitState = new PlayerWaitState(this, StateMachine, "wait", playerStateData);
         HurtState = new PlayerHurtState(this, StateMachine, "hurt", playerStateData);
+        DeadState = new PlayerDeadState(this, StateMachine, "dead", playerStateData);
     }
 
     private void Start()
@@ -54,7 +56,9 @@ public class Player : Entity
     {
         base.Update();
 
-        if(Core.Combat.getIsDamaged()){
+        if(Core.Stats.getIsDead()){
+            StateMachine.ChangeState(DeadState);
+        }else if(Core.Combat.getIsDamaged() && !Core.Stats.getAlreadyDead()){
             StartCoroutine(FlashAfterDamage());
             StateMachine.ChangeState(HurtState);
         }

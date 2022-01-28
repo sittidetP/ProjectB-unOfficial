@@ -9,10 +9,12 @@ public class Stats : CoreComponent
     private float currentHealth;
 
     private bool isDeaded;
+    private bool isAlreadyDeaded;
     protected override void Awake()
     {
         base.Awake();
         isDeaded = false;
+        isAlreadyDeaded = false;
         currentHealth = maxHealth;
     }
 
@@ -28,5 +30,13 @@ public class Stats : CoreComponent
 
     public bool getIsDead(){
         return isDeaded;
+    }
+
+    public void setAlreadyDead(){
+        isAlreadyDeaded = true;
+    }
+
+    public bool getAlreadyDead(){
+        return isAlreadyDeaded;
     }
 }
