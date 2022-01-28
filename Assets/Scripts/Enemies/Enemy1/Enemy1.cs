@@ -18,7 +18,7 @@ public class Enemy1 : Entity
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
 
-    SpriteRenderer sr;
+    //SpriteRenderer sr;
     AttackStateToAnimation atk2ani;
 
     float gizmosDrawRadius = 0.25f;
@@ -26,14 +26,14 @@ public class Enemy1 : Entity
     {
         base.Awake();
 
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
 
         Core.Movement.InitialFacingDirection(-1);
 
         IdleState = new E1_IdleState(this, StateMachine, "idle", argoStateData, enemyEye,idleStateData, this);
         MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, enemyEye,moveStateData, this);
         MeleeState = new E1_MeleeState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
-        HurtState = new E1_HurtState(this, StateMachine, "hurt", hurtStateData, sr, this);
+        HurtState = new E1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
         DeadState = new E1_DeadState(this, StateMachine, "dead", this);
     }
 

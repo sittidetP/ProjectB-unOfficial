@@ -23,4 +23,7 @@ public class PlayerStateData : ScriptableObject
     public float dashDuration = 0.5f;
     public float dashGLinearDrag = 10f;
     public float distBetweenAfterImage = 0.5f;
+
+    [Header("Hurt effect")]
+    public float amountOfBlink = 10f;
 }

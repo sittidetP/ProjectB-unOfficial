@@ -11,6 +11,7 @@ public class Entity : MonoBehaviour
     public Core Core { get; private set; }
 
     public StateToAnimation StateToAnimation {get; private set;}
+    public SpriteRenderer SpriteRenderer{get; private set;}
 
     private Vector2 workspace;
 
@@ -19,6 +20,7 @@ public class Entity : MonoBehaviour
         StateMachine = new FiniteStateMachine();
         Animator = GetComponent<Animator>();
         StateToAnimation = GetComponent<StateToAnimation>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public virtual void Update(){
