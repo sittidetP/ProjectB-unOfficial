@@ -73,6 +73,7 @@ public class PlayerDashState : PlayerAbilityState
         if (!isGrounded)
         {
             core.Movement.RB.gravityScale = 0f;
+            core.Movement.RB.drag = playerStateData.dashGLinearDrag;
         }
 
 

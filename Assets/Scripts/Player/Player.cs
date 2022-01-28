@@ -13,6 +13,8 @@ public class Player : Entity
 
     public PlayerAttackState PrimaryAttackState { get; private set; }
 
+    public PlayerHurtState HurtState {get; private set;}
+
     public PlayerWaitState WaitState { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
 
@@ -35,6 +37,7 @@ public class Player : Entity
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, "attack", playerStateData);
         DashState = new PlayerDashState(this, StateMachine, "dash", playerStateData);
         WaitState = new PlayerWaitState(this, StateMachine, "wait", playerStateData);
+        HurtState = new PlayerHurtState(this, StateMachine, "hurt", playerStateData);
     }
 
     private void Start()
@@ -45,5 +48,14 @@ public class Player : Entity
         ExtraPlayer = GetComponentInChildren<ExtraPlayer>();
 
         PrimaryAttackState.SetWeapon(Inventory.weapons[0]);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if(Core.Combat.getIsDamaged()){
+            StateMachine.ChangeState(HurtState);
+        }
     }
 }

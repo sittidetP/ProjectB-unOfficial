@@ -2,13 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHurtState : State
+public class PlayerHurtState : PlayerState
 {
-    Player player;
-    public PlayerHurtState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Player player) : base(entity, stateMachine, animBoolName)
+    public PlayerHurtState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
     {
-        this.player = player;
     }
 
-    
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        if(isAnimationFinished){
+            //Debug.Log("Hurt finish");
+            stateMachine.ChangeState(player.IdleState);
+        }else{
+            core.Movement.SetVelocityX(0);
+        }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        core.Combat.setIsNotDamage();
+    }
+
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+        //Debug.Log("Hurt finish");
+    }
 }
