@@ -25,5 +25,5 @@ public class PlayerStateData : ScriptableObject
     public float distBetweenAfterImage = 0.5f;
 
     [Header("Hurt effect")]
-    public float amountOfBlink = 10f;
+    public int amountOfBlinks = 15;
 }

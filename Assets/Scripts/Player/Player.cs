@@ -55,27 +55,29 @@ public class Player : Entity
         base.Update();
 
         if(Core.Combat.getIsDamaged()){
+            StartCoroutine(FlashAfterDamage());
             StateMachine.ChangeState(HurtState);
         }
     }
 
-/*
+
     private IEnumerator FlashAfterDamage()
     {
-        float flashDelay = (playerData.blinkTime) / playerData.amountOfBlinks;
+        float flashDelay = (Core.Combat.getDamageCoolDown()) / playerStateData.amountOfBlinks;
         //yield return new WaitForSeconds(flashDelay);
-        yield return new WaitForSeconds(0.2f);
+        //yield return new WaitForSeconds(0.2f);
 
-        for (int i = 0; i < playerData.amountOfBlinks; i++)
+        for (int i = 0; i < playerStateData.amountOfBlinks; i++)
         {            
+            yield return new WaitForSeconds(flashDelay);
             SpriteRenderer.color = new Color(1, 1, 1, 0.4f);
+            
             yield return new WaitForSeconds(flashDelay);
-
             SpriteRenderer.color = Color.clear;
-            yield return new WaitForSeconds(flashDelay);
+            
         }
 
         SpriteRenderer.color = Color.white;
     }
-    */
+    
 }

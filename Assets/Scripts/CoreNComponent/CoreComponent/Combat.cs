@@ -84,4 +84,8 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     public bool getIsAttackedFormBehind(){
         return isAttackedFromBehind;
     }
+
+    public float getDamageCoolDown(){
+        return damageCooldown;
+    }
 }
