@@ -60,7 +60,9 @@ public class Weapon : MonoBehaviour
     public virtual void AnimationStartMovementTrigger()
     {
         //Debug.Log(weaponData.AttackDetails[attackCounter].attackMoveSpeed);
-        attackState.SetPlayerVelocity(weaponData.AttackDetails[attackCounter].attackMoveSpeed);
+        if(core.CollisionSenses.Ground){
+            attackState.SetPlayerVelocity(weaponData.AttackDetails[attackCounter].attackMoveSpeed);
+        }
     }
 
     public virtual void AnimationStopMovementTrigger()

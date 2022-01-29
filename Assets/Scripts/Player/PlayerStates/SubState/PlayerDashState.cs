@@ -44,7 +44,7 @@ public class PlayerDashState : PlayerAbilityState
         startDash = Time.time;
         if (core.CollisionSenses.Ground)
         {
-            Debug.Log("dash on ground");
+            //Debug.Log("dash on ground");
             isDashOnGround = true;
             if (isGrounded)
             {
@@ -55,7 +55,7 @@ public class PlayerDashState : PlayerAbilityState
                 isDashFromGround = false;
             }
         }else{
-            Debug.Log("dash on midair");
+            //Debug.Log("dash on midair");
             isDashOnGround = false;
             isDashFromGround = false;
         }
