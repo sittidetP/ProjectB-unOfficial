@@ -19,7 +19,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool DashInput { get; private set; }
 
-    public bool PauseInput {get; private set;}
+    public bool PauseInput { get; private set; }
 
     [SerializeField] float inputHoldTime;
 
@@ -41,7 +41,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         RawMovementInput = callbackContext.ReadValue<Vector2>();
 
-        if(!PauseManager.isPause){
+        if (!PauseManager.isPause)
+        {
             NormInputX = Mathf.RoundToInt(RawMovementInput.x);
             NormInputY = Mathf.RoundToInt(RawMovementInput.y);
         }
@@ -49,18 +50,21 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnJumpInput(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.started)
+        if (!PauseManager.isPause)
         {
-            
-            JumpInput = true;
-            JumpInputHeld = true;
-            startJumpHoldTime = Time.time;
-        }
+            if (callbackContext.started)
+            {
 
-        if (callbackContext.canceled)
-        {
-            JumpInput = false;
-            JumpInputHeld = false;
+                JumpInput = true;
+                JumpInputHeld = true;
+                startJumpHoldTime = Time.time;
+            }
+
+            if (callbackContext.canceled)
+            {
+                JumpInput = false;
+                JumpInputHeld = false;
+            }
         }
     }
 
@@ -71,7 +75,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void CheckJumpInputHold()
     {
-        if(Time.time > startJumpHoldTime + inputHoldTime)
+        if (Time.time > startJumpHoldTime + inputHoldTime)
         {
             JumpInputHeld = false;
         }
@@ -79,14 +83,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnPrimaryAttackInput(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.started)
+        if (!PauseManager.isPause)
         {
-            PrimaryAttackInput = true;
-        }
+            if (callbackContext.started)
+            {
+                PrimaryAttackInput = true;
+            }
 
-        if (callbackContext.canceled)
-        {
-            PrimaryAttackInput = false;
+            if (callbackContext.canceled)
+            {
+                PrimaryAttackInput = false;
+            }
         }
     }
 
@@ -97,14 +104,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnDashInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!PauseManager.isPause)
         {
-            DashInput = true;
-        }
+            if (context.started)
+            {
+                DashInput = true;
+            }
 
-        if (context.canceled)
-        {
-            DashInput = false;
+            if (context.canceled)
+            {
+                DashInput = false;
+            }
         }
     }
 
@@ -113,12 +123,17 @@ public class PlayerInputHandler : MonoBehaviour
         DashInput = false;
     }
 
-    public void OnPauseInput(InputAction.CallbackContext context){
-        if(context.started){
+    public void OnPauseInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
             //Debug.Log("esc press");
-            if(PauseManager.isPause){
+            if (PauseManager.isPause)
+            {
                 PauseManager.resume();
-            }else{
+            }
+            else
+            {
                 PauseManager.pause();
             }
         }
