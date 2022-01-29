@@ -6,7 +6,7 @@ public class PlayerDeadState : PlayerState
 {
     private float deadTime;
     private float alphaSprite;
-    private float alphaDe;
+    private float alphaDelta;
     public PlayerDeadState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
     {
     }
@@ -15,8 +15,6 @@ public class PlayerDeadState : PlayerState
     {
         base.Enter();
         alphaSprite = 1f;
-
-        alphaDe = alphaSprite/playerStateData.deadFadeOutTime;
     }
 
     public override void LogicUpdate()
@@ -30,8 +28,8 @@ public class PlayerDeadState : PlayerState
                 entity.gameObject.SetActive(false);
             }
             else
-            {                
-                alphaSprite -= (alphaDe * Time.deltaTime * 100);
+            {
+                alphaSprite = alphaDelta * (Time.time - deadTime) + 1;
                 Debug.Log(alphaSprite);
                 player.SpriteRenderer.color = new Color(1, 1, 1, alphaSprite);
             }
@@ -44,6 +42,7 @@ public class PlayerDeadState : PlayerState
         base.AnimationFinishTrigger();
         core.Stats.setAlreadyDead();
         deadTime = Time.time;
+        alphaDelta = (0 - alphaSprite)/((deadTime + playerStateData.deadFadeOutTime) - deadTime);
         //player.StartCoroutine(FadeAfterDead());
     }
 
