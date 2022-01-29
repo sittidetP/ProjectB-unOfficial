@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedWhenSmoothCameara: 2
-  smoothCam: 0
+  smoothCam: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
