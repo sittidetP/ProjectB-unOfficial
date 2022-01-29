@@ -19,6 +19,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool DashInput { get; private set; }
 
+    public bool PauseInput {get; private set;}
+
     [SerializeField] float inputHoldTime;
 
     private float startJumpHoldTime;
@@ -39,8 +41,10 @@ public class PlayerInputHandler : MonoBehaviour
     {
         RawMovementInput = callbackContext.ReadValue<Vector2>();
 
-        NormInputX = Mathf.RoundToInt(RawMovementInput.x);
-        NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+        if(!PauseManager.isPause){
+            NormInputX = Mathf.RoundToInt(RawMovementInput.x);
+            NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+        }
     }
 
     public void OnJumpInput(InputAction.CallbackContext callbackContext)
@@ -107,5 +111,16 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseDashInput()
     {
         DashInput = false;
+    }
+
+    public void OnPauseInput(InputAction.CallbackContext context){
+        if(context.started){
+            //Debug.Log("esc press");
+            if(PauseManager.isPause){
+                PauseManager.resume();
+            }else{
+                PauseManager.pause();
+            }
+        }
     }
 }
