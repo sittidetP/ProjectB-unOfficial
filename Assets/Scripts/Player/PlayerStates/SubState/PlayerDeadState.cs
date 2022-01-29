@@ -30,7 +30,7 @@ public class PlayerDeadState : PlayerState
             else
             {
                 alphaSprite = alphaDelta * (Time.time - deadTime) + 1;
-                Debug.Log(alphaSprite);
+                //Debug.Log(alphaSprite);
                 player.SpriteRenderer.color = new Color(1, 1, 1, alphaSprite);
             }
         }
