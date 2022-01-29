@@ -1087,7 +1087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d476d0b8850f4f740a3a7acc96a8311c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speedWhenSmoothCameara: 2
+  smoothCam: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

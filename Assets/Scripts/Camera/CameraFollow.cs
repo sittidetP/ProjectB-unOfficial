@@ -10,8 +10,8 @@ public class CameraFollow : MonoBehaviour
     private Bounds[] allBounds;
     private Bounds targetBound;
 
-    public float speed;
-    private float waitForSeconds = 0.5f;
+    [SerializeField] float speedWhenSmoothCameara;
+    [SerializeField] bool smoothCam;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,15 +22,8 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(waitForSeconds > 0)
-        {
-            waitForSeconds -= Time.deltaTime;
-        }
-        else
-        {
-            SetOneLimit();
-            FollowPlayer();
-        }
+        SetOneLimit();
+        FollowPlayer();
     }
 
     void FindLimits() // find all limits of stage environment. //find all boundaries.
@@ -62,8 +55,11 @@ public class CameraFollow : MonoBehaviour
         float xTarget = camBox.size.x < targetBound.size.x ? Mathf.Clamp(player.position.x, targetBound.min.x + camBox.size.x / 2, targetBound.max.x - camBox.size.x / 2) : (targetBound.min.x + targetBound.max.x)/2;
         float yTarget = camBox.size.y < targetBound.size.y ? Mathf.Clamp(player.position.y, targetBound.min.y + camBox.size.y / 2, targetBound.max.y - camBox.size.y / 2) : (targetBound.min.y + targetBound.max.y)/2;
         Vector3 target = new Vector3(xTarget, yTarget, transform.position.z);
-        transform.position = target; // normal
-        //transform.position = Vector3.Lerp(transform.position, target, speed * Time.deltaTime); // smooth
-        
+
+        if(!smoothCam){
+            transform.position = target; // normal
+        }else{
+            transform.position = Vector3.Lerp(transform.position, target, speedWhenSmoothCameara * Time.deltaTime); // smooth
+        }
     }
 }
