@@ -15,7 +15,7 @@ MonoBehaviour:
   moveVelocity: 6
   jumpVelocity: 10.5
   jumpBootsMultipiler: 0.475
-  amountOfJump: 2
+  amountOfJump: 1
   jumpVelocityFalloffs: 4
   fallMultipiler: 4
   coyoteTime: 0.17
