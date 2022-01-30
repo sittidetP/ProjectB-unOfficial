@@ -8,6 +8,14 @@ public class PlayerHurtState : PlayerState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        player.Inventory.getSelectedWeapon().SetAnimationFalse();
+        player.Inventory.getSelectedWeapon().gameObject.SetActive(false);
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

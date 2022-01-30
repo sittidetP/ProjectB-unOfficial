@@ -18,8 +18,7 @@ public class CalculateCameraBox : MonoBehaviour
 
     private void Update()
     {
-        //SetCamBox();
-
+        SetCamBox();
     }
 
     private void SetCamBox()
