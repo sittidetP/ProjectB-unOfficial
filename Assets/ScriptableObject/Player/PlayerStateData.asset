@@ -15,10 +15,14 @@ MonoBehaviour:
   moveVelocity: 6
   jumpVelocity: 10.5
   jumpBootsMultipiler: 0.475
-  amountOfJump: 1
+  amountOfJump: 2
   jumpVelocityFalloffs: 4
   fallMultipiler: 4
   coyoteTime: 0.17
   dashVelocity: 20
   dashDuration: 0.2
   dashGLinearDrag: 20
+  distBetweenAfterImage: 0.5
+  deadFadeOutTime: 0.5
+  alphaMultiple: 0.1
+  amountOfBlinks: 15

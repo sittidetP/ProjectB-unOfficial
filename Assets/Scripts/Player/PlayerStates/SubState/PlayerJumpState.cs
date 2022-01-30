@@ -88,7 +88,7 @@ public class PlayerJumpState : PlayerAbilityState
         }
         else
         {
-            player.InputHandler.UseJumpInput();
+            //player.InputHandler.UseJumpInput();
             return false;
         }
     }

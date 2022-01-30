@@ -16,6 +16,9 @@ public class PlayerMidAirState : PlayerState
 
     private float fallVelocity;
     private float startCoyoteTime;
+
+    private float yOnGround;
+    private float yOnMidAir;
     public PlayerMidAirState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
     {
     }
@@ -53,6 +56,8 @@ public class PlayerMidAirState : PlayerState
         dashInput = player.InputHandler.DashInput;
 
         //CheckJumpHeld();
+        
+        //Debug.Log(CheckHigherPosJump());
         if (primaryAttackInput)
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
@@ -66,9 +71,15 @@ public class PlayerMidAirState : PlayerState
         {
             //Debug.Log("MidAir : isGround");
             stateMachine.ChangeState(player.IdleState);
-        } else if (jumpInput && player.JumpState.CanJump() && CheckCanCoyote())
+        } else if (jumpInput && player.JumpState.CanJump())
         {
-            stateMachine.ChangeState(player.JumpState);
+            if(CheckHigherPosJump()){
+                stateMachine.ChangeState(player.JumpState);
+            }else{
+                if(CheckCanCoyote()){
+                    stateMachine.ChangeState(player.JumpState);
+                }
+            }
         }
         else
         {
@@ -108,6 +119,20 @@ public class PlayerMidAirState : PlayerState
         else
         {
             return true;
+        }
+    }
+
+    private bool CheckHigherPosJump(){
+        if(isGrounded){
+            yOnGround = entity.transform.position.y;
+        }else{
+            yOnMidAir = entity.transform.position.y;
+        }
+
+        if(yOnMidAir > yOnGround){
+            return true;
+        }else{
+            return false;
         }
     }
 
