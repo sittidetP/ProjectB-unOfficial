@@ -12,6 +12,8 @@ public class MovingPlatform : MonoBehaviour
     private int index;
     private float stopTime;
     private bool isMoving;
+
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +42,37 @@ public class MovingPlatform : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, points[index].transform.position, speed * Time.deltaTime);
             }
-        }else{
-            if(Time.time > stopMoveDuration + stopTime){
+        }
+        else
+        {
+            if (Time.time > stopMoveDuration + stopTime)
+            {
                 isMoving = true;
             }
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            player = other.gameObject.GetComponent<Player>();
+            player.Core.Movement.RB.interpolation = RigidbodyInterpolation2D.None;
+            other.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (player != null)
+            {
+                player.Core.Movement.RB.interpolation = RigidbodyInterpolation2D.Interpolate;
+                other.transform.SetParent(null);
+                player = null;
+            }
+        }
     }
 }
