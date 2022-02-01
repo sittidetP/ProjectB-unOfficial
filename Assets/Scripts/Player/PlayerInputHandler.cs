@@ -21,6 +21,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool PauseInput { get; private set; }
 
+    public bool FallThroughInput {get; set;}
+
     [SerializeField] float inputHoldTime;
 
     private float startJumpHoldTime;

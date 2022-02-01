@@ -63,7 +63,11 @@ public class PlayerGroundedState : PlayerState
         }
         else if(jumpInput && player.JumpState.CanJump())
         {
-            stateMachine.ChangeState(player.JumpState);
+            if(yInput == -1 && player.isOnPlatform){
+                player.InputHandler.FallThroughInput = true;
+            }else{
+                stateMachine.ChangeState(player.JumpState);
+            }
         }
         else if(!isGround)
         {

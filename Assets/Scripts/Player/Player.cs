@@ -24,6 +24,8 @@ public class Player : Entity
     public PlayerInventory Inventory { get; private set; }
     public ExtraPlayer ExtraPlayer { get; private set; }
 
+    public bool isOnPlatform{get; set;}
+
     public override void Awake()
     {
         base.Awake();

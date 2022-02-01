@@ -17,12 +17,17 @@ public class OneWayPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player = other.gameObject.GetComponent<Player>();
+            if(player != null){
+                player.isOnPlatform = true;
+            }
         }
     }
 
     private void OnCollisionStay2D(Collision2D other) {
         if(player != null){
-
+            if(player.InputHandler.FallThroughInput){
+                platformEffector2D.rotationalOffset = 180f;
+            }
         }
     }
 
@@ -30,7 +35,11 @@ public class OneWayPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            player.isOnPlatform = false;
+            player.InputHandler.FallThroughInput = false;
+            player.InputHandler.UseJumpInput();
             player = null;
+            platformEffector2D.rotationalOffset = 0f;
         }
     }
 }
