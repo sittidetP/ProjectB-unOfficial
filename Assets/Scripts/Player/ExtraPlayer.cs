@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExtraPlayer : MonoBehaviour
 {
     [SerializeField] Transform ceilingCheck;
+    [SerializeField] LayerMask whatIsCeiling;
 
     CollisionSenses playerCollisionSenses;
 
@@ -19,7 +20,7 @@ public class ExtraPlayer : MonoBehaviour
 
     public bool Ceiling
     {
-        get => Physics2D.Raycast(ceilingCheck.position, Vector2.up, playerCollisionSenses.getGroundCheckDistance(), playerCollisionSenses.getWhatIsGround());
+        get => Physics2D.Raycast(ceilingCheck.position, Vector2.up, playerCollisionSenses.getGroundCheckDistance(), whatIsCeiling);
         //Physics2D.Raycast(ceilingCheck.position, Vector2.up, playerCore.CollisionSenses.getGroundCheckDistance(), playerCore.CollisionSenses.getWhatIsGround());
     }
 }

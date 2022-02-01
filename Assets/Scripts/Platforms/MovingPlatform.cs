@@ -57,9 +57,12 @@ public class MovingPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.GetComponent<Player>();
-            player.Core.Movement.RB.interpolation = RigidbodyInterpolation2D.None;
-            other.transform.SetParent(transform);
+            if (transform.position.y < other.transform.position.y - 1f)
+            {
+                player = other.gameObject.GetComponent<Player>();
+                player.Core.Movement.RB.interpolation = RigidbodyInterpolation2D.None;
+                other.transform.SetParent(transform);
+            }
         }
     }
 
