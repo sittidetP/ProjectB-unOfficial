@@ -63,7 +63,7 @@ public class PlayerMidAirState : PlayerState
             stateMachine.ChangeState(player.PrimaryAttackState);
         }
 
-        if(dashInput){
+        if(dashInput && player.DashState.CanDash()){
             stateMachine.ChangeState(player.DashState);
         }
 

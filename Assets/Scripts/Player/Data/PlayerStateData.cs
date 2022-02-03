@@ -24,6 +24,8 @@ public class PlayerStateData : ScriptableObject
     public float dashGLinearDrag = 10f;
     public float distBetweenAfterImage = 0.5f;
 
+    public float dashCooldown = 1f;
+
     [Header("Dead State")]
     public float deadFadeOutTime = 0.5f;
     public float alphaMultiple = 0.1f;

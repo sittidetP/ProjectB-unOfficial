@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerDashState : PlayerAbilityState
 {
     private float startDash;
+    private float stopDashTime;
+    private bool isStopDash = false;
     private float onMidAirTime;
     private float endMidAirTime;
 
@@ -42,6 +44,7 @@ public class PlayerDashState : PlayerAbilityState
         playerGScale = core.Movement.RB.gravityScale;
         player.InputHandler.UseDashInput();
         startDash = Time.time;
+        isStopDash = false;
         if (core.CollisionSenses.Ground)
         {
             //Debug.Log("dash on ground");
@@ -90,9 +93,14 @@ public class PlayerDashState : PlayerAbilityState
             {
                 endMidAirTime = Time.time;
             }
+            if(!isStopDash){
+                stopDashTime = Time.time;
+                isStopDash = true;
+            }
             core.Movement.RB.gravityScale = playerGScale;
             IsJustDash = true;
             isAbilityDone = true;
+            
         }
         else
         {
@@ -139,6 +147,14 @@ public class PlayerDashState : PlayerAbilityState
         if (Vector2.Distance(player.transform.position, lastAfterImagePos) >= playerStateData.distBetweenAfterImage)
         {
             PlaceAfterImage();
+        }
+    }
+
+    public bool CanDash(){
+        if(Time.time > stopDashTime + playerStateData.dashCooldown){
+            return true;
+        }else{
+            return false;
         }
     }
 }

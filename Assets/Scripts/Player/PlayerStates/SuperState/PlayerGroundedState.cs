@@ -73,7 +73,7 @@ public class PlayerGroundedState : PlayerState
         {
             //Debug.Log("Ground : MidAir");
             stateMachine.ChangeState(player.MidAirState);
-        }else  if (dashInput)
+        }else  if (dashInput && player.DashState.CanDash())
         {
             stateMachine.ChangeState(player.DashState);
         }
