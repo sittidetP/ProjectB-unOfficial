@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b35a317a7f18a4db4daccdf11b14b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingDirection: -1
 --- !u!1 &6296472937955656509
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 6296472938293626311}
   - component: {fileID: 6296472938293626328}
   m_Layer: 7
-  m_Name: Enemy1
+  m_Name: Enemy1(Slime)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

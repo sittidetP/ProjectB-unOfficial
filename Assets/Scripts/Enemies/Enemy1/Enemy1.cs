@@ -28,7 +28,7 @@ public class Enemy1 : Entity
 
         //sr = GetComponent<SpriteRenderer>();
 
-        Core.Movement.InitialFacingDirection(-1);
+        //Core.Movement.InitialFacingDirection(-1);
 
         IdleState = new E1_IdleState(this, StateMachine, "idle", argoStateData, enemyEye,idleStateData, this);
         MoveState = new E1_MoveState(this, StateMachine, "move", argoStateData, enemyEye,moveStateData, this);

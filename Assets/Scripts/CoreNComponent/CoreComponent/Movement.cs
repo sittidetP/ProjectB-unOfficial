@@ -6,7 +6,9 @@ public class Movement : CoreComponent
 {
     public Rigidbody2D RB { get; private set; }
 
-    public int FacingDirection { get; private set; }
+    [SerializeField] int facingDirection = 1;
+
+    public int FacingDirection { get => facingDirection; private set=> facingDirection = value; }
 
     public bool CanSetVelocity { get; set; }
 
@@ -19,8 +21,6 @@ public class Movement : CoreComponent
         base.Awake();
 
         RB = GetComponentInParent<Rigidbody2D>();
-
-        FacingDirection = 1;
 
         CanSetVelocity = true;
     }
