@@ -16,10 +16,18 @@ public class CollisionSenses : CoreComponent
         private set => groundCheckR = value;
     }
 
+    public Transform WallCheck
+    {
+        get => GenericsNotImplementedError<Transform>.TryGet(wallCheck, transform.parent.name);
+        private set => wallCheck = value;
+    }
+
     [SerializeField] private Transform groundCheckL;
     [SerializeField] private Transform groundCheckR;
+    [SerializeField] private Transform wallCheck;
 
     [SerializeField] private float groundCheckDistance;
+    [SerializeField] private float wallCheckDistance;
 
     [SerializeField] LayerMask whatIsGround;
 
@@ -43,6 +51,11 @@ public class CollisionSenses : CoreComponent
         get => Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, whatIsGround);
     }
 
+    public bool Wall
+    {
+        get => Physics2D.Raycast(wallCheck.position, Vector2.right*core.Movement.getInitialFacingDirection(), wallCheckDistance, whatIsGround);
+    }
+
     public float getGroundCheckDistance()
     {
         return groundCheckDistance;
@@ -60,5 +73,7 @@ public class CollisionSenses : CoreComponent
             Gizmos.DrawLine(groundCheckL.position, groundCheckL.position + (Vector3)(Vector2.down*groundCheckDistance));
         if(groundCheckR != null)
             Gizmos.DrawLine(groundCheckR.position, groundCheckR.position + (Vector3)(Vector2.down*groundCheckDistance));
+        if(wallCheck != null)
+            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right*core.Movement.getInitialFacingDirection()*wallCheckDistance));
     }
 }
