@@ -8,13 +8,19 @@ public class Movement : CoreComponent
 
     [SerializeField] int facingDirection = 1;
 
-    public int FacingDirection { get => facingDirection; private set=> facingDirection = value; }
+    public int FacingDirection { get => localFacingDirection; private set=> localFacingDirection = value; }
 
     public bool CanSetVelocity { get; set; }
 
     public Vector2 CurrentVelocity { get; private set; }
 
     private Vector2 workspace;
+
+    private int localFacingDirection;
+
+    private void OnEnable() {
+        localFacingDirection = facingDirection;
+    }
 
     protected override void Awake()
     {
@@ -84,8 +90,8 @@ public class Movement : CoreComponent
         RB.transform.Rotate(0.0f, 180f, 0.0f);
     }
 
-    public void InitialFacingDirection(int value)
+    public int getInitialFacingDirection()
     {
-        FacingDirection = value;
+        return facingDirection;
     }
 }

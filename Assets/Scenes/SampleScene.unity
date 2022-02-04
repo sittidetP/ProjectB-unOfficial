@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedWhenSmoothCameara: 5
-  smoothCam: 1
+  smoothCam: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3245,7 +3245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2395772694764344217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.779, y: -1.549, z: 0}
+  m_LocalPosition: {x: -0.3951, y: -1.551, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2395772695736762936}
@@ -3275,7 +3275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2395772695127555437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68, y: 0.211, z: 0}
+  m_LocalPosition: {x: 0.235, y: 0.249, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2395772695931733191}
@@ -3450,11 +3450,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleStateData: {fileID: 11400000, guid: be37f9b60bcae674ba8581851d2a736a, type: 2}
   moveStateData: {fileID: 11400000, guid: 52f586e47a9ece74eb03c76fe065494e, type: 2}
-  argoStateData: {fileID: 11400000, guid: 7a92db4ba52632745813c25d813cb767, type: 2}
+  argoStateData: {fileID: 11400000, guid: 9353811ef24c429409cb0cb0c2b1e1ef, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: cb08416a7ba05ba4882c1ef586ddb7ee, type: 2}
   hurtStateData: {fileID: 11400000, guid: c7976417c8cb03d469f40e923fa2de14, type: 2}
   enemyEye: {fileID: 2395772695127555434}
   meleeHitboxPosition: {fileID: 2395772696226597345}
+  debugFacing: 1
 --- !u!114 &2395772695931733185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,10 +3573,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4200725, y: -0.30505264}
+  m_Offset: {x: -0.03760314, y: -0.30505264}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.29166666, y: 0.5}
     oldSize: {x: 1.8461539, y: 2.4615386}
     newSize: {x: 1.8461539, y: 2.4615386}
     adaptiveTilingThreshold: 0.5
@@ -3583,7 +3584,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.70595694, y: 1.851433}
+  m_Size: {x: 0.69055414, y: 1.851433}
   m_EdgeRadius: 0
 --- !u!1 &2395772695931733190
 GameObject:
@@ -3616,7 +3617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2395772695931733190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.81, y: -1.74, z: 0}
+  m_LocalPosition: {x: 7.21, y: -1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2395772696386114408}
@@ -3645,7 +3646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2395772696110026555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.085, y: -1.551, z: 0}
+  m_LocalPosition: {x: 0.295, y: -1.551, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2395772695736762936}

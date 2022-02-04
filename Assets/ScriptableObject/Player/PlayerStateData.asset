@@ -23,6 +23,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashGLinearDrag: 20
   distBetweenAfterImage: 0.5
+  dashCooldown: 1
   deadFadeOutTime: 0.5
   alphaMultiple: 0.1
   amountOfBlinks: 15

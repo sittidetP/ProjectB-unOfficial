@@ -14,7 +14,7 @@ public class E1_MoveState : BaseMoveState
     {
         base.LogicUpdate();
 
-        if(Time.time > startTime + stateData.moveDuration|| !isGroundedL)
+        if(Time.time > startTime + stateData.moveDuration|| !isRealGround)
         {
             stateMachine.ChangeState(enemy.IdleState);
         }else if(canPerformCloseRangeAction && enemy.MeleeState.getCanAttack()){

@@ -484,6 +484,7 @@ MonoBehaviour:
   hurtStateData: {fileID: 11400000, guid: c7976417c8cb03d469f40e923fa2de14, type: 2}
   enemyEye: {fileID: 6296472936415313004}
   meleeHitboxPosition: {fileID: 6296472937447278823}
+  debugFacing: -1
 --- !u!114 &6296472938293626311
 MonoBehaviour:
   m_ObjectHideFlags: 0

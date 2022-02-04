@@ -18,6 +18,8 @@ public class Enemy1 : Entity
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
 
+    [SerializeField] int debugFacing = 1;
+
     //SpriteRenderer sr;
     AttackStateToAnimation atk2ani;
 
@@ -56,15 +58,15 @@ public class Enemy1 : Entity
     }
 
     private void OnDrawGizmos() {
-        int facing = -1;
+        
 
         if(Core != null){
-            facing = Core.Movement.FacingDirection;
+            debugFacing = Core.Movement.FacingDirection;
         }
         Gizmos.color = Color.white;
         if(enemyEye != null){
-            Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.minArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
-            Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.maxArgoDistance * facing, 0.0f, 0.0f), gizmosDrawRadius);
+            Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.minArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
+            Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.maxArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
         }
 
         Gizmos.color = Color.red;
@@ -72,7 +74,7 @@ public class Enemy1 : Entity
 
         Gizmos.color = Color.blue;
         if(enemyEye != null){
-            Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * facing * argoStateData.closeToPlayerDistance);
+            Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * debugFacing * argoStateData.closeToPlayerDistance);
         }
         
     }
