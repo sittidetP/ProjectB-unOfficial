@@ -31,6 +31,8 @@ public class CollisionSenses : CoreComponent
 
     [SerializeField] LayerMask whatIsGround;
 
+    int localFacing = 1;
+
     public bool Ground
     {
         get
@@ -53,7 +55,7 @@ public class CollisionSenses : CoreComponent
 
     public bool Wall
     {
-        get => Physics2D.Raycast(wallCheck.position, Vector2.right*core.Movement.getInitialFacingDirection(), wallCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(wallCheck.position, Vector2.right*core.Movement.FacingDirection, wallCheckDistance, whatIsGround);
     }
 
     public float getGroundCheckDistance()
@@ -67,13 +69,17 @@ public class CollisionSenses : CoreComponent
     }
 
     private void OnDrawGizmos()
-    {
+    {        
+        if(core != null){
+            localFacing = core.Movement.FacingDirection;
+        }
         Gizmos.color = Color.red;
         if(groundCheckL != null)
             Gizmos.DrawLine(groundCheckL.position, groundCheckL.position + (Vector3)(Vector2.down*groundCheckDistance));
         if(groundCheckR != null)
             Gizmos.DrawLine(groundCheckR.position, groundCheckR.position + (Vector3)(Vector2.down*groundCheckDistance));
+        Gizmos.color = Color.green;
         if(wallCheck != null)
-            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right*core.Movement.getInitialFacingDirection()*wallCheckDistance));
+            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right*localFacing*wallCheckDistance));
     }
 }

@@ -277,6 +277,7 @@ Transform:
   m_Children:
   - {fileID: 130585919}
   - {fileID: 2004816079}
+  - {fileID: 1906891087}
   m_Father: {fileID: 1268846553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -294,7 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheckL: {fileID: 130585919}
   groundCheckR: {fileID: 2004816079}
+  wallCheck: {fileID: 1906891087}
   groundCheckDistance: 0.1
+  wallCheckDistance: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1088
@@ -888,6 +891,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 686123640}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &553083534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553083535}
+  m_Layer: 7
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &553083535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553083534}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.22500013, y: -0.07100004, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2395772695736762936}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686123639
 GameObject:
@@ -3106,6 +3139,36 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1906891086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906891087}
+  m_Layer: 8
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1906891087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906891086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 189849781}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921753287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,6 +3417,7 @@ Transform:
   m_Children:
   - {fileID: 2395772694764344214}
   - {fileID: 2395772696110026552}
+  - {fileID: 553083535}
   m_Father: {fileID: 2395772696386114408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3371,7 +3435,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheckL: {fileID: 2395772694764344214}
   groundCheckR: {fileID: 2395772696110026552}
+  wallCheck: {fileID: 553083535}
   groundCheckDistance: 0.1
+  wallCheckDistance: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
