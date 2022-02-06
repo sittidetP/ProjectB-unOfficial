@@ -318,7 +318,7 @@ GameObject:
   m_Layer: 8
   m_Name: CollisionSenses
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -356,12 +356,10 @@ MonoBehaviour:
   wallCheck: {fileID: 1906891087}
   groundCheckDistance: 0.1
   wallCheckDistance: 0
+  slopeCheckDistance: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 3136
-  whatIsSlope:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!1 &231363900
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingDirection: 1
+  withFrictionMat: {fileID: 6200000, guid: 2be636da005380a49898fd9f22021d35, type: 2}
 --- !u!1 &409460708
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,7 +4130,7 @@ GameObject:
   - component: {fileID: 2121772032}
   - component: {fileID: 2121772031}
   - component: {fileID: 2121772030}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: Slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4850,9 +4849,17 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 6296472938293626304, guid: 91da6f08532f53c40bad992539506bfc, type: 3}
+    - target: {fileID: 7458836052818147893, guid: bc7291eaa0cdaae4d8be5581637bca8c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7458836052818147895, guid: bc7291eaa0cdaae4d8be5581637bca8c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458836052818147895, guid: bc7291eaa0cdaae4d8be5581637bca8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc7291eaa0cdaae4d8be5581637bca8c, type: 3}

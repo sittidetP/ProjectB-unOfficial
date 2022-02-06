@@ -9,9 +9,15 @@ public class ExtraPlayer : MonoBehaviour
 
     CollisionSenses playerCollisionSenses;
 
+    Core playerCore;
+
+    Player player;
+
     private void Start()
     {
-        playerCollisionSenses = GetComponentInParent<Player>().Core.CollisionSenses;
+        player = GetComponentInParent<Player>();
+        playerCore = player.Core;
+        playerCollisionSenses = playerCore.CollisionSenses;
         /*
         Debug.Log(playerCollisionSenses.getGroundCheckDistance());
         Debug.Log(playerCollisionSenses.getWhatIsGround());

@@ -105,7 +105,13 @@ public class PlayerDashState : PlayerAbilityState
         else
         {
             CheckIfShouldPlaceAfterImage();
-            core.Movement.SetVelocityX(playerStateData.dashVelocity * core.Movement.FacingDirection);
+            if(core.CollisionSenses.isOnSlope){
+                core.Movement.SetVelocityXY(playerStateData.dashVelocity * core.CollisionSenses.slopeNormalPrep.x * -core.Movement.FacingDirection,
+                 playerStateData.dashVelocity * core.CollisionSenses.slopeNormalPrep.y * -core.Movement.FacingDirection);
+            }else{
+                core.Movement.SetVelocityX(playerStateData.dashVelocity * core.Movement.FacingDirection);
+            }
+            
             core.Movement.RB.drag = playerStateData.dashGLinearDrag;
         }
     }

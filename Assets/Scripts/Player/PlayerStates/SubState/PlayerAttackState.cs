@@ -22,7 +22,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.AnimationFinishTrigger();
         player.InputHandler.UsePrimaryAttackInput();
         if(isGrounded && isOnSlope){
-            core.Movement.RB.sharedMaterial = player.WithFrictionMat;
+            //core.Movement.RB.sharedMaterial = player.WithFrictionMat;
         }
         isAbilityDone = true;
     }
@@ -42,7 +42,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
 
         if(isGrounded && isOnSlope){
-            core.Movement.RB.sharedMaterial = player.WithFrictionMat;
+            //core.Movement.RB.sharedMaterial = player.WithFrictionMat;
         }
         IsJustAttack = true;
         canSetVelocity = false;
@@ -73,7 +73,7 @@ public class PlayerAttackState : PlayerAbilityState
         }
 
         if(isOnSlope && core.Movement.RB.velocity.y < 0){
-            core.Movement.RB.sharedMaterial = player.WithFrictionMat;
+            //core.Movement.RB.sharedMaterial = player.WithFrictionMat;
         }
     }
 
@@ -85,7 +85,7 @@ public class PlayerAttackState : PlayerAbilityState
     public void SetPlayerVelocity(float velocity)
     {
         if(isGrounded && isOnSlope){
-            core.Movement.RB.sharedMaterial = player.WithFrictionMat;
+            //core.Movement.RB.sharedMaterial = player.WithFrictionMat;
         }
         core.Movement.SetVelocityX(velocity * core.Movement.FacingDirection);
 

@@ -30,10 +30,11 @@ public class PlayerWaitState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        
+        /*
         if(isGround){
             core.Movement.RB.sharedMaterial = player.defaultPhysicsMat;
         }
+        */
     }
 
     public override void LogicUpdate()

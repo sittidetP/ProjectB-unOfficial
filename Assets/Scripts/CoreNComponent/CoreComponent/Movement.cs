@@ -7,6 +7,8 @@ public class Movement : CoreComponent
     public Rigidbody2D RB { get; private set; }
 
     [SerializeField] int facingDirection = 1;
+    [SerializeField] PhysicsMaterial2D withFrictionMat;
+    private PhysicsMaterial2D defaultPhysMat;
 
     public int FacingDirection { get => localFacingDirection; private set=> localFacingDirection = value; }
 
@@ -18,6 +20,8 @@ public class Movement : CoreComponent
 
     private int localFacingDirection;
 
+    private Entity entity;
+
     private void OnEnable() {
         localFacingDirection = facingDirection;
     }
@@ -27,13 +31,21 @@ public class Movement : CoreComponent
         base.Awake();
 
         RB = GetComponentInParent<Rigidbody2D>();
-
+        defaultPhysMat = RB.sharedMaterial;
+        entity = GetComponentInParent<Entity>();
         CanSetVelocity = true;
     }
 
     public override void LogicUpdate()
     {
         CurrentVelocity = RB.velocity;
+
+        if(core.CollisionSenses.isOnSlope && (entity.StateMachine.currentState is PlayerIdleState || entity.StateMachine.currentState is BaseIdleState)){
+            RB.sharedMaterial = withFrictionMat;
+        }else{
+            RB.sharedMaterial = defaultPhysMat;
+        }
+        //print(CurrentVelocity);
     }
 
     public void SetVelocityZero()

@@ -16,14 +16,14 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-        core.Movement.RB.sharedMaterial = player.WithFrictionMat;
+        //core.Movement.RB.sharedMaterial = player.WithFrictionMat;
         core.Movement.SetVelocityZero();
     }
 
     public override void Exit()
     {
         base.Exit();
-        core.Movement.RB.sharedMaterial = player.defaultPhysicsMat;
+        //core.Movement.RB.sharedMaterial = player.defaultPhysicsMat;
     }
 
     public override void LogicUpdate()

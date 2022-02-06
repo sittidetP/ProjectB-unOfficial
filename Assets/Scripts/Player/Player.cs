@@ -21,9 +21,7 @@ public class Player : Entity
 
     [SerializeField] PlayerStateData playerStateData;
     [SerializeField] PhysicsMaterial2D withFrictionMat;
-
-    public PhysicsMaterial2D WithFrictionMat {get => withFrictionMat; private set => withFrictionMat = value;}
-    public PhysicsMaterial2D defaultPhysicsMat{get; private set;}
+    public PlayerStateData PlayerStateData {get => playerStateData; private set => playerStateData = value;}
 
     public PlayerInventory Inventory { get; private set; }
     public ExtraPlayer ExtraPlayer { get; private set; }
@@ -49,7 +47,7 @@ public class Player : Entity
 
     private void Start()
     {
-        defaultPhysicsMat = Core.Movement.RB.sharedMaterial;
+        //defaultPhysicsMat = Core.Movement.RB.sharedMaterial;
         StateMachine.Initialize(IdleState);
 
         Inventory = GetComponent<PlayerInventory>();
