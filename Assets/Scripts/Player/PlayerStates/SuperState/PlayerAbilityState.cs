@@ -7,6 +7,7 @@ public class PlayerAbilityState : PlayerState
     protected bool isAbilityDone;
 
     protected bool isGrounded;
+    protected bool isOnSlope;
 
     public PlayerAbilityState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
     {
@@ -17,6 +18,7 @@ public class PlayerAbilityState : PlayerState
         base.DoChecks();
 
         isGrounded = core.CollisionSenses.Ground;
+        isOnSlope = core.CollisionSenses.Slope;
     }
 
     public override void Enter()

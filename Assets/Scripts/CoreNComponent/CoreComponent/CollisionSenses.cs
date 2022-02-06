@@ -22,6 +22,8 @@ public class CollisionSenses : CoreComponent
         private set => wallCheck = value;
     }
 
+    
+
     [SerializeField] private Transform groundCheckL;
     [SerializeField] private Transform groundCheckR;
     [SerializeField] private Transform wallCheck;
@@ -30,6 +32,7 @@ public class CollisionSenses : CoreComponent
     [SerializeField] private float wallCheckDistance;
 
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsSlope;
 
     int localFacing = 1;
 
@@ -40,6 +43,16 @@ public class CollisionSenses : CoreComponent
             bool gLeft = Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsGround);
             bool gRight = Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, whatIsGround);
             return gLeft || gRight;
+        }
+    }
+
+    public bool Slope
+    {
+        get
+        {
+            bool sLeft = Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsSlope);
+            bool sRight = Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, whatIsSlope);
+            return sLeft || sRight;
         }
     }
 
