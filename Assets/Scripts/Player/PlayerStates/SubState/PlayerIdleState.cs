@@ -16,13 +16,14 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-
+        core.Movement.RB.isKinematic = true;
         core.Movement.SetVelocityZero();
     }
 
     public override void Exit()
     {
         base.Exit();
+        core.Movement.RB.isKinematic = false;
     }
 
     public override void LogicUpdate()
