@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemy;
     GameObject insEnemy;
     private void OnEnable() {
-        insEnemy = Instantiate(enemy);
+        insEnemy = Instantiate(enemy, transform.position, transform.rotation);
         //print("enable");
     }
 
