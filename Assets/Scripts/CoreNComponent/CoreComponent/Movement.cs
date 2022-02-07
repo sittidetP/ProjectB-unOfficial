@@ -40,11 +40,7 @@ public class Movement : CoreComponent
     {
         CurrentVelocity = RB.velocity;
 
-        if(core.CollisionSenses.isOnSlope && (entity.StateMachine.currentState is PlayerIdleState || entity.StateMachine.currentState is BaseIdleState)){
-            RB.sharedMaterial = withFrictionMat;
-        }else{
-            RB.sharedMaterial = defaultPhysMat;
-        }
+        
         //print(CurrentVelocity);
     }
 
@@ -56,6 +52,11 @@ public class Movement : CoreComponent
 
     public void SetVelocityX(float velocity)
     {
+        if(core.CollisionSenses.isOnSlope && velocity == 0.0f){
+            RB.sharedMaterial = withFrictionMat;
+        }else{
+            RB.sharedMaterial = defaultPhysMat;
+        }
         workspace.Set(velocity, CurrentVelocity.y);
         SetFinalVelocity();
     }
@@ -68,7 +69,16 @@ public class Movement : CoreComponent
 
     public void SetVelocityXY(float velocityX, float velocityY)
     {
-        workspace.Set(velocityX, velocityY);
+        /*
+        if(core.CollisionSenses.isOnSlope && velocityX == 0.0f){
+            RB.sharedMaterial = withFrictionMat;
+        }else{
+            RB.sharedMaterial = defaultPhysMat;
+        }
+        */
+        //workspace.Set(velocityX, velocityY);
+        SetVelocityX(velocityX);
+        SetVelocityY(velocityY);
         SetFinalVelocity();
     }
 

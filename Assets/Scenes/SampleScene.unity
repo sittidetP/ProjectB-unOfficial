@@ -354,7 +354,7 @@ MonoBehaviour:
   groundCheckL: {fileID: 130585919}
   groundCheckR: {fileID: 2004816079}
   wallCheck: {fileID: 1906891087}
-  groundCheckDistance: 0.1
+  groundCheckDistance: 0.5
   wallCheckDistance: 0
   slopeCheckDistance: 1
   whatIsGround:
