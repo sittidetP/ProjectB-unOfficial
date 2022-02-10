@@ -21,7 +21,7 @@ public class Enemy1 : Entity
     [SerializeField] int debugFacing = 1;
 
     //SpriteRenderer sr;
-    AttackStateToAnimation atk2ani;
+    //AttackStateToAnimation atk2ani;
 
     float gizmosDrawRadius = 0.25f;
     public override void Awake()
@@ -41,8 +41,8 @@ public class Enemy1 : Entity
 
     private void Start()
     {
-        atk2ani = GetComponent<AttackStateToAnimation>();
-        atk2ani.setAttackState(MeleeState);
+        //atk2ani = GetComponent<AttackStateToAnimation>();
+        //atk2ani.setAttackState(MeleeState);
         StateMachine.Initialize(IdleState);
     }
 

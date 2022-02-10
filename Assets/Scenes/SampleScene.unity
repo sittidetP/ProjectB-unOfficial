@@ -4947,38 +4947,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &456565203172257234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456565203172257236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297099740de45ff4cb20e7227d550445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleStateData: {fileID: 11400000, guid: be37f9b60bcae674ba8581851d2a736a, type: 2}
-  moveStateData: {fileID: 11400000, guid: 52f586e47a9ece74eb03c76fe065494e, type: 2}
-  argoStateData: {fileID: 11400000, guid: 7a92db4ba52632745813c25d813cb767, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: cb08416a7ba05ba4882c1ef586ddb7ee, type: 2}
-  hurtStateData: {fileID: 11400000, guid: c7976417c8cb03d469f40e923fa2de14, type: 2}
-  enemyEye: {fileID: 456565204514100344}
-  meleeHitboxPosition: {fileID: 456565203197174003}
-  debugFacing: -1
---- !u!114 &456565203172257235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456565203172257236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 643401e6ca3a2e149be8ed415c327818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &456565203172257236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,16 +4960,15 @@ GameObject:
   - component: {fileID: 456565203172257239}
   - component: {fileID: 456565203172257232}
   - component: {fileID: 456565203172257233}
-  - component: {fileID: 456565203172257234}
-  - component: {fileID: 456565203172257235}
   - component: {fileID: 456565203172257228}
+  - component: {fileID: 456565203172257240}
   m_Layer: 7
   m_Name: Enemy2(FireSlime)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &456565203172257237
 Transform:
   m_ObjectHideFlags: 0
@@ -5097,6 +5064,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7447453, y: 0.8718965}
   m_EdgeRadius: 0
+--- !u!114 &456565203172257240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456565203172257236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ae553dd406fbf47945612fe3527209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleStateData: {fileID: 11400000, guid: 4019ce409bfc7804ba9458f5e3a28d75, type: 2}
+  moveStateData: {fileID: 11400000, guid: 7001ba49528f4134fbf431dcd9d90d99, type: 2}
+  argoStateData: {fileID: 11400000, guid: ab3f1bef53d90704b9218d04f13a2406, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: b0ee0fb713e32a249a18e4b5d3bcabc7, type: 2}
+  rangeAttackStateData: {fileID: 0}
+  hurtStateData: {fileID: 11400000, guid: 170cc7b1ac69ad54486304db981e6b7d, type: 2}
+  enemyEye: {fileID: 456565204514100344}
+  meleeHitboxPosition: {fileID: 456565203197174003}
+  rangeAttackPosition: {fileID: 0}
+  debugFacing: -1
 --- !u!1 &456565203197174002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5107,7 +5096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 456565203197174003}
   m_Layer: 7
-  m_Name: Hitbox
+  m_Name: MeleeHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
