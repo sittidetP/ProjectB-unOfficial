@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseAttackState : BaseArgoState
+public abstract class BaseAttackState : BaseArgoState
 {
     protected Transform attackPosition;
 

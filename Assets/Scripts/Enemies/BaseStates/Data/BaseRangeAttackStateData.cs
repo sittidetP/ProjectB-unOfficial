@@ -5,5 +5,5 @@ using UnityEngine;
 public class BaseRangeAttackStateData : ScriptableObject
 {
     [SerializeField] GameObject projectile;
-    GameObject Projectile => projectile;
+    public GameObject Projectile => projectile;
 }
