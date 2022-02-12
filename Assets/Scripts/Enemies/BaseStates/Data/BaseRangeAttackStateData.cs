@@ -7,4 +7,6 @@ public class BaseRangeAttackStateData : ScriptableObject
 {
     [SerializeField] GameObject projectile;
     public GameObject Projectile => projectile;
+    [SerializeField] float cooldownTime = 0.5f;
+    public float CooldownTime => cooldownTime;
 }

@@ -14,6 +14,7 @@ public class E2_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
+        //Debug.Log("isMinArgoRange : " + isMinArgoRange);
         if(isIdleOver)
         {
             core.Movement.Filp();

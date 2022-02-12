@@ -25,15 +25,17 @@ public class BaseArgoState : State
     {
         base.DoChecks();
 
-        isMinArgoRange = Physics2D.Raycast(enemyEye.transform.position, entity.transform.right, argoStateData.minArgoDistance, entity.Core.CollisionSenses.getWhatIsGround());
-        isMaxArgoRange = Physics2D.Raycast(enemyEye.transform.position, entity.transform.right, argoStateData.maxArgoDistance, entity.Core.CollisionSenses.getWhatIsGround());
-        canPerformCloseRangeAction = Physics2D.Raycast(enemyEye.transform.position, entity.transform.right, argoStateData.closeToPlayerDistance, argoStateData.whatIsPlayer);
+        isMinArgoRange = Physics2D.Raycast(enemyEye.transform.position, Vector2.right * core.Movement.FacingDirection, argoStateData.minArgoDistance, argoStateData.whatIsPlayer);
+        isMaxArgoRange = Physics2D.Raycast(enemyEye.transform.position,  Vector2.right * core.Movement.FacingDirection, argoStateData.maxArgoDistance, argoStateData.whatIsPlayer);
+        canPerformCloseRangeAction = Physics2D.Raycast(enemyEye.transform.position,  Vector2.right * core.Movement.FacingDirection, argoStateData.closeToPlayerDistance, argoStateData.whatIsPlayer);
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
         /*
-        Debug.Log("canPerformCloseRangeAction : " + canPerformCloseRangeAction);*/
+        Debug.Log("isMinArgoRange : " + isMinArgoRange);
+        Debug.Log("canPerformCloseRangeAction : " + canPerformCloseRangeAction);
+        */
     }
 }
