@@ -13,11 +13,11 @@ public class E2_MoveState : BaseMoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        /*
         Debug.Log(" Vector2.right * core.Movement.FacingDirection : " +  Vector2.right * core.Movement.FacingDirection);
         Debug.Log("isMinArgoRange : " + isMinArgoRange);
         Debug.Log("isMaxArgoRange : " + isMaxArgoRange);
-
+        */
         if(Time.time > startTime + stateData.moveDuration|| !isRealGround || isFrontWall)
         {
             stateMachine.ChangeState(enemy2.IdleState);
