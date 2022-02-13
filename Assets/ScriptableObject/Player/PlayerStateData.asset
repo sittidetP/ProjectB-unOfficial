@@ -27,3 +27,7 @@ MonoBehaviour:
   deadFadeOutTime: 0.5
   alphaMultiple: 0.1
   amountOfBlinks: 15
+  rangeAttackCooldown: 0.3
+  whatToDamage:
+    serializedVersion: 2
+    m_Bits: 128

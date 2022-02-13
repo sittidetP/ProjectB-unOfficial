@@ -31,4 +31,7 @@ public class PlayerStateData : ScriptableObject
     public float alphaMultiple = 0.1f;
     [Header("Hurt effect")]
     public int amountOfBlinks = 15;
+    [Header("Range Attack State")]
+    public float rangeAttackCooldown = 0.3f;
+    public LayerMask whatToDamage;
 }

@@ -12,6 +12,7 @@ public class Player : Entity
     public PlayerDashState DashState { get; private set; }
 
     public PlayerAttackState PrimaryAttackState { get; private set; }
+    public PlayerRangeAttackState SecondaryAttackState {get; private set;}
 
     public PlayerHurtState HurtState {get; private set;}
 
@@ -20,7 +21,7 @@ public class Player : Entity
     public PlayerInputHandler InputHandler { get; private set; }
 
     [SerializeField] PlayerStateData playerStateData;
-    [SerializeField] PhysicsMaterial2D withFrictionMat;
+    [SerializeField] Transform rangeAttackPos;
     public PlayerStateData PlayerStateData {get => playerStateData; private set => playerStateData = value;}
 
     public PlayerInventory Inventory { get; private set; }
@@ -39,6 +40,7 @@ public class Player : Entity
         JumpState = new PlayerJumpState(this, StateMachine, "midAir", playerStateData);
         MidAirState = new PlayerMidAirState(this, StateMachine, "midAir", playerStateData);
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, "attack", playerStateData);
+        SecondaryAttackState = new PlayerRangeAttackState(this, StateMachine, "shoot", playerStateData, rangeAttackPos);
         DashState = new PlayerDashState(this, StateMachine, "dash", playerStateData);
         WaitState = new PlayerWaitState(this, StateMachine, "wait", playerStateData);
         HurtState = new PlayerHurtState(this, StateMachine, "hurt", playerStateData);

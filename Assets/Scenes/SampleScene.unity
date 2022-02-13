@@ -564,6 +564,7 @@ Transform:
   - {fileID: 1268846553}
   - {fileID: 800396414}
   - {fileID: 686123640}
+  - {fileID: 807898115}
   m_Father: {fileID: 1091328072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -722,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStateData: {fileID: 11400000, guid: 5b2e228b340f1404098d9fd72a0b0d0a, type: 2}
-  withFrictionMat: {fileID: 6200000, guid: 2be636da005380a49898fd9f22021d35, type: 2}
+  rangeAttackPos: {fileID: 807898115}
 --- !u!114 &465003468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,6 +738,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 105178982}
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &465003469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,6 +999,36 @@ Transform:
   - {fileID: 105178981}
   m_Father: {fileID: 465003463}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &807898114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807898115}
+  m_Layer: 8
+  m_Name: RangeAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &807898115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807898114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.772, y: -0.048, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 465003463}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063178206
 GameObject:
