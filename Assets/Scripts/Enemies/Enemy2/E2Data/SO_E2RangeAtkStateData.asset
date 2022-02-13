@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb932bc315833c4f82d384f09e009a4, type: 3}
   m_Name: SO_E2RangeAtkStateData
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 847998801685339576, guid: c362667e3828eb14cb044656697af5d0, type: 3}
   cooldownTime: 0.5

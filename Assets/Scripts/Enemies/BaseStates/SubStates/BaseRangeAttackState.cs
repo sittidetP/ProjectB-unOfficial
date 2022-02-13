@@ -28,6 +28,7 @@ public class BaseRangeAttackState : BaseAttackState
         base.AnimationTrigger();
 
         GameObject projectile = GameObject.Instantiate(rangeAttackStateData.Projectile, rangeAttackPosition.position, rangeAttackStateData.Projectile.transform.rotation);
+        
 
     }
 

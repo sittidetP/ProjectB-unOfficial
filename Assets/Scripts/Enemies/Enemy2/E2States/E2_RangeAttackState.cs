@@ -15,6 +15,7 @@ public class E2_RangeAttackState : BaseRangeAttackState
         base.LogicUpdate();
 
         if(!canAttack){
+            core.Movement.Filp();
             stateMachine.ChangeState(enemy2.MoveState);
         }
     }
