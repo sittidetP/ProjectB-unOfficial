@@ -17,6 +17,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool PrimaryAttackInput { get; private set; }
 
+    public bool SecondaryAttackInput {get; private set;}
+
     public bool DashInput { get; private set; }
 
     public bool PauseInput { get; private set; }
@@ -97,6 +99,27 @@ public class PlayerInputHandler : MonoBehaviour
                 PrimaryAttackInput = false;
             }
         }
+    }
+
+    public void OnSecondaryAttackInput(InputAction.CallbackContext callbackContext)
+    {
+        if (!PauseManager.isPause)
+        {
+            if (callbackContext.started)
+            {
+                SecondaryAttackInput = true;
+            }
+
+            if (callbackContext.canceled)
+            {
+                SecondaryAttackInput = false;
+            }
+        }
+    }
+
+    public void UseSecondaryAttackInput()
+    {
+        SecondaryAttackInput = false;
     }
 
     public void UsePrimaryAttackInput()
