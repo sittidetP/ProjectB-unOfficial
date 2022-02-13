@@ -13,11 +13,22 @@ public abstract class CoreProjectile : MonoBehaviour
     [SerializeField] protected bool isForPlayer;
 
     protected int shooterFacingDirection;
-    protected string shooterTag;
+    protected LayerMask whatToDamage;
     protected float fireTime;
     protected Vector2 workspace;
     protected Rigidbody2D RB;
     
+    protected bool[] hasLayers = new bool[32];
+    private void CheckMasks()
+    {
+        for (int i = 0; i < 32; i++)
+        {
+            if (whatToDamage == (whatToDamage | (1 << i)))
+            {
+                hasLayers[i] = true;
+            }
+        }
+    }
     // Start is called before the first frame update
     
     public virtual void Awake()
@@ -27,7 +38,7 @@ public abstract class CoreProjectile : MonoBehaviour
 
     protected void Start() {
         //print("Start");
-        //Fire(1);
+        Fire();
     }
     
 
@@ -39,13 +50,19 @@ public abstract class CoreProjectile : MonoBehaviour
         }
     }
 
-    public virtual void Fire(int shooterFacingDiraction, string shooterTag){
-        this.shooterTag = shooterTag;
-        fireTime = Time.time;
+    public virtual void SetUpProjectile(int shooterFacingDiraction, LayerMask whatToDamage){
+        this.whatToDamage = whatToDamage;
+        CheckMasks();
         if(shooterFacingDiraction != facingDiraction){
             facingDiraction = shooterFacingDiraction;
             RB.transform.Rotate(0.0f, 180f, 0.0f);
         }
+    }
+
+    public virtual void Fire(){
+        
+        fireTime = Time.time;
+        
         //SetVelocity(projectileVelocity, angle, facingDiraction);
     }
 

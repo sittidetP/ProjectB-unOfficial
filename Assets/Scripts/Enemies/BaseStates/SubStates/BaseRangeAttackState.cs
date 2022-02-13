@@ -28,8 +28,9 @@ public class BaseRangeAttackState : BaseAttackState
         base.AnimationTrigger();
 
         GameObject projectile = GameObject.Instantiate(rangeAttackStateData.Projectile, rangeAttackPosition.position, rangeAttackStateData.Projectile.transform.rotation);
+        Projectile projectileScript = projectile.GetComponent<Projectile>();
+        projectileScript.SetUpProjectile(core.Movement.FacingDirection, argoStateData.whatIsPlayer);
         
-
     }
 
     public override void AnimationFinishTrigger()

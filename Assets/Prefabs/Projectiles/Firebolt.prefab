@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 847998801685339580}
   - component: {fileID: 847998801685339581}
   - component: {fileID: 847998801685339554}
-  m_Layer: 9
+  - component: {fileID: 4182073200408695349}
+  m_Layer: 12
   m_Name: Firebolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -106131343
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7548742475732107364, guid: e3ca1ba9fc1d5b646863bc9ef887b0e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -153,6 +154,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45423126, y: 0.35492718}
   m_EdgeRadius: 0
+--- !u!114 &4182073200408695349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847998801685339576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd3bee58408aec4793a02a156682086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 6
+  projectileVelocity: 2
+  lifeTime: 5
+  facingDiraction: 1
+  checkPosition: {fileID: 847998802254151064}
+  checkRadius: 0.2
+  isForPlayer: 0
 --- !u!1 &847998802254151067
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 847998802254151064}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: CheckPos
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -177,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847998802254151067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.469, y: -0.174, z: 0}
+  m_LocalPosition: {x: 0.469, y: -0.194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 847998801685339582}
