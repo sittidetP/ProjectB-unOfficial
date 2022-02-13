@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class Projectile : CoreProjectile, IDamageable
 {
-    protected bool isHit;
-
     private List<IDamageable> detectedDamageable = new List<IDamageable>();
     public void Damage(float amount)
     {
-
+        BeingHit();
     }
 
     public void Damage(float amount, int attackedDirection)
     {
-
+        BeingHit();
     }
 
     public override void Update()
     {
         base.Update();
-
-        if (isHit)
-        {
-            //Destroy(gameObject);
-        }
 
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,6 +36,7 @@ public class Projectile : CoreProjectile, IDamageable
                 {
                     //Debug.Log("player not null");
                     damageable.Damage(damageAmount);
+                    break;
                 }
                 else
                 {
@@ -50,6 +44,7 @@ public class Projectile : CoreProjectile, IDamageable
                 }
             }
         }
+        BeingHit();
         /*
         if (detectedObject == other)
         {
@@ -73,5 +68,12 @@ public class Projectile : CoreProjectile, IDamageable
         */
         //isHit = true;
     }
+
+    private void BeingHit(){
+        animator.SetTrigger("isHit");
+        RB.velocity = Vector2.zero;
+    }
+
+    
 
 }

@@ -167,12 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 6
-  projectileVelocity: 2
+  projectileVelocity: 5
   lifeTime: 5
   facingDiraction: 1
   checkPosition: {fileID: 847998802254151064}
   checkRadius: 0.2
-  isForPlayer: 0
 --- !u!1 &847998802254151067
 GameObject:
   m_ObjectHideFlags: 0

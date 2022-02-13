@@ -10,14 +10,13 @@ public abstract class CoreProjectile : MonoBehaviour
     [SerializeField] protected int facingDiraction;
     [SerializeField] protected Transform checkPosition;
     [SerializeField] protected float checkRadius = 0.5f;
-    [SerializeField] protected bool isForPlayer;
-
+    protected Animator animator;
     protected int shooterFacingDirection;
     protected LayerMask whatToDamage;
     protected float fireTime;
     protected Vector2 workspace;
     protected Rigidbody2D RB;
-    
+    protected bool isAnimationFinished;
     protected bool[] hasLayers = new bool[32];
     private void CheckMasks()
     {
@@ -34,9 +33,11 @@ public abstract class CoreProjectile : MonoBehaviour
     public virtual void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     protected void Start() {
+        isAnimationFinished = false;
         //print("Start");
         Fire();
     }
@@ -71,6 +72,10 @@ public abstract class CoreProjectile : MonoBehaviour
         angle.Normalize();
         workspace.Set(angle.x * velocity * direction, angle.y * velocity);
         RB.velocity = workspace;
+    }
+
+    public virtual void AnimationFinishTrigger(){
+        isAnimationFinished = true;
     }
 
     private void OnDrawGizmosSelected() {

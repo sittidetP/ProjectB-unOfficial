@@ -10,4 +10,11 @@ public class StraightProjectile : Projectile
 
         RB.velocity = Vector2.right * facingDiraction * projectileVelocity;
     }
+
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+
+        gameObject.SetActive(false);
+    }
 }
