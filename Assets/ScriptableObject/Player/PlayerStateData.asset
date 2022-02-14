@@ -28,6 +28,7 @@ MonoBehaviour:
   alphaMultiple: 0.1
   amountOfBlinks: 15
   rangeAttackCooldown: 0.3
+  rangeAttackIdleTime: 0.35
   whatToDamage:
     serializedVersion: 2
     m_Bits: 128

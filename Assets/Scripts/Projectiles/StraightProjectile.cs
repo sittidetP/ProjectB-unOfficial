@@ -15,6 +15,7 @@ public class StraightProjectile : Projectile
     {
         base.AnimationFinishTrigger();
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 }

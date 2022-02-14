@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 6
-  projectileVelocity: 5
+  projectileVelocity: 7
   lifeTime: 5
   facingDiraction: 1
   checkPosition: {fileID: 847998802254151064}

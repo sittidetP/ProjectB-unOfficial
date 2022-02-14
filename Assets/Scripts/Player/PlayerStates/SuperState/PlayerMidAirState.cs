@@ -8,6 +8,7 @@ public class PlayerMidAirState : PlayerState
     protected bool jumpInput;
     protected bool primaryAttackInput;
     protected bool dashInput;
+    protected bool secondaryAttackInput;
 
     bool isGrounded;
     float yVelocity;
@@ -53,6 +54,7 @@ public class PlayerMidAirState : PlayerState
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
         primaryAttackInput = player.InputHandler.PrimaryAttackInput;
+        secondaryAttackInput = player.InputHandler.SecondaryAttackInput;
         dashInput = player.InputHandler.DashInput;
 
         //CheckJumpHeld();
@@ -61,7 +63,11 @@ public class PlayerMidAirState : PlayerState
         if (primaryAttackInput)
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
+        }else if (secondaryAttackInput)
+        {
+            stateMachine.ChangeState(player.SecondaryAttackState);
         }
+        
 
         if(dashInput && player.DashState.CanDash()){
             stateMachine.ChangeState(player.DashState);
