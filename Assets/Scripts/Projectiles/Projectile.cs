@@ -44,7 +44,9 @@ public class Projectile : CoreProjectile, IDamageable
                 }
             }
         }
-        BeingHit();
+        if(other.gameObject.layer != shooterLayer){
+            BeingHit();
+        }
         /*
         if (detectedObject == other)
         {

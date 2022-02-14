@@ -18,6 +18,7 @@ public abstract class CoreProjectile : MonoBehaviour
     protected Rigidbody2D RB;
     protected bool isAnimationFinished;
     protected bool[] hasLayers = new bool[32];
+    protected int shooterLayer;
     private void CheckMasks()
     {
         for (int i = 0; i < 32; i++)
@@ -51,8 +52,9 @@ public abstract class CoreProjectile : MonoBehaviour
         }
     }
 
-    public virtual void SetUpProjectile(int shooterFacingDiraction, LayerMask whatToDamage){
+    public virtual void SetUpProjectile(int shooterFacingDiraction, LayerMask whatToDamage, int shooterLayer){
         this.whatToDamage = whatToDamage;
+        this.shooterLayer = shooterLayer;
         CheckMasks();
         if(shooterFacingDiraction != facingDiraction){
             facingDiraction = shooterFacingDiraction;

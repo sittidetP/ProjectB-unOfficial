@@ -60,7 +60,7 @@ public class PlayerRangeAttackState : PlayerAbilityState
         {
             GameObject projectile = GameObject.Instantiate(player.Inventory.getSelectedProjectile(), rangeAttackPos.position, player.Inventory.getSelectedProjectile().transform.rotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
-            projectileScript.SetUpProjectile(core.Movement.FacingDirection, playerStateData.whatToDamage);
+            projectileScript.SetUpProjectile(core.Movement.FacingDirection, playerStateData.whatToDamage, player.gameObject.layer);
             lastShootTime = Time.time;
             canShoot = false;
             player.InputHandler.UseSecondaryAttackInput();
