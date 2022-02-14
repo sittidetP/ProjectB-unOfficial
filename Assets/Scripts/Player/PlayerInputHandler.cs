@@ -18,6 +18,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool PrimaryAttackInput { get; private set; }
 
     public bool SecondaryAttackInput {get; private set;}
+    public bool SelectSecondLeftInput {get; private set;}
+    public bool SelectSecondRightInput {get; private set;}
 
     public bool DashInput { get; private set; }
 
@@ -192,5 +194,47 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
         return checkPress;
+    }
+
+    public void OnSelectSecondLeftInput(InputAction.CallbackContext context)
+    {
+        if (!PauseManager.isPause)
+        {
+            if (context.started)
+            {
+                SelectSecondLeftInput = true;
+            }
+
+            if (context.canceled)
+            {
+                SelectSecondLeftInput = false;
+            }
+        }
+    }
+
+    public void UseSelectSecondLeftInput()
+    {
+        SelectSecondLeftInput = false;
+    }
+
+    public void OnSelectSecondRightInput(InputAction.CallbackContext context)
+    {
+        if (!PauseManager.isPause)
+        {
+            if (context.started)
+            {
+                SelectSecondRightInput = true;
+            }
+
+            if (context.canceled)
+            {
+                SelectSecondRightInput = false;
+            }
+        }
+    }
+
+    public void UseSelectSecondRightInput()
+    {
+        SelectSecondRightInput = false;
     }
 }

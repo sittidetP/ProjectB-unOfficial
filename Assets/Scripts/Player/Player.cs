@@ -29,6 +29,9 @@ public class Player : Entity
 
     public bool isOnPlatform{get; set;}
 
+    private bool selectSecondLeftInput;
+    private bool selectSecondRigthInput;
+
     public override void Awake()
     {
         base.Awake();
@@ -61,6 +64,19 @@ public class Player : Entity
     public override void Update()
     {
         base.Update();
+
+        selectSecondLeftInput = InputHandler.SelectSecondLeftInput;
+        selectSecondRigthInput = InputHandler.SelectSecondRightInput;
+
+        if(selectSecondLeftInput){
+            Inventory.SelectSecondLeft();
+            InputHandler.UseSelectSecondLeftInput();
+            //Debug.Log(Inventory.getSelectedProjectile().name);
+        }else if(selectSecondRigthInput){
+            Inventory.SelectSecondRigth();
+            InputHandler.UseSelectSecondRightInput();
+            //Debug.Log(Inventory.getSelectedProjectile().name);
+        }
 
         if(Core.Stats.getIsDead()){
             StateMachine.ChangeState(DeadState);

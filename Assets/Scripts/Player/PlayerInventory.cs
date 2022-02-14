@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -25,5 +26,25 @@ public class PlayerInventory : MonoBehaviour
 
     public GameObject getSelectedProjectile(){
         return projectiles[indexSelectedProjectile];
+    }
+
+    public void SelectSecondLeft(){
+        int projectileCount = projectiles.Count(s => s != null);
+        int indexFinal = --indexSelectedProjectile%projectileCount;
+        if(indexFinal < 0){
+            indexFinal = projectileCount - 1;
+        }
+        //print(indexFinal);
+        if(projectiles[indexFinal] != null){
+            indexSelectedProjectile = indexFinal;
+        }
+    }
+
+    public void SelectSecondRigth(){
+        int projectileCount = projectiles.Count(s => s != null);
+        int indexFinal = ++indexSelectedProjectile%projectileCount;
+        if(projectiles[indexFinal] != null){
+            indexSelectedProjectile = indexFinal;
+        }
     }
 }
