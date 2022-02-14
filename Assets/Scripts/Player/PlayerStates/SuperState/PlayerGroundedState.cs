@@ -11,6 +11,7 @@ public class PlayerGroundedState : PlayerState
 
     private bool jumpInput;
     private bool primaryAttackInput;
+    private bool secondaryAttackInput;
     private bool dashInput;
 
     private float yVelocity;
@@ -55,11 +56,16 @@ public class PlayerGroundedState : PlayerState
         yInput = player.InputHandler.NormInputY;
         jumpInput = player.InputHandler.JumpInput;
         primaryAttackInput = player.InputHandler.PrimaryAttackInput;
+        secondaryAttackInput = player.InputHandler.SecondaryAttackInput;
         dashInput = player.InputHandler.DashInput;
 
         if (primaryAttackInput)
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
+        }
+        else if (secondaryAttackInput)
+        {
+            stateMachine.ChangeState(player.SecondaryAttackState);
         }
         else if(jumpInput && player.JumpState.CanJump())
         {

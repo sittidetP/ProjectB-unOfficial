@@ -22,7 +22,7 @@ public class Projectile : CoreProjectile, IDamageable
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("trigggerEnter : " + other.gameObject.name);
+        //print("trigggerEnter : " + other.gameObject.name);
 
         //Collider2D detectedObject = Physics2D.OverlapCircle(checkPosition.position, checkRadius, whatToDamage);
 
