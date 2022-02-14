@@ -170,11 +170,11 @@ public class PlayerInputHandler : MonoBehaviour
         if(NormInputX != 0){
             checkPress = true;
         }
-
+        /*
         if(NormInputY != 0){
             checkPress = true;
         }
-
+        */
         if(JumpInput){
             checkPress = true;
         }
