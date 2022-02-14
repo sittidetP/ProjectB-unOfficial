@@ -69,13 +69,6 @@ public abstract class CoreProjectile : MonoBehaviour
         //SetVelocity(projectileVelocity, angle, facingDiraction);
     }
 
-    public void SetVelocity(float velocity, Vector2 angle, int direction)
-    {
-        angle.Normalize();
-        workspace.Set(angle.x * velocity * direction, angle.y * velocity);
-        RB.velocity = workspace;
-    }
-
     public virtual void AnimationFinishTrigger(){
         isAnimationFinished = true;
     }

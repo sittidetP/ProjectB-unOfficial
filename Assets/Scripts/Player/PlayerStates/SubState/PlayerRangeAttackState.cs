@@ -42,8 +42,8 @@ public class PlayerRangeAttackState : PlayerAbilityState
         if(Time.time > lastShootTime + playerStateData.rangeAttackCooldown){
             canShoot = true;
         }
-
-        if (Time.time > lastShootTime + playerStateData.rangeAttackIdleTime)
+        
+        if (Time.time > lastShootTime + playerStateData.rangeAttackIdleTime || (player.InputHandler.isPressAnykey() && !secondaryAttackInput))
         {
             isAbilityDone = true;
         }

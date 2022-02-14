@@ -72,7 +72,7 @@ public class Projectile : CoreProjectile, IDamageable
     }
 
     private void BeingHit(){
-        animator.SetTrigger("isHit");
+        animator?.SetTrigger("isHit");
         RB.velocity = Vector2.zero;
     }
 

@@ -163,4 +163,34 @@ public class PlayerInputHandler : MonoBehaviour
             }
         }
     }
+
+    public bool isPressAnykey(){
+        bool checkPress = false;
+
+        if(NormInputX != 0){
+            checkPress = true;
+        }
+
+        if(NormInputY != 0){
+            checkPress = true;
+        }
+
+        if(JumpInput){
+            checkPress = true;
+        }
+
+        if(DashInput){
+            checkPress = true;
+        }
+
+        if(PrimaryAttackInput){
+            checkPress = true;
+        }
+
+        if(SecondaryAttackInput){
+            checkPress = true;
+        }
+
+        return checkPress;
+    }
 }
