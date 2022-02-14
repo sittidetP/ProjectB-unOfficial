@@ -19,10 +19,10 @@ public class E2_IdleState : BaseIdleState
         {
             core.Movement.Filp();
             stateMachine.ChangeState(enemy2.MoveState);
-        }else if(isMinArgoRange && enemy2.RangeState.getCanAttack()){
-            stateMachine.ChangeState(enemy2.RangeState);
         }else if(canPerformCloseRangeAction && enemy2.MeleeState.getCanAttack()){
             stateMachine.ChangeState(enemy2.MeleeState);
+        }else if(isMinArgoRange && enemy2.RangeState.getCanAttack()){
+            stateMachine.ChangeState(enemy2.RangeState);
         }
     }
 }

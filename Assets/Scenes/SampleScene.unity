@@ -845,7 +845,7 @@ MonoBehaviour:
   - {fileID: 105178982}
   projectiles:
   - {fileID: 580863908086967442, guid: 33785513435a29b4f879bef26ddebfdc, type: 3}
-  - {fileID: 0}
+  - {fileID: 3448624870742376615, guid: 2782438de6721264586c837239e0c345, type: 3}
 --- !u!114 &465003469
 MonoBehaviour:
   m_ObjectHideFlags: 0
