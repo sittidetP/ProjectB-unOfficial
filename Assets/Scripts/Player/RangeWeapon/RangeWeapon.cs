@@ -3,19 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RangeWeapon : MonoBehaviour
-{
-    
+{    
     [SerializeField] GameObject projectile;
-    public GameObject Projectile {get => projectile;}
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] float consumedMP;
+    public GameObject Projectile {get => projectile; set => projectile = value;}
+    public float ConsumedMP {get => consumedMP;}
+    
 }

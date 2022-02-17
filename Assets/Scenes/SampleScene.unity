@@ -844,8 +844,8 @@ MonoBehaviour:
   weapons:
   - {fileID: 105178982}
   projectiles:
-  - {fileID: 580863908086967442, guid: 33785513435a29b4f879bef26ddebfdc, type: 3}
-  - {fileID: 3448624870742376615, guid: 2782438de6721264586c837239e0c345, type: 3}
+  - {fileID: 2167414253705630322, guid: a6c65994e5d24b8408aa13c9fad293e7, type: 3}
+  - {fileID: 6006098155663581042, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
 --- !u!114 &465003469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5081,3 +5081,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc7291eaa0cdaae4d8be5581637bca8c, type: 3}
+--- !u!1001 &7903040243638235857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1309052364426447408, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_Name
+      value: IceAxe(RangeWeapon)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3591988173079665473, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}

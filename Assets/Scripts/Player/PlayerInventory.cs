@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public Weapon[] weapons;
 
-    public GameObject[] projectiles;
+    public RangeWeapon[] projectiles;
 
     int indexWeapon = 0;
     int indexProjectile = 0;
@@ -19,13 +19,13 @@ public class PlayerInventory : MonoBehaviour
 
     public void SetProjectile(GameObject projectile){
         if(indexProjectile < projectiles.Length){
-            projectiles[indexProjectile] = projectile;
+            projectiles[indexProjectile].Projectile = projectile;
             indexProjectile++;
         }
     }
 
     public GameObject getSelectedProjectile(){
-        return projectiles[indexSelectedProjectile];
+        return projectiles[indexSelectedProjectile].Projectile;
     }
 
     public void SelectSecondLeft(){
