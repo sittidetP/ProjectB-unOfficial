@@ -39,4 +39,8 @@ public class Stats : CoreComponent
     public bool getAlreadyDead(){
         return isAlreadyDeaded;
     }
+
+    public float getHPRatio(){
+        return currentHealth/maxHealth;
+    }
 }
