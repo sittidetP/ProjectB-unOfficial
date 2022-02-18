@@ -63,7 +63,18 @@ public class PlayerRangeAttackState : PlayerAbilityState
             projectileScript.SetUpProjectile(core.Movement.FacingDirection, playerStateData.whatToDamage, player.gameObject.layer);
             lastShootTime = Time.time;
             canShoot = false;
+            RangeWeapon rangeWeapon = player.Inventory.getSelectedRangeWeapon();
+            player.ExtraPlayer.PlayerMana.DecreaseMana(rangeWeapon.ConsumedMP);
             player.InputHandler.UseSecondaryAttackInput();
+        }
+    }
+
+    public bool CanShootRangeWeapon(){
+        RangeWeapon rangeWeapon = player.Inventory.getSelectedRangeWeapon();
+        if(player.ExtraPlayer.PlayerMana.Mana >= rangeWeapon.ConsumedMP){
+            return true;
+        }else{
+            return false;
         }
     }
 }

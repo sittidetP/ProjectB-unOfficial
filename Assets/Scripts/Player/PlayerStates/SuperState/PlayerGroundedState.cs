@@ -63,7 +63,7 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
         }
-        else if (secondaryAttackInput)
+        else if (secondaryAttackInput && player.SecondaryAttackState.CanShootRangeWeapon())
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }

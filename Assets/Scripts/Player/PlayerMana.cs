@@ -22,13 +22,10 @@ public class PlayerMana : MonoBehaviour
         IncreaseMana();
     }
 
-    public bool DecreaseMana(float usedMana){
+    public void DecreaseMana(float usedMana){
         if(Mana >= usedMana){
             //print("usedMana : " + usedMana);
             Mana -= usedMana;
-            return true;
-        }else{
-            return false;
         }
     }
 

@@ -63,7 +63,7 @@ public class PlayerMidAirState : PlayerState
         if (primaryAttackInput)
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
-        }else if (secondaryAttackInput)
+        }else if (secondaryAttackInput && player.SecondaryAttackState.CanShootRangeWeapon())
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
