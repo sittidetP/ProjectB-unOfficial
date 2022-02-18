@@ -68,6 +68,8 @@ public class Player : Entity
         selectSecondLeftInput = InputHandler.SelectSecondLeftInput;
         selectSecondRigthInput = InputHandler.SelectSecondRightInput;
 
+        UIManager.Instance.SetHPBarValue(Core.Stats.getHPRatio());
+
         if(selectSecondLeftInput){
             Inventory.SelectSecondLeft();
             InputHandler.UseSelectSecondLeftInput();
