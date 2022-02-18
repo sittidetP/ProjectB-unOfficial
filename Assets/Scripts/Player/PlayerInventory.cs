@@ -28,6 +28,10 @@ public class PlayerInventory : MonoBehaviour
         return projectiles[indexSelectedProjectile].Projectile;
     }
 
+    public RangeWeapon getSelectedRangeWeapon(){
+        return projectiles[indexSelectedProjectile];
+    }
+
     public void SelectSecondLeft(){
         int projectileCount = projectiles.Count(s => s != null);
         int indexFinal = --indexSelectedProjectile%projectileCount;

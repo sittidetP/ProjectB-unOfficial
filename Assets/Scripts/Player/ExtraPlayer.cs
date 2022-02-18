@@ -13,11 +13,14 @@ public class ExtraPlayer : MonoBehaviour
 
     Player player;
 
+    public PlayerMana PlayerMana {get; private set;}
+
     private void Start()
     {
         player = GetComponentInParent<Player>();
         playerCore = player.Core;
         playerCollisionSenses = playerCore.CollisionSenses;
+        PlayerMana = GetComponentInChildren<PlayerMana>();
         /*
         Debug.Log(playerCollisionSenses.getGroundCheckDistance());
         Debug.Log(playerCollisionSenses.getWhatIsGround());
