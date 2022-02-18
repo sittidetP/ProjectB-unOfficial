@@ -40,4 +40,8 @@ public class PlayerMana : MonoBehaviour
             }
         }   
     }
+
+    public float getMPRatio(){
+        return Mana/maxMana;
+    }
 }
