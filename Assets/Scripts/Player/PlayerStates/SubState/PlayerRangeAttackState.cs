@@ -47,7 +47,7 @@ public class PlayerRangeAttackState : PlayerAbilityState
         {
             isAbilityDone = true;
         }
-        else if (secondaryAttackInput)
+        else if (secondaryAttackInput && CanShootRangeWeapon())
         {
             ShootProjectile();
         }

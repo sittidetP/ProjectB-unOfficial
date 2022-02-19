@@ -25,8 +25,9 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 
     public void Damage(float amount)
     {
-        damageTime = Time.time;
+        
         if(canDamage){
+            damageTime = Time.time;
             //Debug.Log("Can Hit");
             isDamged = true;
             core.Stats.DecreaseHealth(amount);

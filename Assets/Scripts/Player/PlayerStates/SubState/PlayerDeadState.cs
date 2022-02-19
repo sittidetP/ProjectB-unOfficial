@@ -21,6 +21,7 @@ public class PlayerDeadState : PlayerState
     {
         base.LogicUpdate();
         
+        core.Movement.SetVelocityZero();
         if (core.Stats.getAlreadyDead())
         {            
             if (Time.time > deadTime + playerStateData.deadFadeOutTime)
@@ -44,15 +45,5 @@ public class PlayerDeadState : PlayerState
         deadTime = Time.time;
         alphaDelta = (0 - alphaSprite)/((deadTime + playerStateData.deadFadeOutTime) - deadTime);
         //player.StartCoroutine(FadeAfterDead());
-    }
-
-    private IEnumerator FadeAfterDead()
-    {
-        for (float i = deadTime; i < deadTime + playerStateData.deadFadeOutTime; i += Time.deltaTime)
-        {
-            alphaSprite -= (alphaSprite * playerStateData.alphaMultiple);
-            yield return new WaitForSeconds(0.05f);
-            player.SpriteRenderer.color = new Color(1, 1, 1, alphaSprite);
-        }
     }
 }
