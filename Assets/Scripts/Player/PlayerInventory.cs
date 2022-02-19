@@ -13,13 +13,25 @@ public class PlayerInventory : MonoBehaviour
     int indexProjectile = 0;
     int indexSelectedProjectile = 0;
 
+    private void Start() {
+        if(projectiles.Count(s => s != null) == 0){
+            UIRangeWeapIcon.Instance.SetRangeWeaponIcon(null);
+        }
+    }
+
+    private void Update() {
+        if(projectiles.Count(s => s != null) > 0){
+            UIRangeWeapIcon.Instance.SetRangeWeaponIcon(projectiles[indexSelectedProjectile].WeaponSprite);
+        }
+    }
+
     public Weapon getSelectedWeapon(){
         return weapons[indexWeapon];
     }
 
-    public void SetProjectile(GameObject projectile){
+    public void AddRangeWeapon(RangeWeapon rangeWeapon){
         if(indexProjectile < projectiles.Length){
-            projectiles[indexProjectile].Projectile = projectile;
+            projectiles[indexProjectile] = rangeWeapon;
             indexProjectile++;
         }
     }

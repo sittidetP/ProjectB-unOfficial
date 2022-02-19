@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3448624870742376615, guid: 2782438de6721264586c837239e0c345, type: 3}
   consumedMP: 10
+  weaponSprite: {fileID: 21300000, guid: cdffa486e218ba14db5461dd58240706, type: 3}
