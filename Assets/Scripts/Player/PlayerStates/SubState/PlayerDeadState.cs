@@ -26,7 +26,7 @@ public class PlayerDeadState : PlayerState
         {            
             if (Time.time > deadTime + playerStateData.deadFadeOutTime)
             {
-                entity.gameObject.SetActive(false);
+                //entity.gameObject.SetActive(false);
             }
             else
             {
