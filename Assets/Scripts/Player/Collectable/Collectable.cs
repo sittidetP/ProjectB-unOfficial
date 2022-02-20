@@ -10,6 +10,7 @@ public abstract class Collectable : MonoBehaviour
         player = other.GetComponent<Player>();
         if(player != null){
             ActionItem();
+            Destroy(gameObject);
         }
     }
 

@@ -12,9 +12,6 @@ public class UIRangeWeapIcon : MonoBehaviour
     private void Awake() {
         Instance = this;
         icon = GetComponentInChildren<Image>();
-        if(icon != null){
-            print("icon not null");
-        }
     }
 
     public void SetRangeWeaponIcon(Sprite rWeapIcon){
@@ -22,6 +19,7 @@ public class UIRangeWeapIcon : MonoBehaviour
             icon.color = new Color(1,1,1,0);
         }else{
             icon.sprite = rWeapIcon;
+            icon.color = new Color(255,255,255,1);
         }
     }
 }
