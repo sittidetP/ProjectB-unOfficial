@@ -12,4 +12,9 @@ public class UIPauseImage : UISceneChanger
             PauseManager.resume();
         }
     }
+
+    public override void ToStartScene()
+    {
+        base.ToStartScene();
+    }
 }

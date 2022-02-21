@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     {
         originalMaskHpBarSize = maskHpBar.rectTransform.rect.width;
         originalMaskMpBarSize = maskMpBar.rectTransform.rect.width;
+        PauseManager.resume();
     }
 
     private void Update() {

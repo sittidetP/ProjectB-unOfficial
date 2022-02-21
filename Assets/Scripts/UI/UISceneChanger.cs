@@ -7,7 +7,7 @@ public class UISceneChanger : MonoBehaviour
 {
     [SerializeField] protected string startScene = "StartScene";
 
-    public void ToStartScene(){
+    public virtual void ToStartScene(){
         SceneManager.LoadScene(startScene);
     }
 
