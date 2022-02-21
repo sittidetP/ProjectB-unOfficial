@@ -44,6 +44,7 @@ public class PlayerDeadState : PlayerState
         core.Stats.setAlreadyDead();
         deadTime = Time.time;
         alphaDelta = (0 - alphaSprite)/((deadTime + playerStateData.deadFadeOutTime) - deadTime);
+        player.gameObject.layer = 13; //Layer : PlayerDead 
         //player.StartCoroutine(FadeAfterDead());
     }
 }
