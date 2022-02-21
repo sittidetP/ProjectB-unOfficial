@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeadState : PlayerState
 {
@@ -27,6 +28,7 @@ public class PlayerDeadState : PlayerState
             if (Time.time > deadTime + playerStateData.deadFadeOutTime)
             {
                 //entity.gameObject.SetActive(false);
+                ToGameoverScene();
             }
             else
             {
@@ -46,5 +48,9 @@ public class PlayerDeadState : PlayerState
         alphaDelta = (0 - alphaSprite)/((deadTime + playerStateData.deadFadeOutTime) - deadTime);
         player.gameObject.layer = 13; //Layer : PlayerDead 
         //player.StartCoroutine(FadeAfterDead());
+    }
+
+    private void ToGameoverScene(){
+        SceneManager.LoadScene(playerStateData.gameOverScene);
     }
 }
