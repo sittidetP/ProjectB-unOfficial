@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIStartSceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] string startScene;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void StartButton(){
+        SceneManager.LoadScene(startScene);
+    }
+    public void ExitButton(){
+        Application.Quit();
     }
 }
