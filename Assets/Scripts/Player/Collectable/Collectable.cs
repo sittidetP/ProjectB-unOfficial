@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Collectable : MonoBehaviour
 {
-    [SerializeField] protected GameObject item;
     protected Player player;
     private void OnTriggerEnter2D(Collider2D other) {
         player = other.GetComponent<Player>();

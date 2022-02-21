@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coll_RangeWeapon : Collectable
 {
+    [SerializeField] protected GameObject item;
     protected override void ActionItem()
     {
         base.ActionItem();

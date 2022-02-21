@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    private bool isUnlockDash;
     private PlayerInput playerInput;
 
     public Vector2 RawMovementInput { get; private set; }
@@ -135,7 +136,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (!PauseManager.isPause)
         {
-            if (context.started)
+            if (context.started && isUnlockDash)
             {
                 DashInput = true;
             }
@@ -238,5 +239,9 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseSelectSecondRightInput()
     {
         SelectSecondRightInput = false;
+    }
+
+    public void UnlockDash(){
+        isUnlockDash = true;
     }
 }
