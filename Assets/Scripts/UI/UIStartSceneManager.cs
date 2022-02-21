@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIStartSceneManager : MonoBehaviour
+public class UIStartSceneManager : UISceneChanger
 {
-    [SerializeField] string startScene;
+    [SerializeField] string gameplayScene;
 
-    public void StartButton(){
-        SceneManager.LoadScene(startScene);
-    }
-    public void ExitButton(){
-        Application.Quit();
+    public void ToGameplayScene(){
+        SceneManager.LoadScene(gameplayScene);
     }
 }

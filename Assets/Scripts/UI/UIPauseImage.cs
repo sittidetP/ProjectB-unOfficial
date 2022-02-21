@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIPauseImage : MonoBehaviour
+public class UIPauseImage : UISceneChanger
 {
-    private string startScene = "StartScene";
     public void ResumeButton()
     {
         if (PauseManager.isPause)
         {
             PauseManager.resume();
         }
-    }
-
-    public void QuitButton(){
-        SceneManager.LoadScene(startScene);
     }
 }

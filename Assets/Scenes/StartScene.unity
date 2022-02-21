@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 752223467}
         m_TargetAssemblyTypeName: UIStartSceneManager, Assembly-CSharp
-        m_MethodName: StartButton
+        m_MethodName: ToGameplayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -340,8 +340,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 752223467}
-        m_TargetAssemblyTypeName: UIStartSceneManager, Assembly-CSharp
-        m_MethodName: ExitButton
+        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+        m_MethodName: CancelInvoke
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -639,7 +639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb1247657d800e42aa395594af6f1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: SampleScene
+  startScene: StartScene
+  gameplayScene: SampleScene
 --- !u!1 &778545250
 GameObject:
   m_ObjectHideFlags: 0

@@ -5331,6 +5331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d859b4e416c9a46a508c0584b84146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScene: StartScene
 --- !u!1 &1906891086
 GameObject:
   m_ObjectHideFlags: 0
@@ -6425,8 +6426,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1823452752}
-        m_TargetAssemblyTypeName: UIPauseImage, Assembly-CSharp
-        m_MethodName: QuitButton
+        m_TargetAssemblyTypeName: UISceneChanger, Assembly-CSharp
+        m_MethodName: ToStartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
