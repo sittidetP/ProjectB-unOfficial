@@ -108,5 +108,9 @@ public class Player : Entity
 
         SpriteRenderer.color = Color.white;
     }
+
+    public void unlockMultipleJump(){
+
+    }
     
 }

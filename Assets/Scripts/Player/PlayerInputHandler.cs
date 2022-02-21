@@ -7,6 +7,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     private bool isUnlockDash;
     private PlayerInput playerInput;
+    private Player player;
 
     public Vector2 RawMovementInput { get; private set; }
 
@@ -35,6 +36,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        player = GetComponent<Player>();
         JumpInput = false;
         JumpInputHeld = false;
     }
@@ -155,7 +157,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnPauseInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !player.Core.Stats.getIsDead())
         {
             //Debug.Log("esc press");
             if (PauseManager.isPause)
