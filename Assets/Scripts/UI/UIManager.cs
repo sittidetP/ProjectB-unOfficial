@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Image maskHpBar;
     [SerializeField] Image maskMpBar;
+    [SerializeField] Image pauseImage;
     private float originalMaskHpBarSize;
     private float originalMaskMpBarSize;
 
@@ -20,6 +21,14 @@ public class UIManager : MonoBehaviour
     {
         originalMaskHpBarSize = maskHpBar.rectTransform.rect.width;
         originalMaskMpBarSize = maskMpBar.rectTransform.rect.width;
+    }
+
+    private void Update() {
+        if(PauseManager.isPause){
+            pauseImage.gameObject.SetActive(true);
+        }else{
+            pauseImage.gameObject.SetActive(false);
+        }
     }
 
     public void SetHPBarValue(float value){
