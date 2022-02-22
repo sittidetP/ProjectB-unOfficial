@@ -13,14 +13,13 @@ public class UIPauseImage : UISceneChanger
         }
     }
 
-    public override void ToStartScene()
-    {
-        StartCoroutine(FadeOut());
-        base.ToStartScene();
+    public void QuitButton(){
+        UIFade.Instance.FadeOut();
+        StartCoroutine(ChangeToStartScene());
     }
 
-    IEnumerator FadeOut(){
-        UIFade.Instance.FadeOut();
-        yield return new WaitForSeconds(UIFade.Instance.FadeTime);
+    IEnumerator ChangeToStartScene(){
+        yield return new WaitForSecondsRealtime(1);
+        ToStartScene();
     }
 }
