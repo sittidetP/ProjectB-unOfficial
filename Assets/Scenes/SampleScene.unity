@@ -1841,6 +1841,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 1
+  fadeImg: {fileID: 0}
+  startFadeTime: 0
+  alphaDelta: 0
+  alphaImage: 0
+  isFadeIn: 0
+  isFadeOut: 0
 --- !u!1 &800396413
 GameObject:
   m_ObjectHideFlags: 0
@@ -6516,8 +6522,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1823452752}
-        m_TargetAssemblyTypeName: UISceneChanger, Assembly-CSharp
-        m_MethodName: ToStartScene
+        m_TargetAssemblyTypeName: UIPauseImage, Assembly-CSharp
+        m_MethodName: QuitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

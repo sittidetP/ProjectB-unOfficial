@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
         originalMaskHpBarSize = maskHpBar.rectTransform.rect.width;
         originalMaskMpBarSize = maskMpBar.rectTransform.rect.width;
         PauseManager.resume();
-        UIFade.Instance.FadeIn();
     }
 
     private void Update() {
