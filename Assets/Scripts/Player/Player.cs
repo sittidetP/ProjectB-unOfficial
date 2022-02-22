@@ -32,6 +32,8 @@ public class Player : Entity
     private bool selectSecondLeftInput;
     private bool selectSecondRigthInput;
 
+    private int unlockJumps = 1;
+
     public override void Awake()
     {
         base.Awake();
@@ -59,6 +61,10 @@ public class Player : Entity
         ExtraPlayer = GetComponentInChildren<ExtraPlayer>();
 
         PrimaryAttackState.SetWeapon(Inventory.weapons[0]);
+
+        if(unlockJumps == 1){
+            playerStateData.amountOfJump = 1;
+        }
     }
 
     public override void Update()
@@ -109,8 +115,9 @@ public class Player : Entity
         SpriteRenderer.color = Color.white;
     }
 
-    public void unlockMultipleJump(){
-
+    public void unlockMultipleJump(int jumps){
+        unlockJumps = jumps;
+        playerStateData.amountOfJump = unlockJumps;
     }
     
 }

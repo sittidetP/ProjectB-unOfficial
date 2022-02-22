@@ -36,8 +36,4 @@ public class PlayerStateData : ScriptableObject
     public float rangeAttackCooldown = 0.1f;
     public float rangeAttackIdleTime = 0.3f;
     public LayerMask whatToDamage;
-
-    public void SetDoubleJump(){
-        amountOfJump = 2;
-    }
 }
