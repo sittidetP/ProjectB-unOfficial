@@ -157,7 +157,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnPauseInput(InputAction.CallbackContext context)
     {
-        if (context.started && !player.Core.Stats.getIsDead())
+        if (context.started && !player.Core.Stats.getIsDead() && !UIFade.Instance.IsFading)
         {
             //Debug.Log("esc press");
             if (PauseManager.isPause)

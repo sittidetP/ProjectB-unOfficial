@@ -15,8 +15,7 @@ public class UIFade : MonoBehaviour
     private float alphaDelta;
     private float alphaImage;
 
-    private bool isFadeIn;
-    private bool isFadeOut;
+    public bool IsFading {get; private set;}
 
     private void Awake()
     {
@@ -46,6 +45,7 @@ public class UIFade : MonoBehaviour
     }
 
     IEnumerator StartFade(int increser){
+        IsFading = true;
         float fadeWaitTime = fadeTime/fadeRate;
         for(int i = 0 ; i < fadeRate; ++i){
             float passTime;
@@ -58,6 +58,7 @@ public class UIFade : MonoBehaviour
             fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, alphaImage);
             yield return new WaitForSecondsRealtime(fadeWaitTime);
         }
+        IsFading = false;
         gameObject.SetActive(false);
     }
 
