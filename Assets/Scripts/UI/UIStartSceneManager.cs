@@ -7,7 +7,27 @@ public class UIStartSceneManager : UISceneChanger
 {
     [SerializeField] string gameplayScene;
 
+    private void Start() {
+        UIFade.Instance.FadeIn();
+    }
     public void ToGameplayScene(){
+        UIFade.Instance.FadeOut();
+        StartCoroutine(ChangeToGameplayScene());
+        
+    }
+
+    public void QuitButton(){
+        UIFade.Instance.FadeOut();
+        StartCoroutine(ChangeToQuitGame());
+    }
+
+    IEnumerator ChangeToGameplayScene(){
+        yield return new WaitForSecondsRealtime(UIFade.Instance.FadeTime);
         SceneManager.LoadScene(gameplayScene);
+    }
+
+    IEnumerator ChangeToQuitGame(){
+        yield return new WaitForSecondsRealtime(UIFade.Instance.FadeTime);
+        QuitGame();
     }
 }

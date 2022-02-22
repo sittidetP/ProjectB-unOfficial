@@ -19,7 +19,8 @@ public class UIPauseImage : UISceneChanger
     }
 
     IEnumerator ChangeToStartScene(){
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(UIFade.Instance.FadeTime);
+        PauseManager.resume();
         ToStartScene();
     }
 }
