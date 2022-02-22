@@ -785,6 +785,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752223466}
     m_Modifications:
+    - target: {fileID: 2977889547679574116, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
+      propertyPath: fadeTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574120, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_Name
       value: FadeOutImg
