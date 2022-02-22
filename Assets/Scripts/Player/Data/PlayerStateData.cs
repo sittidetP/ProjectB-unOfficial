@@ -29,6 +29,7 @@ public class PlayerStateData : ScriptableObject
     [Header("Dead State")]
     public float deadFadeOutTime = 0.5f;
     public float alphaMultiple = 0.1f;
+    public int fadeRate = 30;
     public string gameOverScene = "GameOverScene";
     [Header("Hurt effect")]
     public int amountOfBlinks = 15;

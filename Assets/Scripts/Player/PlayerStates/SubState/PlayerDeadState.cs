@@ -23,6 +23,7 @@ public class PlayerDeadState : PlayerState
         base.LogicUpdate();
         
         core.Movement.SetVelocityZero();
+        /*
         if (core.Stats.getAlreadyDead())
         {            
             if (Time.time > deadTime + playerStateData.deadFadeOutTime)
@@ -37,6 +38,7 @@ public class PlayerDeadState : PlayerState
                 player.SpriteRenderer.color = new Color(1, 1, 1, alphaSprite);
             }
         }
+        */
         
     }
 
@@ -47,10 +49,22 @@ public class PlayerDeadState : PlayerState
         deadTime = Time.time;
         alphaDelta = (0 - alphaSprite)/((deadTime + playerStateData.deadFadeOutTime) - deadTime);
         player.gameObject.layer = 13; //Layer : PlayerDead 
-        //player.StartCoroutine(FadeAfterDead());
+        player.StartCoroutine(FadeAfterDead());
+        player.StartCoroutine(FadeToGameOverScene());
     }
 
-    private void ToGameoverScene(){
+    IEnumerator FadeAfterDead(){
+        float fadeWaitTime = playerStateData.deadFadeOutTime/playerStateData.fadeRate;
+        for(int i = 0 ; i < playerStateData.fadeRate; ++i){
+            alphaSprite = alphaDelta * (Time.time - deadTime) + 1;
+            player.SpriteRenderer.color = new Color(1, 1, 1, alphaSprite);
+            yield return new WaitForSecondsRealtime(fadeWaitTime);
+        }
+    }
+
+    IEnumerator FadeToGameOverScene(){
+        UIFade.Instance.FadeOut();
+        yield return new WaitForSecondsRealtime(UIFade.Instance.FadeTime);
         SceneManager.LoadScene(playerStateData.gameOverScene);
     }
 }
