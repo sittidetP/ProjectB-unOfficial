@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class UIFade : MonoBehaviour
 {
     public static UIFade Instance { get; private set; }
-    [SerializeField] protected Image fadeImg;
-    [SerializeField] protected float fadeTime;
+    [SerializeField] private float fadeTime;
 
+    public float FadeTime {get => fadeTime;}
+    private Image fadeImg;
     private float startFadeTime;
 
     private float alphaDelta;
@@ -24,33 +25,49 @@ public class UIFade : MonoBehaviour
 
     private void Start()
     {
-        isFadeIn = false;
-        isFadeOut = false;
+        fadeImg = GetComponent<Image>();
     }
 
     void Update()
     {
-        if (isFadeIn)
+        if (isFadeIn && alphaImage > 0)
         {
+            
             alphaImage = alphaDelta * (Time.time - startFadeTime) + 1;
-            //Debug.Log(alphaSprite);
-            fadeImg.color = new Color(1, 1, 1, alphaImage);
+            fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, alphaImage);
+        }else if(isFadeIn && alphaImage <= 0){
+            alphaImage = 0;
+            gameObject.SetActive(false);
         }
 
-
+        if(isFadeOut && alphaImage < 1){
+            alphaImage = alphaDelta * (Time.time - startFadeTime);
+            fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, alphaImage);
+        }else if(isFadeOut && alphaImage >= 1){
+            alphaImage = 1;
+            gameObject.SetActive(false);
+        }
     }
 
     public void FadeIn()
     {
+        gameObject.SetActive(true);
+        fadeImg = GetComponent<Image>();
         startFadeTime = Time.time;
         alphaImage = 1f;
+        fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, alphaImage);
         alphaDelta = (0 - alphaImage) / ((startFadeTime + fadeTime) - startFadeTime);
         isFadeIn = true;
     }
 
-    public void FadeOut(){
+    public float FadeOut(){
+        gameObject.SetActive(true);
+        fadeImg = GetComponent<Image>();
         startFadeTime = Time.time;
         alphaImage = 0f;
-        
+        fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, alphaImage);
+        alphaDelta = (1 - alphaImage) / ((startFadeTime + fadeTime) - startFadeTime);
+        isFadeOut = true;
+        return alphaImage;
     }
 }

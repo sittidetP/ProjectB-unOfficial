@@ -1763,13 +1763,14 @@ GameObject:
   - component: {fileID: 709796101}
   - component: {fileID: 709796103}
   - component: {fileID: 709796102}
+  - component: {fileID: 709796104}
   m_Layer: 5
   m_Name: FadeOutImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &709796101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1827,6 +1828,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709796100}
   m_CullTransparentMesh: 1
+--- !u!114 &709796104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709796100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd28a5db5d068b4bb9d1ed0272232ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 1
 --- !u!1 &800396413
 GameObject:
   m_ObjectHideFlags: 0
