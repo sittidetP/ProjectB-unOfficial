@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UseHPPotion",
+                    "type": "Button",
+                    "id": "8281a489-33a6-4ae3-8d56-c88e37638dc0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -200,6 +208,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectSeccondaryRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0542bb3f-5807-4a66-9b6e-ffc8a696ab5a",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseHPPotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

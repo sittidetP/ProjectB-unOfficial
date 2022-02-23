@@ -8,7 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public Weapon[] weapons;
 
     public RangeWeapon[] projectiles;
-    public Dictionary<Potion, int> potions;
+    public Dictionary<int, Potion> potions = new Dictionary<int, Potion>();
 
     int indexWeapon = 0;
     int indexProjectile = 0;
@@ -65,10 +65,19 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void AddPotions(Potion potion){
-        if(potions.ContainsKey(potion)){
-            int potionAmount = potions[potion];
-            potionAmount++;
+    public void AddPotions(int indexPotion,Potion potion){
+        if(potions.ContainsKey(indexPotion)){
+            Potion collectedPotion = potions[indexPotion];
+            collectedPotion.AddPotionAmount();
+        }else{
+            potions.Add(indexPotion, potion);
+        }
+        DebugPotion();
+    }
+
+    private void DebugPotion(){
+        foreach(KeyValuePair<int, Potion> p in potions){
+            Debug.Log(p.Key + ", " + p.Value.name);
         }
     }
 }
