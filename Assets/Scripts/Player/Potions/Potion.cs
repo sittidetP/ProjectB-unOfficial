@@ -11,10 +11,10 @@ public abstract class Potion : MonoBehaviour
     public int Amount {get => amount;}
 
     public void UsePotion(){
-        print(amount);
+        //print(amount);
         if(amount > 0){
             ActionPotion();
-            amount--;
+            
         }
     }
 

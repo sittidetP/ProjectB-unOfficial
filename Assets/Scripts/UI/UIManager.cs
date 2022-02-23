@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] Image maskHpBar;
     [SerializeField] Image maskMpBar;
     [SerializeField] Image pauseImage;
+    [SerializeField] TMP_Text hpPotionText;
     private float originalMaskHpBarSize;
     private float originalMaskMpBarSize;
 
@@ -40,5 +42,9 @@ public class UIManager : MonoBehaviour
 
     public void SetMPBarValue(float value){
         maskMpBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalMaskHpBarSize * value);
+    }
+
+    public void UpdateHPPotionAmount(int amount){
+        hpPotionText.text = amount.ToString();
     }
 }

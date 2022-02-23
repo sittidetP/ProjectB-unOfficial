@@ -10,7 +10,10 @@ public class HPPotion : Potion
     protected override void ActionPotion()
     {
         base.ActionPotion();
-
-        player.Core.Stats.IncreaseHealth(healHPAmount);
+        if (!player.Core.Stats.isHealthFull())
+        {
+            player.Core.Stats.IncreaseHealth(healHPAmount);
+            amount--;
+        }
     }
 }

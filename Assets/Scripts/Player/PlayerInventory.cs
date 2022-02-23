@@ -18,7 +18,7 @@ public class PlayerInventory : MonoBehaviour
         if(projectiles.Count(s => s != null) == 0){
             UIRangeWeapIcon.Instance.SetIcon(null);
         }
-        UIHPPotionIcon.Instance.UpdateAmount(0);
+        UIManager.Instance.UpdateHPPotionAmount(0);
     }
 
     private void Update() {
@@ -26,7 +26,7 @@ public class PlayerInventory : MonoBehaviour
             UIRangeWeapIcon.Instance.SetIcon(projectiles[indexSelectedProjectile].WeaponSprite);
         }
         if(potions.ContainsKey((int) PotionType.HPPotion)){
-            UIHPPotionIcon.Instance.UpdateAmount(potions[(int)PotionType.HPPotion].Amount);
+            UIManager.Instance.UpdateHPPotionAmount(potions[(int)PotionType.HPPotion].Amount);
         }
 
     }
@@ -79,7 +79,7 @@ public class PlayerInventory : MonoBehaviour
             potions.Add(indexPotion, potion);
             potion.AddPotionAmount();
         }
-        DebugPotion();
+        //DebugPotion();
     }
 
     private void DebugPotion(){
