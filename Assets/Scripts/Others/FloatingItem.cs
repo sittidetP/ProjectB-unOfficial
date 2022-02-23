@@ -10,13 +10,13 @@ public class FloatingItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.realtimeSinceStartup;
+        startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float currentTimePass = Time.realtimeSinceStartup - startTime;
+        float currentTimePass = Time.time - startTime;
         float newY = swingRadius * Mathf.Sin(currentTimePass);
 
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);

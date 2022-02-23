@@ -23,6 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SelectSecondLeftInput {get; private set;}
     public bool SelectSecondRightInput {get; private set;}
     public bool HPPotionInput {get; private set;}
+    public bool MPPotionInput {get; private set;}
     public bool DashInput { get; private set; }
 
     public bool PauseInput { get; private set; }
@@ -266,5 +267,26 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseHPPotionInput()
     {
         HPPotionInput = false;
+    }
+
+    public void OnMPPotionInput(InputAction.CallbackContext context)
+    {
+        if (!PauseManager.isPause)
+        {
+            if (context.started)
+            {
+                MPPotionInput = true;
+            }
+
+            if (context.canceled)
+            {
+                MPPotionInput = false;
+            }
+        }
+    }
+
+    public void UseMPPotionInput()
+    {
+        MPPotionInput = false;
     }
 }

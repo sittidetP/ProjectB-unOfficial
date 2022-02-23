@@ -32,6 +32,7 @@ public class Player : Entity
     private bool selectSecondLeftInput;
     private bool selectSecondRigthInput;
     private bool hpPotionInput;
+    private bool mpPotionInput;
 
     private int unlockJumps = 1;
 
@@ -76,6 +77,7 @@ public class Player : Entity
         selectSecondLeftInput = InputHandler.SelectSecondLeftInput;
         selectSecondRigthInput = InputHandler.SelectSecondRightInput;
         hpPotionInput = InputHandler.HPPotionInput;
+        mpPotionInput = InputHandler.MPPotionInput;
 
         UIManager.Instance.SetHPBarValue(Core.Stats.getHPRatio());
         UIManager.Instance.SetMPBarValue(ExtraPlayer.PlayerMana.getMPRatio());
@@ -109,6 +111,15 @@ public class Player : Entity
             {
                 Inventory.potions[(int)PotionType.HPPotion].UsePotion();
                 InputHandler.UseHPPotionInput();
+            }
+        }
+
+        if (mpPotionInput)
+        {
+            if (Inventory.potions.ContainsKey((int)PotionType.MPPotion))
+            {
+                Inventory.potions[(int)PotionType.MPPotion].UsePotion();
+                InputHandler.UseMPPotionInput();
             }
         }
     }
