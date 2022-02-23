@@ -16,14 +16,19 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start() {
         if(projectiles.Count(s => s != null) == 0){
-            UIRangeWeapIcon.Instance.SetRangeWeaponIcon(null);
+            UIRangeWeapIcon.Instance.SetIcon(null);
         }
+        UIHPPotionIcon.Instance.UpdateAmount(0);
     }
 
     private void Update() {
         if(projectiles.Count(s => s != null) > 0){
-            UIRangeWeapIcon.Instance.SetRangeWeaponIcon(projectiles[indexSelectedProjectile].WeaponSprite);
+            UIRangeWeapIcon.Instance.SetIcon(projectiles[indexSelectedProjectile].WeaponSprite);
         }
+        if(potions.ContainsKey((int) PotionType.HPPotion)){
+            UIHPPotionIcon.Instance.UpdateAmount(potions[(int)PotionType.HPPotion].Amount);
+        }
+
     }
 
     public Weapon getSelectedWeapon(){
@@ -70,6 +75,7 @@ public class PlayerInventory : MonoBehaviour
             Potion collectedPotion = potions[indexPotion];
             collectedPotion.AddPotionAmount();
         }else{
+            potion.SetZeroAmount();
             potions.Add(indexPotion, potion);
             potion.AddPotionAmount();
         }

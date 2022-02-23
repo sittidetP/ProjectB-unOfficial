@@ -12,22 +12,22 @@ public class Player : Entity
     public PlayerDashState DashState { get; private set; }
 
     public PlayerAttackState PrimaryAttackState { get; private set; }
-    public PlayerRangeAttackState SecondaryAttackState {get; private set;}
+    public PlayerRangeAttackState SecondaryAttackState { get; private set; }
 
-    public PlayerHurtState HurtState {get; private set;}
+    public PlayerHurtState HurtState { get; private set; }
 
-    public PlayerWaitState WaitState {get; private set; }
-    public PlayerDeadState DeadState {get; private set;}
+    public PlayerWaitState WaitState { get; private set; }
+    public PlayerDeadState DeadState { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
 
     [SerializeField] PlayerStateData playerStateData;
     [SerializeField] Transform rangeAttackPos;
-    public PlayerStateData PlayerStateData {get => playerStateData; private set => playerStateData = value;}
+    public PlayerStateData PlayerStateData { get => playerStateData; private set => playerStateData = value; }
 
     public PlayerInventory Inventory { get; private set; }
     public ExtraPlayer ExtraPlayer { get; private set; }
 
-    public bool isOnPlatform{get; set;}
+    public bool isOnPlatform { get; set; }
 
     private bool selectSecondLeftInput;
     private bool selectSecondRigthInput;
@@ -63,7 +63,8 @@ public class Player : Entity
 
         PrimaryAttackState.SetWeapon(Inventory.weapons[0]);
 
-        if(unlockJumps == 1){
+        if (unlockJumps == 1)
+        {
             playerStateData.amountOfJump = 1;
         }
     }
@@ -79,26 +80,36 @@ public class Player : Entity
         UIManager.Instance.SetHPBarValue(Core.Stats.getHPRatio());
         UIManager.Instance.SetMPBarValue(ExtraPlayer.PlayerMana.getMPRatio());
 
-        if(selectSecondLeftInput){
+        if (selectSecondLeftInput)
+        {
             Inventory.SelectSecondLeft();
             InputHandler.UseSelectSecondLeftInput();
             //Debug.Log(Inventory.getSelectedProjectile().name);
-        }else if(selectSecondRigthInput){
+        }
+        else if (selectSecondRigthInput)
+        {
             Inventory.SelectSecondRigth();
             InputHandler.UseSelectSecondRightInput();
             //Debug.Log(Inventory.getSelectedProjectile().name);
         }
 
-        if(Core.Stats.getIsDead()){
+        if (Core.Stats.getIsDead())
+        {
             StateMachine.ChangeState(DeadState);
-        }else if(Core.Combat.getIsDamaged() && !Core.Stats.getAlreadyDead()){
+        }
+        else if (Core.Combat.getIsDamaged() && !Core.Stats.getAlreadyDead())
+        {
             StartCoroutine(FlashAfterDamage());
             StateMachine.ChangeState(HurtState);
         }
 
-        if(hpPotionInput){
-            Inventory.potions[(int) PotionType.HPPotion].UsePotion();
-            InputHandler.UseHPPotionInput();
+        if (hpPotionInput)
+        {
+            if (Inventory.potions.ContainsKey((int)PotionType.HPPotion))
+            {
+                Inventory.potions[(int)PotionType.HPPotion].UsePotion();
+                InputHandler.UseHPPotionInput();
+            }
         }
     }
 
@@ -110,21 +121,22 @@ public class Player : Entity
         //yield return new WaitForSeconds(0.2f);
 
         for (int i = 0; i < playerStateData.amountOfBlinks; i++)
-        {            
+        {
             yield return new WaitForSeconds(flashDelay);
             SpriteRenderer.color = new Color(1, 1, 1, 0.4f);
-            
+
             yield return new WaitForSeconds(flashDelay);
             SpriteRenderer.color = Color.clear;
-            
+
         }
 
         SpriteRenderer.color = Color.white;
     }
 
-    public void unlockMultipleJump(int jumps){
+    public void unlockMultipleJump(int jumps)
+    {
         unlockJumps = jumps;
         playerStateData.amountOfJump = unlockJumps;
     }
-    
+
 }

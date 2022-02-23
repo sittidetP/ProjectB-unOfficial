@@ -9,7 +9,9 @@ public abstract class Potion : MonoBehaviour
     protected Player player;
     public Sprite PotionSprite {get => potionSprite;}
     public int Amount {get => amount;}
+
     public void UsePotion(){
+        print(amount);
         if(amount > 0){
             ActionPotion();
             amount--;
@@ -22,6 +24,10 @@ public abstract class Potion : MonoBehaviour
 
     public virtual void AddPotionAmount(){
         amount++;
+    }
+
+    public void SetZeroAmount(){
+        amount = 0;
     }
 
     protected virtual void ActionPotion(){
