@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public Weapon[] weapons;
 
     public RangeWeapon[] projectiles;
+    public Dictionary<Potion, int> potions;
 
     int indexWeapon = 0;
     int indexProjectile = 0;
@@ -61,6 +62,13 @@ public class PlayerInventory : MonoBehaviour
         int indexFinal = ++indexSelectedProjectile%projectileCount;
         if(projectiles[indexFinal] != null){
             indexSelectedProjectile = indexFinal;
+        }
+    }
+
+    public void AddPotions(Potion potion){
+        if(potions.ContainsKey(potion)){
+            int potionAmount = potions[potion];
+            potionAmount++;
         }
     }
 }

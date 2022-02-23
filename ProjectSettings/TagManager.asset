@@ -18,7 +18,7 @@ TagManager:
   - Player
   - Weapon
   - Platform
-  - Slope
+  - Collectable
   - Projectile
   - PlayerDead
   - 

@@ -28,6 +28,26 @@ public class Stats : CoreComponent
         }
     }
 
+    public void IncreaseHealth(float amount){
+        currentHealth += amount;
+
+        if(currentHealth > maxHealth){
+            currentHealth = maxHealth;
+        }
+    }
+
+    public void IncreaseMaxHealth(float amount){
+        maxHealth += amount;
+    }
+
+    public void SetHealthToMax(){
+        currentHealth = maxHealth;
+    }
+
+    public bool isHealthFull(){
+        return currentHealth == maxHealth;
+    }
+
     public bool getIsDead(){
         return isDeaded;
     }
