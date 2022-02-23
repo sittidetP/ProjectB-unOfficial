@@ -5,10 +5,11 @@ using UnityEngine;
 public class HPPotion : Potion
 {
     [SerializeField] float healHPAmount = 15f;
+    [SerializeField] PotionType potionType;
 
-    public override void UsePotion()
+    protected override void ActionPotion()
     {
-        base.UsePotion();
+        base.ActionPotion();
 
         player.Core.Stats.IncreaseHealth(healHPAmount);
     }

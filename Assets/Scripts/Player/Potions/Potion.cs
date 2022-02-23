@@ -5,12 +5,15 @@ using UnityEngine;
 public abstract class Potion : MonoBehaviour
 {
     [SerializeField] Sprite potionSprite;
-
-    private int amount = 0;
+    protected int amount = 0;
     protected Player player;
     public Sprite PotionSprite {get => potionSprite;}
-    public  virtual void UsePotion(){
-        amount--;
+    public int Amount {get => amount;}
+    public void UsePotion(){
+        if(amount > 0){
+            ActionPotion();
+            amount--;
+        }
     }
 
     public virtual void SetPlayer(Player player){
@@ -19,6 +22,10 @@ public abstract class Potion : MonoBehaviour
 
     public virtual void AddPotionAmount(){
         amount++;
+    }
+
+    protected virtual void ActionPotion(){
+
     }
 }
 

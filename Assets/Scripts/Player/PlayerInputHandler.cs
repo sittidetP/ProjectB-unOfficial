@@ -22,7 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SecondaryAttackInput {get; private set;}
     public bool SelectSecondLeftInput {get; private set;}
     public bool SelectSecondRightInput {get; private set;}
-
+    public bool HPPotionInput {get; private set;}
     public bool DashInput { get; private set; }
 
     public bool PauseInput { get; private set; }
@@ -245,5 +245,26 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UnlockDash(){
         isUnlockDash = true;
+    }
+
+    public void OnHPPotionInput(InputAction.CallbackContext context)
+    {
+        if (!PauseManager.isPause)
+        {
+            if (context.started)
+            {
+                HPPotionInput = true;
+            }
+
+            if (context.canceled)
+            {
+                HPPotionInput = false;
+            }
+        }
+    }
+
+    public void UseHPPotionInput()
+    {
+        HPPotionInput = false;
     }
 }

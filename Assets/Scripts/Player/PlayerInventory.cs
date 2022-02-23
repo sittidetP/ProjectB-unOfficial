@@ -71,13 +71,14 @@ public class PlayerInventory : MonoBehaviour
             collectedPotion.AddPotionAmount();
         }else{
             potions.Add(indexPotion, potion);
+            potion.AddPotionAmount();
         }
         DebugPotion();
     }
 
     private void DebugPotion(){
         foreach(KeyValuePair<int, Potion> p in potions){
-            Debug.Log(p.Key + ", " + p.Value.name);
+            Debug.Log(p.Key + ", " + p.Value.name + " : " + p.Value.Amount);
         }
     }
 }
