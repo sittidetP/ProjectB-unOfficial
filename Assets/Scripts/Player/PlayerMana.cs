@@ -38,6 +38,18 @@ public class PlayerMana : MonoBehaviour
         }   
     }
 
+    public void IncreaseMana(float amount){
+        Mana += amount;
+
+        if(Mana >= maxMana){
+            Mana = maxMana;
+        }
+    }
+
+    public bool isMPPotion(){
+        return Mana == maxMana;
+    }
+
     public float getMPRatio(){
         return Mana/maxMana;
     }
