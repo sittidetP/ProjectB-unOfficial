@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image maskMpBar;
     [SerializeField] Image pauseImage;
     [SerializeField] TMP_Text hpPotionText;
+    [SerializeField] TMP_Text mpPotionText;
     private float originalMaskHpBarSize;
     private float originalMaskMpBarSize;
 
@@ -46,5 +47,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHPPotionAmount(int amount){
         hpPotionText.text = amount.ToString();
+    }
+
+    public void UpdateMPPotionAmount(int amount){
+        mpPotionText.text = amount.ToString();
     }
 }

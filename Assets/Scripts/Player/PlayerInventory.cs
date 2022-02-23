@@ -19,6 +19,7 @@ public class PlayerInventory : MonoBehaviour
             UIRangeWeapIcon.Instance.SetIcon(null);
         }
         UIManager.Instance.UpdateHPPotionAmount(0);
+        UIManager.Instance.UpdateMPPotionAmount(0);
     }
 
     private void Update() {
@@ -28,7 +29,9 @@ public class PlayerInventory : MonoBehaviour
         if(potions.ContainsKey((int) PotionType.HPPotion)){
             UIManager.Instance.UpdateHPPotionAmount(potions[(int)PotionType.HPPotion].Amount);
         }
-
+        if(potions.ContainsKey((int) PotionType.MPPotion)){
+            UIManager.Instance.UpdateMPPotionAmount(potions[(int)PotionType.MPPotion].Amount);
+        }
     }
 
     public Weapon getSelectedWeapon(){
