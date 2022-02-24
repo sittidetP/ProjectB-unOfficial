@@ -23,28 +23,26 @@ public class Projectile : CoreProjectile, IDamageable
     private void OnTriggerEnter2D(Collider2D other)
     {
         //print("trigggerEnter : " + other.gameObject.name);
-
+        //print(other.gameObject.layer + ", " +  hasLayers[other.gameObject.layer]);
         //Collider2D detectedObject = Physics2D.OverlapCircle(checkPosition.position, checkRadius, whatToDamage);
 
-        for (int i = 0; i < 32; ++i)
+        if (hasLayers[other.gameObject.layer])
         {
-            if (other.gameObject.layer == i && hasLayers[i])
-            {
-                IDamageable damageable = other.GetComponentInChildren<IDamageable>();
 
-                if (damageable != null)
-                {
-                    //Debug.Log("player not null");
-                    damageable.Damage(damageAmount);
-                    break;
-                }
-                else
-                {
-                    //Debug.Log("player null");
-                }
+            IDamageable damageable = other.GetComponentInChildren<IDamageable>();
+
+            if (damageable != null)
+            {
+                //Debug.Log("player not null");
+                damageable.Damage(damageAmount);
+            }
+            else
+            {
+                //Debug.Log("player null");
             }
         }
-        if(other.gameObject.layer != shooterLayer){
+        if (other.gameObject.layer != shooterLayer)
+        {
             BeingHit();
         }
         /*
@@ -71,11 +69,13 @@ public class Projectile : CoreProjectile, IDamageable
         //isHit = true;
     }
 
-    private void BeingHit(){
+    private void BeingHit()
+    {
         animator?.SetTrigger("isHit");
+
         RB.velocity = Vector2.zero;
     }
 
-    
+
 
 }

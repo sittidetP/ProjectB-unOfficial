@@ -27,6 +27,7 @@ public abstract class CoreProjectile : MonoBehaviour
             {
                 hasLayers[i] = true;
             }
+            //print(i + ", " + hasLayers[i]);
         }
     }
     // Start is called before the first frame update
