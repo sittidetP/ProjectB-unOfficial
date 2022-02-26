@@ -163,6 +163,12 @@ public class PlayerInputHandler : MonoBehaviour
             //Debug.Log("esc press");
             if (PauseManager.isPause)
             {
+                //print(PauseManager.IsNormPlay);
+                
+                if(!PauseManager.IsNormPlay){
+                    return;
+                }
+                
                 PauseManager.resume();
             }
             else
