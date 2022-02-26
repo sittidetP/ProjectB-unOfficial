@@ -23,9 +23,10 @@ public static class SaveSystem
 
     public static string Load(){
         if(File.Exists(SAVE_FOLDER + "save" + "." + SAVE_EXTENSION)){
-            
+            string saveString = File.ReadAllText(SAVE_FOLDER + "save" + "." + SAVE_EXTENSION);
+            return saveString;
         }
-        return "";
+        return null;
     }
 
 }

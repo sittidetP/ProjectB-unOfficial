@@ -7,6 +7,10 @@ public class UIStartSceneManager : UISceneChanger
 {
     [SerializeField] string gameplayScene;
 
+    private void Awake() {
+            
+    }
+
     private void Start() {
         UIFade.Instance.FadeIn();
     }

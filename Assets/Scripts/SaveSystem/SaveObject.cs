@@ -6,7 +6,7 @@ public class SaveObject
 {
     public Player player;
 
-    SaveObject(Player player){
+    public SaveObject(Player player){
         this.player = player;
     }
 }

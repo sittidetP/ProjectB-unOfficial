@@ -29,6 +29,7 @@ public class SaveStatue : MonoBehaviour
                 player.Core.Stats.SetHPFull();
                 player.ExtraPlayer.PlayerMana.SetMPFull();
                 player.InputHandler.SetNormInputYZero();
+                SaveManager.SaveGame(player);
                 onSaveGame?.Invoke();
             }
         }else{
