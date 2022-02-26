@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveObject
 {
-    Player player;
+    public Player player;
 
     SaveObject(Player player){
         this.player = player;
