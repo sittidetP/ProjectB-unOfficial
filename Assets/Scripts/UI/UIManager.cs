@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     }
 
     private void Update() {
-        if(PauseManager.isPause){
+        if(PauseManager.IsNormPlay && PauseManager.isPause){
             pauseImage.gameObject.SetActive(true);
         }else{
             pauseImage.gameObject.SetActive(false);

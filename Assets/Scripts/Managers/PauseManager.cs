@@ -5,6 +5,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public static bool isPause {get; private set;}
+    public static bool IsNormPlay {get; set;}
 
     public static void pause(){
         Time.timeScale = 0;
