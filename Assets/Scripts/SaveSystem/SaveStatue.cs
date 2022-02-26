@@ -26,6 +26,8 @@ public class SaveStatue : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other) {
         if(player != null){
             if(player.InputHandler.NormInputY == 1){
+                player.Core.Stats.SetHPFull();
+                player.ExtraPlayer.PlayerMana.SetMPFull();
                 player.InputHandler.SetNormInputYZero();
                 onSaveGame?.Invoke();
             }

@@ -63,4 +63,8 @@ public class Stats : CoreComponent
     public float getHPRatio(){
         return currentHealth/maxHealth;
     }
+
+    public void SetHPFull(){
+        IncreaseHealth(maxHealth);
+    }
 }
