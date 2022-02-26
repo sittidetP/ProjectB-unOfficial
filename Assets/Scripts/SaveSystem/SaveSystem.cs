@@ -29,4 +29,11 @@ public static class SaveSystem
         return null;
     }
 
+    public static bool HasSave(){
+        if(File.Exists(SAVE_FOLDER + "save" + "." + SAVE_EXTENSION)){
+            return true;
+        }
+        return false;
+    }
+
 }

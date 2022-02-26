@@ -557,7 +557,7 @@ RectTransform:
   m_Children:
   - {fileID: 1059754667}
   m_Father: {fileID: 752223466}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41200003, y: 0.20500001}
   m_AnchorMax: {x: 0.587, y: 0.2631233}
@@ -610,7 +610,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 752223467}
         m_TargetAssemblyTypeName: UIStartSceneManager, Assembly-CSharp
-        m_MethodName: ToGameplayScene
+        m_MethodName: ContinueToGameplayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -752,8 +752,8 @@ RectTransform:
   m_Children:
   - {fileID: 195785054}
   - {fileID: 291717745}
-  - {fileID: 920208933}
   - {fileID: 487091924}
+  - {fileID: 920208933}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -776,6 +776,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startScene: StartScene
   gameplayScene: SampleScene
+  playerContinueData: {fileID: 11400000, guid: 0f40b2146b2f1ae428a1a84b01aeee0e, type: 2}
+  onAwake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 487091925}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &778545250
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574120, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574121, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_Pivot.x
@@ -941,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574121, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574121, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_AnchorMax.x

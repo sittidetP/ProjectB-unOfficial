@@ -6,7 +6,10 @@ public static class SaveManager
 {
     public static void SaveGame(Player player){
         SaveSystem.Init();
-        SaveObject saveObject = new SaveObject(player);
+        SaveObject saveObject = new SaveObject{
+            player = player,
+            position = player.transform.position
+        };
         string json = JsonUtility.ToJson(saveObject);
         SaveSystem.Save(json);
     }

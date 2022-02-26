@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIPauseImage : UISceneChanger
 {
+    [SerializeField] PlayerContinueData playerContinueData;
     public void ResumeButton()
     {
         if (PauseManager.isPause)
