@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class SaveObject
 {
-    public Player player;
-
     public Vector3 position;
+    public RangeWeapon[] projectiles;
+    public Potion[] potions;
+    public int unlockJumps;
+    public bool unlockDash;
 }
