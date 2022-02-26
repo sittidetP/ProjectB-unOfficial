@@ -55,6 +55,9 @@ public class PlayerInventory : MonoBehaviour
 
     public void SelectSecondLeft(){
         int projectileCount = projectiles.Count(s => s != null);
+        if(projectileCount == 0){
+            return;
+        }
         int indexFinal = --indexSelectedProjectile%projectileCount;
         if(indexFinal < 0){
             indexFinal = projectileCount - 1;
@@ -67,6 +70,9 @@ public class PlayerInventory : MonoBehaviour
 
     public void SelectSecondRigth(){
         int projectileCount = projectiles.Count(s => s != null);
+        if(projectileCount == 0){
+            return;
+        }
         int indexFinal = ++indexSelectedProjectile%projectileCount;
         if(projectiles[indexFinal] != null){
             indexSelectedProjectile = indexFinal;
