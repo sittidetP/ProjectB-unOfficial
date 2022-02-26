@@ -289,4 +289,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         MPPotionInput = false;
     }
+
+    public void SetNormInputYZero(){
+        NormInputY = 0;
+    }
 }
