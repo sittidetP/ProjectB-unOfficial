@@ -30,6 +30,10 @@ public abstract class Potion : MonoBehaviour
         amount = 0;
     }
 
+    public void SetAmount(int amount){
+        this.amount = amount;
+    }
+
     protected virtual void ActionPotion(){
 
     }

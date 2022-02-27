@@ -91,6 +91,11 @@ public class PlayerInventory : MonoBehaviour
         //DebugPotion();
     }
 
+    public void AddPotionsContinue(int indexPotion,Potion potion){
+        potions.Add(indexPotion, potion);
+        //DebugPotion();
+    }
+
     private void DebugPotion(){
         foreach(KeyValuePair<int, Potion> p in potions){
             Debug.Log(p.Key + ", " + p.Value.name + " : " + p.Value.Amount);

@@ -41,7 +41,7 @@ public class Player : Entity
     public override void Awake()
     {
         base.Awake();
-
+        //print("player awake");
         InputHandler = GetComponent<PlayerInputHandler>();
 
         IdleState = new PlayerIdleState(this, StateMachine, "idle", playerStateData);
@@ -56,8 +56,9 @@ public class Player : Entity
         DeadState = new PlayerDeadState(this, StateMachine, "dead", playerStateData);
     }
 
-    private void Start()
+    public void Start()
     {
+        //print("player start");
         //defaultPhysicsMat = Core.Movement.RB.sharedMaterial;
         StateMachine.Initialize(IdleState);
 

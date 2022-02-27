@@ -1,1 +1,1 @@
-{"position":{"x":18.927656173706056,"y":-1.8740661144256592,"z":0.0},"projectilesName":["",""],"potionsAmount":[0,0],"unlockJumps":1,"unlockDash":true}
+{"position":{"x":19.047657012939454,"y":-1.8740637302398682,"z":0.0},"projectilesName":["",""],"potionsAmount":[2,2],"unlockJumps":1,"unlockDash":true}
