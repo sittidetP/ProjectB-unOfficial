@@ -12,11 +12,6 @@ public class StartGameManager : MonoBehaviour
             SaveObject saveObject = SaveManager.LoadGame();
             GameObject playerPack = GameObject.Find("PlayerPack");
             playerPack.transform.position = saveObject.position;
-            if(saveObject.player != null){
-                print("player save not null");
-            }else{
-                print("null");
-            }
         }
     }
     // Start is called before the first frame update

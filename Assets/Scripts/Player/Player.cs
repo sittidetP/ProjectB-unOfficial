@@ -36,6 +36,7 @@ public class Player : Entity
     private bool mpPotionInput;
 
     private int unlockJumps = 1;
+    public int UnlockJumps {get => unlockJumps;}
 
     public override void Awake()
     {

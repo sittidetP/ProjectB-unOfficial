@@ -6,9 +6,13 @@ public static class SaveManager
 {
     public static void SaveGame(Player player){
         SaveSystem.Init();
+        int[] potionAmountSave = {player.Inventory.potions[(int)PotionType.HPPotion].Amount,
+         player.Inventory.potions[(int)PotionType.MPPotion].Amount};
         SaveObject saveObject = new SaveObject{
-            player = player,
-            position = player.transform.position
+            position = player.transform.position,
+            unlockJumps = player.UnlockJumps,
+            unlockDash = player.InputHandler.IsUnlockDash,
+            potionsAmount = potionAmountSave
         };
         string json = JsonUtility.ToJson(saveObject);
         SaveSystem.Save(json);
