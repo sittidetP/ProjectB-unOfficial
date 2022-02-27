@@ -49,10 +49,4 @@ public class StartGameManager : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
