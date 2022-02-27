@@ -17,7 +17,7 @@ public class StartGameManager : MonoBehaviour
     void Start()
     {
         if(playerContinueData.isContinue){
-            print("continue");
+            //print("continue");
             SaveObject saveObject = SaveManager.LoadGame();
             GameObject playerPack = GameObject.Find("PlayerPack");
             playerPack.transform.position = saveObject.position;
@@ -28,17 +28,24 @@ public class StartGameManager : MonoBehaviour
             player.unlockMultipleJump(saveObject.unlockJumps);
             if(saveObject.potionsAmount[(int)PotionType.HPPotion] > 0){
                 int hpPotionAmount = saveObject.potionsAmount[(int)PotionType.HPPotion];
-                print("hpPotion" + hpPotionAmount);
+                //print("hpPotion" + hpPotionAmount);
                 HPPotion hpPotion = Instantiate(hPPotion_base);
                 hpPotion.SetAmount(hpPotionAmount);
                 player.Inventory.AddPotionsContinue((int)PotionType.HPPotion, hpPotion);
             }
             if(saveObject.potionsAmount[(int)PotionType.MPPotion] > 0){
                 int mpPotionAmount = saveObject.potionsAmount[(int)PotionType.MPPotion];
-                print("mpPotion" + mpPotionAmount);
+                //print("mpPotion" + mpPotionAmount);
                 MPPotion mpPotion = Instantiate(mPPotion_base);
                 mpPotion.SetAmount(mpPotionAmount);
                 player.Inventory.AddPotionsContinue((int)PotionType.MPPotion, mpPotion);
+            }
+            for(int i = 0; i < saveObject.projectilesName.Length; ++i){
+                if(saveObject.projectilesName[i].Equals("Icebolt(RangeWeapon)")){
+                    player.Inventory.AddRangeWeapon(icebolt_RangeWeapon);
+                }else if(saveObject.projectilesName[i].Equals("IceAxe(RangeWeapon)")){
+                    player.Inventory.AddRangeWeapon(iceaxe_RangeWeapon);
+                }
             }
         }
     }
