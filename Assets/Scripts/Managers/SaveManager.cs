@@ -7,11 +7,8 @@ public static class SaveManager
     public static void SaveGame(Player player){
         SaveSystem.Init();
         SaveObject saveObject = new SaveObject{
-            position = player.transform.position,
-            projectiles = player.Inventory.projectiles,
-            unlockJumps = player.PlayerStateData.amountOfJump,
-            unlockDash = player.InputHandler.IsUnlockDash,
-            potions = player.Inventory.potions,
+            player = player,
+            position = player.transform.position
         };
         string json = JsonUtility.ToJson(saveObject);
         SaveSystem.Save(json);

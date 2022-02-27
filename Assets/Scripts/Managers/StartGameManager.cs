@@ -12,13 +12,11 @@ public class StartGameManager : MonoBehaviour
             SaveObject saveObject = SaveManager.LoadGame();
             GameObject playerPack = GameObject.Find("PlayerPack");
             playerPack.transform.position = saveObject.position;
-            Player player = playerPack.GetComponentInChildren<Player>();
-            player.unlockMultipleJump(saveObject.unlockJumps);
-            if(saveObject.unlockDash){
-                player.InputHandler.UnlockDash();
+            if(saveObject.player != null){
+                print("player save not null");
+            }else{
+                print("null");
             }
-            player.Inventory.potions = saveObject.potions;
-            player.Inventory.projectiles = saveObject.projectiles;
         }
     }
     // Start is called before the first frame update

@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour
 {
     private bool isUnlockDash;
-    public bool IsUnlockDash {get => isUnlockDash;}
     private PlayerInput playerInput;
     private Player player;
 

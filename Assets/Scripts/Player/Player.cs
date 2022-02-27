@@ -108,7 +108,7 @@ public class Player : Entity
 
         if (hpPotionInput)
         {
-            if (Inventory.potions[(int)PotionType.HPPotion] != null)
+            if (Inventory.potions.ContainsKey((int)PotionType.HPPotion))
             {
                 Inventory.potions[(int)PotionType.HPPotion].UsePotion();
                 InputHandler.UseHPPotionInput();
@@ -117,7 +117,7 @@ public class Player : Entity
 
         if (mpPotionInput)
         {
-            if (Inventory.potions[(int)PotionType.MPPotion] != null)
+            if (Inventory.potions.ContainsKey((int)PotionType.MPPotion))
             {
                 Inventory.potions[(int)PotionType.MPPotion].UsePotion();
                 InputHandler.UseMPPotionInput();
