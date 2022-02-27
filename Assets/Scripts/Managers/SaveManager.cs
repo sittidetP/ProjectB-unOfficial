@@ -6,8 +6,10 @@ public static class SaveManager
 {
     public static void SaveGame(Player player){
         SaveSystem.Init();
-        int[] potionAmountSave = {player.Inventory.potions[(int)PotionType.HPPotion].Amount,
-         player.Inventory.potions[(int)PotionType.MPPotion].Amount};
+        int hpPotionAmount = player.Inventory.potions.ContainsKey((int)PotionType.HPPotion) ? player.Inventory.potions[(int)PotionType.HPPotion].Amount : 0;
+        int mpPotionAmount = player.Inventory.potions.ContainsKey((int)PotionType.MPPotion) ? player.Inventory.potions[(int)PotionType.MPPotion].Amount : 0;
+
+        int[] potionAmountSave = {hpPotionAmount, mpPotionAmount};
         SaveObject saveObject = new SaveObject{
             position = player.transform.position,
             unlockJumps = player.UnlockJumps,

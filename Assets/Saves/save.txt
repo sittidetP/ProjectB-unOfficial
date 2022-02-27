@@ -1,1 +1,1 @@
-{"player":{"instanceID":67262},"position":{"x":19.000001907348634,"y":-1.8740661144256592,"z":0.0}}
+{"position":{"x":19.324865341186525,"y":-1.8740670680999756,"z":0.0},"projectilesName":[],"potionsAmount":[0,0],"unlockJumps":1,"unlockDash":false}
