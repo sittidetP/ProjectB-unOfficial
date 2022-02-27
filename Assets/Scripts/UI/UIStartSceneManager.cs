@@ -12,6 +12,7 @@ public class UIStartSceneManager : UISceneChanger
 
     private void Awake() {
         playerContinueData.isContinue = false;
+        print(SaveSystem.HasSave());
         onAwake?.Invoke(SaveSystem.HasSave());
     }
 

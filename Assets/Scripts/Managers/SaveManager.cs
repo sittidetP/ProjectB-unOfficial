@@ -10,6 +10,11 @@ public static class SaveManager
         int mpPotionAmount = player.Inventory.potions.ContainsKey((int)PotionType.MPPotion) ? player.Inventory.potions[(int)PotionType.MPPotion].Amount : 0;
 
         int[] potionAmountSave = {hpPotionAmount, mpPotionAmount};
+
+        string projectile1Name = player.Inventory.projectiles[0] != null ? player.Inventory.projectiles[0].name : null;
+        string projectile2Name = player.Inventory.projectiles[1] != null ? player.Inventory.projectiles[1].name : null;
+
+        Debug.Log(projectile1Name +  ", " + projectile2Name);
         SaveObject saveObject = new SaveObject{
             position = player.transform.position,
             unlockJumps = player.UnlockJumps,
