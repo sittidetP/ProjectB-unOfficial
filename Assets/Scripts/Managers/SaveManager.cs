@@ -14,12 +14,14 @@ public static class SaveManager
         string projectile1Name = player.Inventory.projectiles[0] != null ? player.Inventory.projectiles[0].name : null;
         string projectile2Name = player.Inventory.projectiles[1] != null ? player.Inventory.projectiles[1].name : null;
 
-        Debug.Log(projectile1Name +  ", " + projectile2Name);
+        //Debug.Log(projectile1Name +  ", " + projectile2Name);
+        string[] projectilesNameSave = {projectile1Name, projectile2Name};
         SaveObject saveObject = new SaveObject{
             position = player.transform.position,
             unlockJumps = player.UnlockJumps,
             unlockDash = player.InputHandler.IsUnlockDash,
-            potionsAmount = potionAmountSave
+            potionsAmount = potionAmountSave,
+            projectilesName = projectilesNameSave
         };
         string json = JsonUtility.ToJson(saveObject);
         SaveSystem.Save(json);
