@@ -22,7 +22,7 @@ public class CollisionSenses : CoreComponent
         private set => wallCheck = value;
     }
 
-    
+
 
     [SerializeField] private Transform groundCheckL;
     [SerializeField] private Transform groundCheckR;
@@ -35,19 +35,21 @@ public class CollisionSenses : CoreComponent
     [SerializeField] LayerMask whatIsGround;
     private BoxCollider2D entityCollider;
     private Vector2 colliderSize;
-    public bool isOnSlope{get; private set;}
+    public bool isOnSlope { get; private set; }
     private float slopeSideAngle;
     private float slopeDownAngle;
     private float slopeDownAngleOld;
-    public Vector2 slopeNormalPrep{get; private set;}
+    public Vector2 slopeNormalPrep { get; private set; }
 
 
     int localFacing = 1;
 
-    private void Start() {
+    private void Start()
+    {
         entityCollider = GetComponentInParent<BoxCollider2D>();
 
-        if(entityCollider != null){
+        if (entityCollider != null)
+        {
             //print("get collider : " + entityCollider.gameObject.name);
             colliderSize = entityCollider.size;
         }
@@ -62,20 +64,17 @@ public class CollisionSenses : CoreComponent
             return gLeft || gRight;
         }
     }
-/*
-    public bool Slope
+
+    public bool OnOtherGround(LayerMask otherGround)
     {
-        get
-        {
-            bool sLeft = Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsSlope);
-            bool sRight = Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, whatIsSlope);
-            return sLeft || sRight;
-        }
+        bool gLeft = Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, otherGround);
+        bool gRight = Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, otherGround);
+        return gLeft || gRight;
     }
-*/
+    
     public bool GroundLeft
     {
-        get =>  Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsGround);
     }
 
     public bool GroundRight
@@ -85,7 +84,7 @@ public class CollisionSenses : CoreComponent
 
     public bool Wall
     {
-        get => Physics2D.Raycast(wallCheck.position, Vector2.right*core.Movement.FacingDirection, wallCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(wallCheck.position, Vector2.right * core.Movement.FacingDirection, wallCheckDistance, whatIsGround);
     }
 
     public float getGroundCheckDistance()
@@ -101,7 +100,7 @@ public class CollisionSenses : CoreComponent
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
+
         slopeCheck();
     }
     public void slopeCheck()
@@ -112,7 +111,8 @@ public class CollisionSenses : CoreComponent
         slopeCheckVertical(checkPos);
     }
 
-    private void slopedCheckHorizontal(Vector2 checkPos){
+    private void slopedCheckHorizontal(Vector2 checkPos)
+    {
         RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, whatIsGround);
         RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, whatIsGround);
 
@@ -120,7 +120,8 @@ public class CollisionSenses : CoreComponent
         {
             isOnSlope = true;
             slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
-        }else if (slopeHitBack)
+        }
+        else if (slopeHitBack)
         {
             isOnSlope = true;
             slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
@@ -142,7 +143,7 @@ public class CollisionSenses : CoreComponent
 
             slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-            if(slopeDownAngle != slopeDownAngleOld)
+            if (slopeDownAngle != slopeDownAngleOld)
             {
                 isOnSlope = true;
             }
@@ -155,17 +156,18 @@ public class CollisionSenses : CoreComponent
     }
 
     private void OnDrawGizmos()
-    {        
-        if(core != null){
+    {
+        if (core != null)
+        {
             localFacing = core.Movement.FacingDirection;
         }
         Gizmos.color = Color.red;
-        if(groundCheckL != null)
-            Gizmos.DrawLine(groundCheckL.position, groundCheckL.position + (Vector3)(Vector2.down*groundCheckDistance));
-        if(groundCheckR != null)
-            Gizmos.DrawLine(groundCheckR.position, groundCheckR.position + (Vector3)(Vector2.down*groundCheckDistance));
+        if (groundCheckL != null)
+            Gizmos.DrawLine(groundCheckL.position, groundCheckL.position + (Vector3)(Vector2.down * groundCheckDistance));
+        if (groundCheckR != null)
+            Gizmos.DrawLine(groundCheckR.position, groundCheckR.position + (Vector3)(Vector2.down * groundCheckDistance));
         Gizmos.color = Color.green;
-        if(wallCheck != null)
-            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right*localFacing*wallCheckDistance));
+        if (wallCheck != null)
+            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * localFacing * wallCheckDistance));
     }
 }

@@ -26,6 +26,8 @@ MonoBehaviour:
   dashCooldown: 1
   deadFadeOutTime: 0.5
   alphaMultiple: 0.1
+  fadeRate: 30
+  gameOverScene: GameOverScene
   amountOfBlinks: 15
   rangeAttackCooldown: 0.3
   rangeAttackIdleTime: 0.35

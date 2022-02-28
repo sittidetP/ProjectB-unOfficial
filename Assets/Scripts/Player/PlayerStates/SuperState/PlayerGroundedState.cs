@@ -8,7 +8,6 @@ public class PlayerGroundedState : PlayerState
     protected int yInput;
 
     private bool isGround;
-
     private bool jumpInput;
     private bool primaryAttackInput;
     private bool secondaryAttackInput;
@@ -32,7 +31,7 @@ public class PlayerGroundedState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
-
+        
         isGround = core.CollisionSenses.Ground;
         yVelocity = core.Movement.CurrentVelocity.y;
     }
