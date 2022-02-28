@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoundariesData
 {
-    static bool[] isSpawnOnce;
+    public static bool[] isSpawnOnce;
 
     public static void InitBoundariesData(int boundaryAmount){
         isSpawnOnce = new bool[boundaryAmount];

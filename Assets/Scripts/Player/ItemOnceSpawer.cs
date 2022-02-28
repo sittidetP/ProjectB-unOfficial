@@ -6,21 +6,21 @@ public class ItemOnceSpawer : MonoBehaviour
 {
     [SerializeField] GameObject item;
     GameObject insItem;
-    private void OnEnable() {
-        insItem = Instantiate(item, transform.position, transform.rotation);
-        //print("enable");
+    Boundaries boundary;
+
+    private void Start() {
+        boundary = transform.parent.gameObject.GetComponent<Boundaries>();
+        if(!BoundariesData.isSpawnOnce[boundary.Index]){
+            insItem = Instantiate(item, transform.position, transform.rotation); 
+        } 
     }
 
     private void Update() {
         if(insItem != null){
-            print("item still here");
+            //print("item still here");
         }else{
-            print("item not here");
+            //print("item not here");
+            BoundariesData.isSpawnOnce[boundary.Index] = true;
         }
-    }
-
-    private void OnDisable() {
-        Destroy(insItem);
-        //print("disable");
     }
 }

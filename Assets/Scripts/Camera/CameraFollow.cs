@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] float speedWhenSmoothCameara;
     [SerializeField] bool smoothCam;
+    [SerializeField] PlayerContinueData playerContinueData;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,9 @@ public class CameraFollow : MonoBehaviour
     {
         boundaries = GameObject.FindGameObjectsWithTag("Boundary");
         allBounds = new Bounds[boundaries.Length];
-        BoundariesData.InitBoundariesData(boundaries.Length);
+        if(!playerContinueData.isContinue){
+            BoundariesData.InitBoundariesData(boundaries.Length);
+        }
         for(int i = 0; i < allBounds.Length; i++)
         {
             Boundaries boundary = boundaries[i].GetComponent<Boundaries>();

@@ -21,7 +21,8 @@ public static class SaveManager
             unlockJumps = player.UnlockJumps,
             unlockDash = player.InputHandler.IsUnlockDash,
             potionsAmount = potionAmountSave,
-            projectilesName = projectilesNameSave
+            projectilesName = projectilesNameSave,
+            isSpawnOnces = BoundariesData.isSpawnOnce,
         };
         string json = JsonUtility.ToJson(saveObject);
         SaveSystem.Save(json);

@@ -10,4 +10,5 @@ public class SaveObject
     public int[] potionsAmount;
     public int unlockJumps;
     public bool unlockDash;
+    public bool[] isSpawnOnces;
 }

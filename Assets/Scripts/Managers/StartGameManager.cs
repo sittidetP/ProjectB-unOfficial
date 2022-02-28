@@ -19,6 +19,7 @@ public class StartGameManager : MonoBehaviour
         if(playerContinueData.isContinue){
             //print("continue");
             SaveObject saveObject = SaveManager.LoadGame();
+            BoundariesData.isSpawnOnce = saveObject.isSpawnOnces;
             GameObject playerPack = GameObject.Find("PlayerPack");
             playerPack.transform.position = saveObject.position;
             Player player = playerPack.GetComponentInChildren<Player>();
