@@ -30,9 +30,11 @@ public class CameraFollow : MonoBehaviour
     {
         boundaries = GameObject.FindGameObjectsWithTag("Boundary");
         allBounds = new Bounds[boundaries.Length];
-
+        BoundariesData.InitBoundariesData(boundaries.Length);
         for(int i = 0; i < allBounds.Length; i++)
         {
+            Boundaries boundary = boundaries[i].GetComponent<Boundaries>();
+            boundary.SetIndex(i);
             allBounds[i] = boundaries[i].gameObject.GetComponent<BoxCollider2D>().bounds;
         }
     }

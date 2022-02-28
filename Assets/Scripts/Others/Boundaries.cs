@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boundaries : MonoBehaviour
 {
+    int index;
+    public int Index {get => index;}
     [SerializeField] GameObject[] objects;
 
     private Player player;
@@ -27,5 +29,9 @@ public class Boundaries : MonoBehaviour
         foreach(GameObject obj in objects){
             obj.gameObject.SetActive(value);
         }
+    }
+
+    public void SetIndex(int value){
+        index = value;
     }
 }

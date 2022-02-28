@@ -19,7 +19,7 @@ public class OneWayPlatform : MonoBehaviour
     {
         if (player != null)
         {
-            print(transform.parent.name + ", ftInput : " + player.InputHandler.FallThroughInput);
+            //print(transform.parent.name + ", ftInput : " + player.InputHandler.FallThroughInput);
             if (player.InputHandler.FallThroughInput)
             {
                 platformEffector2D.rotationalOffset = 180f;
