@@ -12,4 +12,8 @@ public class Coll_Potion : Collectable
         potion.SetPlayer(player);
         player.Inventory.AddPotions((int) potionType,potion);
     }
+
+    protected override bool canCollect() {
+        return !player.Inventory.PotionAmountIsMax((int)potionType);
+    }
 }

@@ -91,6 +91,18 @@ public class PlayerInventory : MonoBehaviour
         //DebugPotion();
     }
 
+    public bool PotionAmountIsMax(int indexPotion){
+        if(potions.ContainsKey(indexPotion)){
+            if(potions[indexPotion].Amount == potions[indexPotion].MaxAmount){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
     public void AddPotionsContinue(int indexPotion,Potion potion){
         potions.Add(indexPotion, potion);
         //DebugPotion();

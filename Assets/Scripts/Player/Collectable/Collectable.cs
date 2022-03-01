@@ -9,7 +9,7 @@ public abstract class Collectable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         player = other.GetComponent<Player>();
         if(player != null){
-            if(canCollect){
+            if(canCollect()){
                 ActionItem();
                 Destroy(gameObject);
             }
@@ -21,7 +21,7 @@ public abstract class Collectable : MonoBehaviour
         
     }
 
-    protected virtual bool canCollect{
-        get => true;
+    protected virtual bool canCollect(){
+        return true;
     }
 }

@@ -10,6 +10,7 @@ public abstract class Potion : MonoBehaviour
     protected Player player;
     public Sprite PotionSprite {get => potionSprite;}
     public int Amount {get => amount;}
+    public int MaxAmount {get => maxAmount;}
 
     public void UsePotion(){
         //print(amount);
