@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Potion : MonoBehaviour
 {
     [SerializeField] Sprite potionSprite;
+    [SerializeField] int maxAmount = 9;
     protected int amount = 0;
     protected Player player;
     public Sprite PotionSprite {get => potionSprite;}
@@ -23,7 +24,9 @@ public abstract class Potion : MonoBehaviour
     }
 
     public virtual void AddPotionAmount(){
-        amount++;
+        if(amount < maxAmount){
+            amount++;
+        }
     }
 
     public void SetZeroAmount(){
