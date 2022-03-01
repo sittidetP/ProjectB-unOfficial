@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2 : Entity
+public class Enemy2 : Enemy
 {
     public E2_IdleState IdleState {get; private set;}
     public E2_MoveState MoveState {get; private set;}
@@ -33,7 +33,7 @@ public class Enemy2 : Entity
         MeleeState = new E2_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         RangeState = new E2_RangeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackStateData, rangeAttackPosition, this);
         HurtState = new E2_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
-        DeadState = new E2_DeadState(this, StateMachine, "dead", this);
+        DeadState = new E2_DeadState(this, StateMachine, "dead", itemDroper, this);
     }
 
     private void Start()

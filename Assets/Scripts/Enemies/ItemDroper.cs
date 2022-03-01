@@ -11,7 +11,7 @@ public class ItemDroper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        halfRate = dropRate/2;
+        
         //DropItem();
     }
 
@@ -26,11 +26,25 @@ public class ItemDroper : MonoBehaviour
     }
 
     public void DropItem(){
+        halfRate = dropRate/2;
         float randNum = Random.Range(1f, 100f + 1);
         print(randNum + " : " + dropRate);
         if(randNum >= 50 - halfRate && randNum <= 50 + halfRate){
             int randNumInt = Random.Range(0, items.Length);
-            GameObject insItem = Instantiate(items[randNumInt], transform.position, transform.rotation);
+            GameObject insItem = Instantiate(items[randNumInt]);
+            //print("ok");
+        }else{
+            //print("salt");
+        }
+    }
+
+    public void DropItem(Transform parentTransform){
+        halfRate = dropRate/2;
+        float randNum = Random.Range(1f, 100f + 1);
+        print(randNum + " : " + dropRate);
+        if(randNum >= 50 - halfRate && randNum <= 50 + halfRate){
+            int randNumInt = Random.Range(0, items.Length);
+            GameObject insItem = Instantiate(items[randNumInt], parentTransform.position, parentTransform.rotation);
             //print("ok");
         }else{
             //print("salt");

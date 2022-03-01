@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BaseDeadState : State
 {
-    public BaseDeadState(Entity entity, FiniteStateMachine stateMachine, string animBoolName) : base(entity, stateMachine, animBoolName)
+    protected ItemDroper itemDroper;
+
+    public BaseDeadState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, ItemDroper itemDroper) : base(entity, stateMachine, animBoolName)
     {
+        this.itemDroper = itemDroper;
     }
 
     public override void Enter()

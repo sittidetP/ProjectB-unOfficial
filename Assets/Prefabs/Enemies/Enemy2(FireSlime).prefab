@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ae553dd406fbf47945612fe3527209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDroper: {fileID: 2537234120174096082, guid: fc52ca647cc270a4f8539e6997aa5f86, type: 3}
   idleStateData: {fileID: 11400000, guid: 4019ce409bfc7804ba9458f5e3a28d75, type: 2}
   moveStateData: {fileID: 11400000, guid: 7001ba49528f4134fbf431dcd9d90d99, type: 2}
   argoStateData: {fileID: 11400000, guid: ab3f1bef53d90704b9218d04f13a2406, type: 2}
