@@ -13,12 +13,16 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float speedWhenSmoothCameara;
     [SerializeField] bool smoothCam;
     [SerializeField] PlayerContinueData playerContinueData;
+
+    private void Awake() {
+        camBox = GetComponent<BoxCollider2D>();
+        FindLimits();
+    }
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
-        camBox = GetComponent<BoxCollider2D>();
-        FindLimits();
+        
     }
 
     private void LateUpdate()

@@ -10,7 +10,7 @@ public class ItemOnceSpawer : MonoBehaviour
 
     private void Start() {
         boundary = transform.parent.gameObject.GetComponent<Boundaries>();
-        if(!BoundariesData.isSpawnOnce[boundary.Index]){
+        if(BoundariesData.isSpawnOnce != null && !BoundariesData.isSpawnOnce[boundary.Index]){
             insItem = Instantiate(item, transform.position, transform.rotation); 
         } 
     }
