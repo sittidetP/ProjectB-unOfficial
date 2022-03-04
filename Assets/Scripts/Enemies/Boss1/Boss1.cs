@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Boss1 : Enemy
 {
-    
+    public B1_IdleState IdleState {get; private set;}
+
+    [SerializeField] BaseArgoStateData argoStateData;
+    [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
     [SerializeField] int debugFacing = 1;
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        IdleState = new B1_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
+    }
     // Start is called before the first frame update
     void Start()
     {
