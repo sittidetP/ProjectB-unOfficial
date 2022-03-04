@@ -9,4 +9,14 @@ public class B1_IdleState : BaseIdleState
     {
         this.boss1 = boss1;
     }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        if(distanceFromPlayer > argoStateData.minArgoDistance){
+            Debug.Log(distanceFromPlayer);
+            stateMachine.ChangeState(boss1.MoveState);
+        }
+    }
 }

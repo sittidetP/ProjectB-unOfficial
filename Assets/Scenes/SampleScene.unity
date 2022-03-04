@@ -3977,7 +3977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091328071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.16, y: 2.32, z: 0}
+  m_LocalPosition: {x: 50.46, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465003463}
@@ -11567,9 +11567,9 @@ GameObject:
   - component: {fileID: 9145705924509770019}
   - component: {fileID: 9145705924509770020}
   - component: {fileID: 9145705924509770021}
-  - component: {fileID: 9145705924509770022}
   - component: {fileID: 9145705924509770023}
   - component: {fileID: 9145705924509770040}
+  - component: {fileID: 9145705924509770022}
   m_Layer: 7
   m_Name: Boss1(BigSlime)
   m_TagString: Enemy
@@ -11585,7 +11585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145705924509770016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.26, y: -1.54, z: 0}
+  m_LocalPosition: {x: 75.8, y: -1.54, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 9145705925131957902}
@@ -11721,15 +11721,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9145705924509770016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297099740de45ff4cb20e7227d550445, type: 3}
+  m_Script: {fileID: 11500000, guid: a83712a101808c34f8b6815e9a429329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemDroper: {fileID: 2537234120174096082, guid: fc52ca647cc270a4f8539e6997aa5f86, type: 3}
-  idleStateData: {fileID: 11400000, guid: be37f9b60bcae674ba8581851d2a736a, type: 2}
-  moveStateData: {fileID: 11400000, guid: 52f586e47a9ece74eb03c76fe065494e, type: 2}
-  argoStateData: {fileID: 11400000, guid: 7a92db4ba52632745813c25d813cb767, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: cb08416a7ba05ba4882c1ef586ddb7ee, type: 2}
-  hurtStateData: {fileID: 11400000, guid: c7976417c8cb03d469f40e923fa2de14, type: 2}
+  argoStateData: {fileID: 11400000, guid: 538709c5b5bb6cc4c80a6278ddbd2b1c, type: 2}
+  idleStateData: {fileID: 11400000, guid: cb38085d87874ca4a9f3d26f5de2dcb3, type: 2}
+  moveStateData: {fileID: 11400000, guid: 25787617aa3282b4aa0568350e947a06, type: 2}
   enemyEye: {fileID: 9145705925853059212}
   meleeHitboxPosition: {fileID: 9145705924938886151}
   debugFacing: -1
@@ -11963,7 +11961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145705925853059211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68, y: 0, z: 0}
+  m_LocalPosition: {x: -0.68, y: -0.353, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9145705924509770017}

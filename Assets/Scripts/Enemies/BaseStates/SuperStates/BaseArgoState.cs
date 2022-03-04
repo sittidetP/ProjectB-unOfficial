@@ -13,8 +13,9 @@ public class BaseArgoState : State
     protected bool canPerformCloseRangeAction;
 
     private Transform enemyEye;
-    private Transform playerTransform;
+    protected Transform playerTransform;
     private BaseArgoStateData stateData;
+    protected float distanceFromPlayer;
 
     public BaseArgoState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye) : base(entity, stateMachine, animBoolName)
     {
@@ -44,5 +45,6 @@ public class BaseArgoState : State
     {
         base.LogicUpdate();
         playerTransform = GameObject.FindObjectOfType<Player>().transform;
+        distanceFromPlayer = Mathf.Abs(playerTransform.position.x - entity.gameObject.transform.position.x);
     }
 }
