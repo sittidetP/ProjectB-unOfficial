@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class UIGameOverManager : UISceneChanger
 {
     [SerializeField] string gameplayScene;
     [SerializeField] PlayerContinueData playerContinueData;
+
+    [SerializeField] UnityEvent<bool> onAwake; 
     private void Start() {
+        onAwake?.Invoke(SaveSystem.HasSave());
         UIFade.Instance.FadeIn();
     }
     public void QuitButton(){
