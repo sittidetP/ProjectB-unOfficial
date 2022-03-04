@@ -41,7 +41,7 @@ public class ItemDroper : MonoBehaviour
     public void DropItem(Transform parentTransform){
         halfRate = dropRate/2;
         float randNum = Random.Range(1f, 100f + 1);
-        print(randNum + " : " + dropRate);
+        //print(randNum + " : " + dropRate);
         if(randNum >= 50 - halfRate && randNum <= 50 + halfRate){
             int randNumInt = Random.Range(0, items.Length);
             GameObject insItem = Instantiate(items[randNumInt], parentTransform.position, parentTransform.rotation);

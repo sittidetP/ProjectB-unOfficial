@@ -33,7 +33,7 @@ public class SaveStatue : MonoBehaviour
                 onSaveGame?.Invoke();
             }
         }else{
-            print("player null");
+            //print("player null");
         }
     }
 }

@@ -71,7 +71,7 @@ public class PlayerRangeAttackState : PlayerAbilityState
 
     public bool CanShootRangeWeapon(){
         RangeWeapon rangeWeapon = player.Inventory.getSelectedRangeWeapon();
-        if(player.ExtraPlayer.PlayerMana.Mana >= rangeWeapon.ConsumedMP){
+        if(rangeWeapon != null && player.ExtraPlayer.PlayerMana.Mana >= rangeWeapon.ConsumedMP){
             return true;
         }else{
             return false;
