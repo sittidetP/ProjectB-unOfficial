@@ -15,7 +15,7 @@ public class B1_IdleState : BaseIdleState
         base.LogicUpdate();
 
         if(distanceFromPlayer > argoStateData.minArgoDistance){
-            Debug.Log(distanceFromPlayer);
+            //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss1.MoveState);
         }
     }

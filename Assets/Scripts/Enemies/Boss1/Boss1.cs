@@ -6,11 +6,14 @@ public class Boss1 : Enemy
 {
     public B1_IdleState IdleState {get; private set;}
     public B1_MoveState MoveState {get; private set;}
+    public B1_HurtState HurtState {get; private set;}
 
     [Header("States Data")]
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] BaseMoveStateData moveStateData;
+    [SerializeField] BaseHurtStateData hurtStateData;
+    [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
 
     [Header("Other Objects")]
     [SerializeField] Transform enemyEye;
@@ -24,12 +27,23 @@ public class Boss1 : Enemy
 
         IdleState = new B1_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
         MoveState = new B1_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
-
+        HurtState = new B1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
     }
     // Start is called before the first frame update
     void Start()
     {
         StateMachine.Initialize(MoveState);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if(Core.Stats.getIsDead()){
+            //StateMachine.ChangeState(DeadState);
+        }else if(Core.Combat.getIsDamaged()){
+            StateMachine.ChangeState(HurtState);
+        }
     }
 
     private void OnDrawGizmos() {
