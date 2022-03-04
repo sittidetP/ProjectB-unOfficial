@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Boss1 : Enemy
 {
+    
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
-
     [SerializeField] int debugFacing = 1;
     // Start is called before the first frame update
     void Start()
