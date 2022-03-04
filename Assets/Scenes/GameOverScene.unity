@@ -582,6 +582,21 @@ MonoBehaviour:
   startScene: StartScene
   gameplayScene: SampleScene
   playerContinueData: {fileID: 11400000, guid: 0f40b2146b2f1ae428a1a84b01aeee0e, type: 2}
+  onAwake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1375332503}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1389399310
 GameObject:
   m_ObjectHideFlags: 0
