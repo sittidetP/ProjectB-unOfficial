@@ -13,6 +13,7 @@ public class BaseArgoState : State
     protected bool canPerformCloseRangeAction;
 
     private Transform enemyEye;
+    private Transform playerTransform;
     private BaseArgoStateData stateData;
 
     public BaseArgoState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye) : base(entity, stateMachine, animBoolName)
@@ -37,5 +38,11 @@ public class BaseArgoState : State
         Debug.Log("isMinArgoRange : " + isMinArgoRange);
         Debug.Log("canPerformCloseRangeAction : " + canPerformCloseRangeAction);
         */
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        playerTransform = GameObject.FindObjectOfType<Player>().transform;
     }
 }
