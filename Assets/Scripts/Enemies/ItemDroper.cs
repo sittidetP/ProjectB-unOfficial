@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDroper : MonoBehaviour
+public class ItemDroper : MonoBehaviour, IDropableItem
 {
     [Range(1, 100)] [SerializeField] float dropRate;
     [SerializeField] GameObject[] items;
