@@ -20,9 +20,9 @@ public class ItemOnceSpawer : MonoBehaviour
 
     private void Update() {
         if(insItem != null){
-            //print("item still here");
+            print("item : " + item.name + " still here");
         }else{
-            //print("item not here");
+            print("item : " + item.name + " not here");
             BoundariesData.isSpawnOnce[boundary.Index] = true;
         }
     }

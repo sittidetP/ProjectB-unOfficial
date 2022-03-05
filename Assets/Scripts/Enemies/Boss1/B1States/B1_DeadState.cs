@@ -14,6 +14,7 @@ public class B1_DeadState : BaseDeadState
     {
         base.AnimationFinishTrigger();
         itemDroper.DropItem(boss1.transform);
-        entity.gameObject.SetActive(false);
+        //entity.gameObject.SetActive(false);
+        GameObject.Destroy(entity.gameObject);
     }
 }
