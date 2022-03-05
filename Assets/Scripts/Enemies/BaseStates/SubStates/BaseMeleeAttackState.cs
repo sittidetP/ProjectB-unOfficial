@@ -16,7 +16,7 @@ public class BaseMeleeAttackState : BaseAttackState
     {
         base.Enter();
         //canAttack = true;
-        core.Movement.SetVelocityX(meleeAttackData.attackVelocity);
+        core.Movement.SetVelocityX(meleeAttackData.attackVelocity * core.Movement.FacingDirection);
     }
 
     public override void AnimationTrigger()

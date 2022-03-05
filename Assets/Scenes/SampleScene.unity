@@ -11791,6 +11791,7 @@ MonoBehaviour:
   moveStateData: {fileID: 11400000, guid: 25787617aa3282b4aa0568350e947a06, type: 2}
   hurtStateData: {fileID: 11400000, guid: 50ddcf199606b3d4d9923b2ae32df03a, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: 00e789b21c252af41bb46a9c8bdea9dd, type: 2}
+  tackleStateData: {fileID: 11400000, guid: 0038a7df9520b204f9176f07448396c1, type: 2}
   enemyEye: {fileID: 9145705925853059212}
   meleeHitboxPosition: {fileID: 9145705924938886151}
   debugFacing: -1
