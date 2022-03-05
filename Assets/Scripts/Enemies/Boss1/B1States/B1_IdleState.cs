@@ -23,6 +23,11 @@ public class B1_IdleState : BaseIdleState
         }else if(distanceFromPlayer > argoStateData.minArgoDistance){
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss1.MoveState);
+        }else if((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x) 
+        || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x)){
+            //Debug.Log("player on behind");
+            entity.Core.Movement.Filp();
+            //stateMachine.ChangeState(boss1.MoveState);
         }
     }
 }
