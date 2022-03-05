@@ -6,6 +6,7 @@ public class Boss1 : Enemy
 {
     public B1_IdleState IdleState {get; private set;}
     public B1_MoveState MoveState {get; private set;}
+    public B1_MeleeAttackState MeleeAttackState {get; private set;}
     public B1_HurtState HurtState {get; private set;}
     public B1_DeadState DeadState {get; private set;}
 
@@ -28,6 +29,7 @@ public class Boss1 : Enemy
 
         IdleState = new B1_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
         MoveState = new B1_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
+        MeleeAttackState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         HurtState = new B1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
         DeadState = new B1_DeadState(this, StateMachine, "dead", itemDroper, this);
     }
@@ -60,10 +62,10 @@ public class Boss1 : Enemy
             Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.minArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
             Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.maxArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
         }
-        /*
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(meleeHitboxPosition.position, meleeAttackStateData.HitboxRadius);
-        */
+        
         Gizmos.color = Color.blue;
         if(enemyEye != null){
             Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * debugFacing * argoStateData.closeToPlayerDistance);

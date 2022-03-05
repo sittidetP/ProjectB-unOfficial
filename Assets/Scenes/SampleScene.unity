@@ -11790,7 +11790,7 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: cb38085d87874ca4a9f3d26f5de2dcb3, type: 2}
   moveStateData: {fileID: 11400000, guid: 25787617aa3282b4aa0568350e947a06, type: 2}
   hurtStateData: {fileID: 11400000, guid: 50ddcf199606b3d4d9923b2ae32df03a, type: 2}
-  meleeAttackStateData: {fileID: 0}
+  meleeAttackStateData: {fileID: 11400000, guid: 00e789b21c252af41bb46a9c8bdea9dd, type: 2}
   enemyEye: {fileID: 9145705925853059212}
   meleeHitboxPosition: {fileID: 9145705924938886151}
   debugFacing: -1
@@ -11872,7 +11872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145705924938886150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.484, y: 0, z: 0}
+  m_LocalPosition: {x: -0.476, y: -0.251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9145705924509770017}
@@ -12024,7 +12024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145705925853059211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68, y: -0.353, z: 0}
+  m_LocalPosition: {x: -0.477, y: -0.253, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9145705924509770017}
