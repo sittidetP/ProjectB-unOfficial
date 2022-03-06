@@ -8,11 +8,18 @@ public class UIGameOverManager : UISceneChanger
 {
     [SerializeField] string gameplayScene;
     [SerializeField] PlayerContinueData playerContinueData;
-
-    [SerializeField] UnityEvent<bool> onAwake; 
+    [SerializeField] AudioSource gameOverAudio;
+    [SerializeField] UnityEvent<bool> onAwake;
+    [SerializeField] UnityEvent onEndMusic;
     private void Start() {
         onAwake?.Invoke(SaveSystem.HasSave());
         UIFade.Instance.FadeIn();
+    }
+
+    private void Update() {
+        if(!gameOverAudio.isPlaying){
+            onEndMusic?.Invoke();
+        }
     }
     public void QuitButton(){
         UIFade.Instance.FadeOut();
