@@ -24,7 +24,9 @@ public class Boss1 : Enemy
     [SerializeField] Transform meleeHitboxPosition;
     [SerializeField] int debugFacing = 1;
     float gizmosDrawRadius = 0.25f;
-
+    Material normalMaterial;
+    bool isHurt;
+    float startTime;
     public override void Awake()
     {
         base.Awake();
@@ -39,6 +41,7 @@ public class Boss1 : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        normalMaterial = SpriteRenderer.material;
         StateMachine.Initialize(MoveState);
     }
 
@@ -49,7 +52,22 @@ public class Boss1 : Enemy
         if(Core.Stats.getIsDead()){
             StateMachine.ChangeState(DeadState);
         }else if(Core.Combat.getIsDamaged()){
-            StateMachine.ChangeState(HurtState);
+            BlinkWhenDamaged();
+            //StateMachine.ChangeState(HurtState);
+        }
+    }
+
+    private void BlinkWhenDamaged(){
+        if(!isHurt){
+            startTime = Time.time;
+            isHurt = true;
+        }
+        if(isHurt && Time.time > startTime + hurtStateData.hurtDuration){
+            SpriteRenderer.material = normalMaterial;
+            Core.Combat.setIsNotDamage();
+            isHurt = false;
+        }else if(isHurt && Time.time <= startTime + hurtStateData.hurtDuration) {
+            SpriteRenderer.material = hurtStateData.hurtMaterial;
         }
     }
 
