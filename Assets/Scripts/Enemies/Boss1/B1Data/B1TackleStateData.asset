@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: B1TackleStateData
   m_EditorClassIdentifier: 
   HitboxRadius: 1
-  attackDamage: 20
+  attackDamage: 15
   attackVelocity: 10
   cooldownTime: 0.5

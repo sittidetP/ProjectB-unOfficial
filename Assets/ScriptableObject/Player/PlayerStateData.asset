@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStateData
   m_EditorClassIdentifier: 
   moveVelocity: 6
-  jumpVelocity: 10.5
+  jumpVelocity: 10.1
   jumpBootsMultipiler: 0.475
   amountOfJump: 1
   jumpVelocityFalloffs: 4

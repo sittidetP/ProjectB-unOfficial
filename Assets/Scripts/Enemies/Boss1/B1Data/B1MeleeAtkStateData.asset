@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: B1MeleeAtkStateData
   m_EditorClassIdentifier: 
   HitboxRadius: 1
-  attackDamage: 15
+  attackDamage: 12.5
   attackVelocity: 0
   cooldownTime: 0.5
