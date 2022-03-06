@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     private Transform player;
     private BoxCollider2D camBox;
     private GameObject[] boundaries;
+    private GameObject[] musicboundaries;
     private Bounds[] allBounds;
     private Bounds targetBound;
 
