@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossSpawner : MonoBehaviour
 {
     [SerializeField] GameObject boss;
     [SerializeField] BoxCollider2D[] invicibleBoxes;
+    [SerializeField] UnityEvent onBossStart;
+    [SerializeField] UnityEvent onBossDead;
     GameObject insBoss;
     Boundaries boundary;
 
@@ -14,6 +17,7 @@ public class BossSpawner : MonoBehaviour
         if(insBoss == null && BoundariesData.isSpawnOnce != null && !BoundariesData.isSpawnOnce[boundary.Index]){
             insBoss = Instantiate(boss, transform.position, transform.rotation);
             foreach(BoxCollider2D box in invicibleBoxes){
+                onBossStart?.Invoke();
                 box.gameObject.SetActive(true);
             }
         } 
@@ -27,6 +31,7 @@ public class BossSpawner : MonoBehaviour
             //print("item still here");
         }else{
             foreach(BoxCollider2D box in invicibleBoxes){
+                onBossDead?.Invoke();
                 box.gameObject.SetActive(false);
             }
             //print("item not here");
