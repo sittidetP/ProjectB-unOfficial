@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackTime: 0.2
-  damageCooldown: 0.3
+  damageCooldown: 0.4
 --- !u!1 &1132229288821065033
 GameObject:
   m_ObjectHideFlags: 0

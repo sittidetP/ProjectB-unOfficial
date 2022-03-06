@@ -31,8 +31,10 @@ public class BossSpawner : MonoBehaviour
             //print("item still here");
         }else{
             foreach(BoxCollider2D box in invicibleBoxes){
-                onBossDead?.Invoke();
                 box.gameObject.SetActive(false);
+            }
+            if(!BoundariesData.isSpawnOnce[boundary.Index]){
+                onBossDead?.Invoke();
             }
             //print("item not here");
             BoundariesData.isSpawnOnce[boundary.Index] = true;
