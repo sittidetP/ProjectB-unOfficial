@@ -46,6 +46,10 @@ public class PlayerMana : MonoBehaviour
         }
     }
 
+    public void IncreaseMaxMana(float amount){
+        maxMana += amount;
+    }
+
     public void SetMPFull(){
         IncreaseMana(maxMana);
     }
