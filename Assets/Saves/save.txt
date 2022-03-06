@@ -1,1 +1,0 @@
-{"position":{"x":18.930322647094728,"y":-1.8740553855895997,"z":0.0},"projectilesName":["",""],"potionsAmount":[1,0],"unlockJumps":1,"unlockDash":false,"isSpawnOnces":[false,false,false,false,false]}
