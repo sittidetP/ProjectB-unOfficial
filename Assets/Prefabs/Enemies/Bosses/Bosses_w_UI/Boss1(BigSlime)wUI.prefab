@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackTime: 0.2
-  damageCooldown: 0.52
+  damageCooldown: 0.55
 --- !u!1 &1132229288821065033
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1778711737
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1642411427894752515, guid: 57ab0fb6772b5e240bcbd7fbc7fad1e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

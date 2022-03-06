@@ -15,6 +15,8 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        GameObject weaponsBase = GameObject.Find("Weapons");
+        weaponsBase?.SetActive(false);
         alphaSprite = 1f;
     }
 
