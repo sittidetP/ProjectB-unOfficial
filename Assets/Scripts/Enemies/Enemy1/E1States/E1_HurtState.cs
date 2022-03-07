@@ -13,7 +13,7 @@ public class E1_HurtState : BaseHurtState
     public override void Enter()
     {
         base.Enter();
-
+        enemy1.AudioSource.PlayOneShot(hurtStateData.hitSFX);
         core.Movement.SetVelocityZero();
     }
 

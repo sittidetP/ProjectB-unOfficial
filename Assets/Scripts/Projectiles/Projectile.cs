@@ -72,7 +72,9 @@ public class Projectile : CoreProjectile, IDamageable
     private void BeingHit()
     {
         animator?.SetTrigger("isHit");
-
+        if(destroySFX != null){
+            audioSource.PlayOneShot(destroySFX);
+        }
         RB.velocity = Vector2.zero;
     }
 

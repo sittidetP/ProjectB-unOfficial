@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseHurtState : State
 {
-    BaseHurtStateData hurtStateData;
+    protected BaseHurtStateData hurtStateData;
     SpriteRenderer sr;
     Material normalMaterial;
     protected bool isHurtOver;

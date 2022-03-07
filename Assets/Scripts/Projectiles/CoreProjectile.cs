@@ -10,6 +10,8 @@ public abstract class CoreProjectile : MonoBehaviour
     [SerializeField] protected int facingDiraction;
     [SerializeField] protected Transform checkPosition;
     [SerializeField] protected float checkRadius = 0.5f;
+    [SerializeField] protected AudioClip shootSFX;
+    [SerializeField] protected AudioClip destroySFX;
     protected Animator animator;
     protected int shooterFacingDirection;
     protected LayerMask whatToDamage;
@@ -19,6 +21,7 @@ public abstract class CoreProjectile : MonoBehaviour
     protected bool isAnimationFinished;
     protected bool[] hasLayers = new bool[32];
     protected int shooterLayer;
+    protected AudioSource audioSource;
     private void CheckMasks()
     {
         for (int i = 0; i < 32; i++)
@@ -36,6 +39,7 @@ public abstract class CoreProjectile : MonoBehaviour
     {
         RB = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected void Start() {
@@ -66,7 +70,9 @@ public abstract class CoreProjectile : MonoBehaviour
     public virtual void Fire(){
         
         fireTime = Time.time;
-        
+        if(shootSFX){
+            audioSource.PlayOneShot(shootSFX);
+        }
         //SetVelocity(projectileVelocity, angle, facingDiraction);
     }
 
