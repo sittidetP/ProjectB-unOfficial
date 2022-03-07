@@ -9,4 +9,5 @@ public class BaseMeleeAttackStateData : ScriptableObject
     public float attackDamage = 5f;
     public float attackVelocity = 0.0f;
     public float cooldownTime = 0.5f;
+    public AudioClip attackSFX;
 }
