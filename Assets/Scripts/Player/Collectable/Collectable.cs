@@ -5,13 +5,21 @@ using UnityEngine;
 public abstract class Collectable : MonoBehaviour
 {
     protected Player player;
+    protected AudioSource audioSource;
+
+    private void Awake() {
+        audioSource = GetComponent<AudioSource>();
+    }
     
     private void OnTriggerEnter2D(Collider2D other) {
         player = other.GetComponent<Player>();
         if(player != null){
             if(canCollect()){
                 ActionItem();
-                Destroy(gameObject);
+                audioSource.Play();
+                if(!audioSource.isPlaying){
+                    //Destroy(gameObject);
+                }
             }
             
         }
