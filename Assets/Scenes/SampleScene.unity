@@ -1292,12 +1292,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055269813987949831, guid: 2fd1402ce634570448dded1847a3785d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9055269813987949835, guid: 2fd1402ce634570448dded1847a3785d, type: 3}
-      propertyPath: deadSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 027a5eccdcc2f134592f32943e8b95ab, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd1402ce634570448dded1847a3785d, type: 3}
 --- !u!1 &351762509

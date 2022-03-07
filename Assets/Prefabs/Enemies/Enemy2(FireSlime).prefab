@@ -314,6 +314,7 @@ MonoBehaviour:
   meleeHitboxPosition: {fileID: 9055269815038275616}
   rangeAttackPosition: {fileID: 8934240376534179477}
   debugFacing: -1
+  deadSFX: {fileID: 8300000, guid: 027a5eccdcc2f134592f32943e8b95ab, type: 3}
 --- !u!82 &-4017407717190469838
 AudioSource:
   m_ObjectHideFlags: 0
