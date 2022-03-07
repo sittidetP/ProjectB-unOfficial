@@ -16,7 +16,7 @@ MonoBehaviour:
   jumpVelocity: 10.1
   jumpBootsMultipiler: 0.475
   amountOfJump: 1
-  jumpSFX: {fileID: 8300000, guid: 9c047334149266543a492bc1aad59ebf, type: 3}
+  jumpSFX: {fileID: 8300000, guid: 91cd1b2f8fa10f144b8809345854514a, type: 3}
   jumpVelocityFalloffs: 4
   fallMultipiler: 4
   coyoteTime: 0.17
