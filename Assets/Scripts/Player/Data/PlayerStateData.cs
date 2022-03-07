@@ -31,9 +31,11 @@ public class PlayerStateData : ScriptableObject
     public float deadFadeOutTime = 0.5f;
     public float alphaMultiple = 0.1f;
     public int fadeRate = 30;
+    public AudioClip deadSFX;
     public string gameOverScene = "GameOverScene";
     [Header("Hurt effect")]
     public int amountOfBlinks = 15;
+    public AudioClip hurtSFX;
     [Header("Range Attack State")]
     public float rangeAttackCooldown = 0.1f;
     public float rangeAttackIdleTime = 0.3f;

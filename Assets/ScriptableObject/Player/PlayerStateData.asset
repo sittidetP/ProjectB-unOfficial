@@ -16,6 +16,7 @@ MonoBehaviour:
   jumpVelocity: 10.1
   jumpBootsMultipiler: 0.475
   amountOfJump: 1
+  jumpSFX: {fileID: 8300000, guid: 9c047334149266543a492bc1aad59ebf, type: 3}
   jumpVelocityFalloffs: 4
   fallMultipiler: 4
   coyoteTime: 0.17
@@ -24,12 +25,14 @@ MonoBehaviour:
   dashGLinearDrag: 20
   distBetweenAfterImage: 0.5
   dashCooldown: 0.7
-  dashSFX: {fileID: 8300000, guid: 01d7c7a9b2e792d4298075764b405c4f, type: 3}
+  dashSFX: {fileID: 8300000, guid: c8177370a8d79394e86c7e2b5ee11b65, type: 3}
   deadFadeOutTime: 0.5
   alphaMultiple: 0.1
   fadeRate: 30
+  deadSFX: {fileID: 8300000, guid: 348b73c127fd3f948930661f7908f672, type: 3}
   gameOverScene: GameOverScene
   amountOfBlinks: 15
+  hurtSFX: {fileID: 8300000, guid: fe2cdda21792a084ab9be8035776f909, type: 3}
   rangeAttackCooldown: 0.3
   rangeAttackIdleTime: 0.35
   whatToDamage:

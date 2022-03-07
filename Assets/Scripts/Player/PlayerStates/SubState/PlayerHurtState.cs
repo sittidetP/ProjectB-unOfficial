@@ -11,7 +11,7 @@ public class PlayerHurtState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
+        player.OnPlaySFX?.Invoke(playerStateData.hurtSFX);
         player.Inventory.getSelectedWeapon().SetAnimationFalse();
         player.Inventory.getSelectedWeapon().gameObject.SetActive(false);
     }

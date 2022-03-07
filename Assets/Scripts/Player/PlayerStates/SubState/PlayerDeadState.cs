@@ -8,6 +8,7 @@ public class PlayerDeadState : PlayerState
     private float deadTime;
     private float alphaSprite;
     private float alphaDelta;
+    int enterState = 0;
     public PlayerDeadState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
     {
     }
@@ -15,6 +16,12 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        //Debug.Log("dead");
+        enterState++;
+        if(enterState == 1){
+            player.OnPlaySFX?.Invoke(playerStateData.deadSFX);
+        }
+        //
         GameObject weaponsBase = GameObject.Find("Weapons");
         weaponsBase?.SetActive(false);
         alphaSprite = 1f;
