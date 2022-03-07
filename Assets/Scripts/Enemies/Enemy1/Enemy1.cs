@@ -19,6 +19,8 @@ public class Enemy1 : Enemy
     [SerializeField] Transform meleeHitboxPosition;
 
     [SerializeField] int debugFacing = 1;
+    [SerializeField] AudioClip deadSFX;
+    public AudioClip DeadSFX {get => deadSFX;}
 
     //SpriteRenderer sr;
     //AttackStateToAnimation atk2ani;

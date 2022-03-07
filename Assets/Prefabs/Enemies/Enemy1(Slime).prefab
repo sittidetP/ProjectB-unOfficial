@@ -492,6 +492,7 @@ MonoBehaviour:
   enemyEye: {fileID: 6296472936415313004}
   meleeHitboxPosition: {fileID: 6296472937447278823}
   debugFacing: -1
+  deadSFX: {fileID: 8300000, guid: 027a5eccdcc2f134592f32943e8b95ab, type: 3}
 --- !u!114 &6296472938293626311
 MonoBehaviour:
   m_ObjectHideFlags: 0
