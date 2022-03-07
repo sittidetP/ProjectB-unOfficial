@@ -12,6 +12,7 @@ public class PlayerStateData : ScriptableObject
     public float jumpVelocity = 7;
     public float jumpBootsMultipiler = 1.5f;
     public int amountOfJump = 2;
+    public AudioClip jumpSFX;
 
     [Header("MidAir State")]
     public float jumpVelocityFalloffs = -5f;

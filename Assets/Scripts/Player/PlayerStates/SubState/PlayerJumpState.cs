@@ -22,6 +22,7 @@ public class PlayerJumpState : PlayerAbilityState
     {
         base.Enter();
         startJumpTime = Time.time;
+        player.OnPlaySFX?.Invoke(playerStateData.jumpSFX);
         player.InputHandler.UseJumpInput();
         if (player.DashState.IsJustDash)
         {
