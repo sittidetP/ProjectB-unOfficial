@@ -531,7 +531,7 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: be37f9b60bcae674ba8581851d2a736a, type: 2}
   moveStateData: {fileID: 11400000, guid: 52f586e47a9ece74eb03c76fe065494e, type: 2}
   argoStateData: {fileID: 11400000, guid: 9353811ef24c429409cb0cb0c2b1e1ef, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: cb08416a7ba05ba4882c1ef586ddb7ee, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: 93fac0a0d59a9424abc5e8fecddfbaf5, type: 2}
   hurtStateData: {fileID: 11400000, guid: c7976417c8cb03d469f40e923fa2de14, type: 2}
   enemyEye: {fileID: 1000717849702866224}
   meleeHitboxPosition: {fileID: 1000717850533194171}
