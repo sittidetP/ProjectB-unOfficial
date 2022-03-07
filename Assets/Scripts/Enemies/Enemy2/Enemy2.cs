@@ -21,6 +21,8 @@ public class Enemy2 : Enemy
     [SerializeField] Transform rangeAttackPosition;
 
     [SerializeField] int debugFacing = 1;
+    [SerializeField] AudioClip deadSFX;
+    public AudioClip DeadSFX {get => deadSFX;}
     //AttackStateToAnimation atk2ani;
 
     float gizmosDrawRadius = 0.25f;

@@ -23,6 +23,8 @@ public class Boss1 : Enemy
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
     [SerializeField] int debugFacing = 1;
+    [SerializeField] AudioClip deadSFX;
+    public AudioClip DeadSFX {get => deadSFX;}
     float gizmosDrawRadius = 0.25f;
     Material normalMaterial;
     bool isHurt;
@@ -59,6 +61,7 @@ public class Boss1 : Enemy
 
     private void BlinkWhenDamaged(){
         if(!isHurt){
+            AudioSource.PlayOneShot(hurtStateData.hitSFX);
             startTime = Time.time;
             isHurt = true;
         }

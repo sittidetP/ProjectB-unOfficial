@@ -358,6 +358,7 @@ MonoBehaviour:
   enemyEye: {fileID: 1132229289851664152}
   meleeHitboxPosition: {fileID: 1132229289004254099}
   debugFacing: -1
+  deadSFX: {fileID: 8300000, guid: 027a5eccdcc2f134592f32943e8b95ab, type: 3}
 --- !u!82 &-8725114488931972173
 AudioSource:
   m_ObjectHideFlags: 0
