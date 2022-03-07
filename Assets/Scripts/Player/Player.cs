@@ -156,4 +156,8 @@ public class Player : Entity
         playerStateData.amountOfJump = unlockJumps;
     }
 
+    public void PlayCollectSFX(AudioClip audioClip){
+        onPlaySFX?.Invoke(audioClip);
+    }
+
 }
