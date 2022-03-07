@@ -23,7 +23,8 @@ MonoBehaviour:
   dashDuration: 0.2
   dashGLinearDrag: 20
   distBetweenAfterImage: 0.5
-  dashCooldown: 1
+  dashCooldown: 0.7
+  dashSFX: {fileID: 8300000, guid: 01d7c7a9b2e792d4298075764b405c4f, type: 3}
   deadFadeOutTime: 0.5
   alphaMultiple: 0.1
   fadeRate: 30

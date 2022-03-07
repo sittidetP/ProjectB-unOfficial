@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] protected string weaponName;
     [SerializeField] float waitAttackDuration = 0.1f;
     [SerializeField] protected SO_WeaponData weaponData;
+    [SerializeField] AudioSource attackSFX;
+
 
     public float WaitAttackDuration{ get; private set; }
     protected PlayerAttackState attackState;
@@ -30,7 +33,8 @@ public class Weapon : MonoBehaviour
     public virtual void EnterWeapon()
     {
         gameObject.SetActive(true);
-
+        
+        attackSFX?.Play();
         SetZeroAttackCounter();
         if (attackCounter >= weaponData.AttackDetails.Length)
         {

@@ -41,6 +41,7 @@ public class PlayerDashState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
+        player.OnPlaySFX?.Invoke(playerStateData.dashSFX);
         playerGScale = core.Movement.RB.gravityScale;
         player.InputHandler.UseDashInput();
         startDash = Time.time;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class Player : Entity
@@ -23,6 +24,8 @@ public class Player : Entity
 
     [SerializeField] PlayerStateData playerStateData;
     [SerializeField] Transform rangeAttackPos;
+    [SerializeField] UnityEvent<AudioClip> onPlaySFX;
+    public UnityEvent<AudioClip> OnPlaySFX {get => onPlaySFX;}
     public PlayerStateData PlayerStateData { get => playerStateData; private set => playerStateData = value; }
 
     public PlayerInventory Inventory { get; private set; }
