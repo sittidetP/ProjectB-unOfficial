@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class SaveManager
+public class SaveManager : MonoBehaviour
 {
+    //[SerializeField] Player player;
     public static void SaveGame(Player player){
         SaveSystem.Init();
         int hpPotionAmount = player.Inventory.potions.ContainsKey((int)PotionType.HPPotion) ? player.Inventory.potions[(int)PotionType.HPPotion].Amount : 0;
