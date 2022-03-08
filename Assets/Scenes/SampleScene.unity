@@ -1290,6 +1290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2(FireSlime)
       objectReference: {fileID: 0}
+    - target: {fileID: 9055269813987949831, guid: 2fd1402ce634570448dded1847a3785d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd1402ce634570448dded1847a3785d, type: 3}
 --- !u!1 &351762509
@@ -10805,10 +10809,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2607840064156321001, guid: d88a590945dfc4d4b8162de3f789342f, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -180437054971051268, guid: e54babda4071b404cba359957f4e1718, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88a590945dfc4d4b8162de3f789342f, type: 3}
 --- !u!1 &2077744637 stripped
