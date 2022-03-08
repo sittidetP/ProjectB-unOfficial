@@ -1,1 +1,1 @@
-{"position":{"x":19.281835556030275,"y":-1.8740599155426026,"z":0.0},"projectilesName":["Icebolt(RangeWeapon)",""],"potionsAmount":[0,0],"unlockJumps":1,"unlockDash":false,"isSpawnOnces":[false,true,false,false,false]}
+{"position":{"x":-14.70999526977539,"y":-1.874068260192871,"z":0.0},"projectilesName":["Icebolt(RangeWeapon)",""],"potionsAmount":[0,0],"unlockJumps":1,"unlockDash":false,"isSpawnOnces":[false,true,false,false,false]}
