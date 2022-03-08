@@ -6,7 +6,7 @@ using UnityEngine;
 public static class SaveSystem
 {
     private static readonly string SAVE_FOLDER = Application.dataPath + "/Saves/";
-    private static readonly string SAVE_OPTION_FOLDER = Application.dataPath + "/Saves/";
+    private static readonly string SAVE_OPTION_FOLDER = Application.dataPath + "/SaveOptions/";
     
     private const string SAVE_EXTENSION = "txt";
 
@@ -35,6 +35,18 @@ public static class SaveSystem
             return true;
         }
         return false;
+    }
+
+    public static void SaveOption(string saveString){
+        File.WriteAllText(SAVE_OPTION_FOLDER + "saveOpt" + "." + SAVE_EXTENSION, saveString);
+    }
+
+    public static string LoadOption(){
+        if(File.Exists(SAVE_OPTION_FOLDER + "saveOpt" + "." + SAVE_EXTENSION)){
+            string saveString = File.ReadAllText(SAVE_OPTION_FOLDER + "saveOpt" + "." + SAVE_EXTENSION);
+            return saveString;
+        }
+        return null;
     }
 
 }

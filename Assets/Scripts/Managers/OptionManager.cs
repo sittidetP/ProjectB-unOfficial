@@ -20,4 +20,16 @@ public class OptionManager : MonoBehaviour
     {
         
     }
+
+    public void SetBGM(float vol){
+        if(mixer != null){
+
+        }
+    }
+
+    public void SetSE(float vol){
+        if(mixer != null){
+            
+        }
+    }
 }
