@@ -16,3 +16,4 @@ MonoBehaviour:
   attackDamage: 12.5
   attackVelocity: 0
   cooldownTime: 0.5
+  attackSFX: {fileID: 8300000, guid: fe2b5e5bbfd8c334f91286d1dac4dcbf, type: 3}

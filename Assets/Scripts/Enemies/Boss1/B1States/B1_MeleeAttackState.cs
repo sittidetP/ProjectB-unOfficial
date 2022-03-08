@@ -18,4 +18,10 @@ public class B1_MeleeAttackState : BaseMeleeAttackState
             stateMachine.ChangeState(boss1.MoveState);
         }
     }
+
+    public override void AnimationTrigger()
+    {
+        base.AnimationTrigger();
+        boss1.AudioSource.PlayOneShot(meleeAttackData.attackSFX);
+    }
 }
