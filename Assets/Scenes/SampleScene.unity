@@ -1692,6 +1692,7 @@ GameObject:
   - component: {fileID: 421287349}
   - component: {fileID: 421287351}
   - component: {fileID: 421287350}
+  - component: {fileID: 421287352}
   m_Layer: 5
   m_Name: OptionPanel
   m_TagString: Untagged
@@ -1760,6 +1761,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421287348}
   m_CullTransparentMesh: 1
+--- !u!114 &421287352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421287348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693f0dd1a3d97944a8a3dd514d2fd187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: e54babda4071b404cba359957f4e1718, type: 2}
+  sliderBGM: {fileID: 1583168949}
+  sliderSFX: {fileID: 1911652862}
 --- !u!1 &455479345
 GameObject:
   m_ObjectHideFlags: 0
@@ -10103,6 +10119,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559042176}
   m_CullTransparentMesh: 1
+--- !u!114 &1583168949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5692274323964648194, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+  m_PrefabInstance: {fileID: 5692274324931634871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1593871702
 GameObject:
   m_ObjectHideFlags: 0
@@ -11598,6 +11625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VolOptionGroup_SE
       objectReference: {fileID: 0}
+    - target: {fileID: 5692274323964648196, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+      propertyPath: m_Name
+      value: SESlider
+      objectReference: {fileID: 0}
     - target: {fileID: 5692274324091583183, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
       propertyPath: m_text
       value: 'SE
@@ -11623,6 +11654,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5692274323316732581, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
   m_PrefabInstance: {fileID: 1911652860}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1911652862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5692274323964648194, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+  m_PrefabInstance: {fileID: 1911652860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1921736075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13551,6 +13593,22 @@ PrefabInstance:
     - target: {fileID: 5692274323316732582, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
       propertyPath: m_Name
       value: VolOptionGroup_BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692274323964648194, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692274323964648194, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692274323964648194, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692274323964648196, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
+      propertyPath: m_Name
+      value: BGMSlider
       objectReference: {fileID: 0}
     - target: {fileID: 5692274324091583183, guid: f5c9916f364b1a04d9ef5fd6d074c0f5, type: 3}
       propertyPath: m_text
