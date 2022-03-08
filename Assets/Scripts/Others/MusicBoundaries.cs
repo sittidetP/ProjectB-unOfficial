@@ -7,6 +7,7 @@ public class MusicBoundaries : MonoBehaviour
     [SerializeField] AudioSource themeZoneBGM;
     [SerializeField] AudioSource themeBossZoneBGM;
     private Player player;
+    private float enterTime;
 
     private void Start() {
         PlayThemeZoneBGM(false);
@@ -25,10 +26,6 @@ public class MusicBoundaries : MonoBehaviour
             //setActiveOjects(false);
             PlayThemeZoneBGM(false);
         }
-    }
-
-    private void setActiveOjects(bool value){
-        
     }
 
     public void PlayThemeZoneBGM(bool canPlay){
