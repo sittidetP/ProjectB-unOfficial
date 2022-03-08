@@ -6,6 +6,7 @@ public abstract class Potion : MonoBehaviour
 {
     [SerializeField] Sprite potionSprite;
     [SerializeField] int maxAmount = 9;
+    [SerializeField] protected AudioClip potionSFX;
     protected int amount = 0;
     protected Player player;
     public Sprite PotionSprite {get => potionSprite;}

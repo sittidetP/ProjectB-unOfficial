@@ -54,7 +54,7 @@ public class PlayerMana : MonoBehaviour
         IncreaseMana(maxMana);
     }
 
-    public bool isMPPotion(){
+    public bool isMPFull(){
         return Mana == maxMana;
     }
 

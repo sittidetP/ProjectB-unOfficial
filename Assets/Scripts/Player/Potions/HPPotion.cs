@@ -12,6 +12,7 @@ public class HPPotion : Potion
         base.ActionPotion();
         if (!player.Core.Stats.isHealthFull())
         {
+            player.OnPlaySFX?.Invoke(potionSFX);
             player.Core.Stats.IncreaseHealth(healHPAmount);
             amount--;
         }

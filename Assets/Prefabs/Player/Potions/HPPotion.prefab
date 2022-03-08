@@ -45,5 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionSprite: {fileID: 2438501965742778183, guid: 5c5d8ea9130b9d148a5e2603e3becdb4, type: 3}
   maxAmount: 9
+  potionSFX: {fileID: 8300000, guid: 7fe445928e4bf4c45836dfd028c985eb, type: 3}
   healHPAmount: 15
   potionType: 0

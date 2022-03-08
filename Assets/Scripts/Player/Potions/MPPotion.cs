@@ -10,8 +10,9 @@ public class MPPotion : Potion
     protected override void ActionPotion()
     {
         base.ActionPotion();
-        if (!player.ExtraPlayer.PlayerMana.isMPPotion())
+        if (!player.ExtraPlayer.PlayerMana.isMPFull())
         {
+            player.OnPlaySFX?.Invoke(potionSFX);
             player.ExtraPlayer.PlayerMana.IncreaseMana(healMPAmount);
             amount--;
         }
