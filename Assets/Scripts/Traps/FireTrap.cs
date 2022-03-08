@@ -13,10 +13,12 @@ public class FireTrap : MonoBehaviour
     private float startActivationTime;
     private bool isIdle;
     private bool isActive;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -32,6 +34,7 @@ public class FireTrap : MonoBehaviour
         if (isIdle && Time.time > startIdleTime + idleTime)
         {
             animator.SetBool("idle", false);
+            audioSource.Play();
             animator.SetBool("active", true);
             startActivationTime = Time.time;
             isIdle = false;
@@ -40,6 +43,7 @@ public class FireTrap : MonoBehaviour
         else if (isActive && Time.time > startActivationTime + activationTime)
         {
             animator.SetBool("active", false);
+            audioSource.Stop();
             animator.SetBool("idle", true);
             startIdleTime = Time.time;
             isIdle = true;
