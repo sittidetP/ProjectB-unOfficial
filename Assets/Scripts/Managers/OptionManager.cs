@@ -17,12 +17,6 @@ public class OptionManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetBGM(float vol){
         if(mixer != null){
             mixer.SetFloat("BGM_VOL", vol);
@@ -39,5 +33,18 @@ public class OptionManager : MonoBehaviour
             seVol = vol;
             sliderSFX.value = vol;
         }
+    }
+
+    public void SaveVolumeSetting(){
+        SaveOptionObject saveOptionObject = new SaveOptionObject{
+            bgmVol = bgmVol,
+            seVol = seVol
+        };
+        string json = JsonUtility.ToJson(saveOptionObject);
+        SaveSystem.SaveOption(json);
+    }
+
+    private void LoadVolumeSetting(){
+        
     }
 }
