@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class StartGameManager : MonoBehaviour
 {
     [SerializeField] PlayerContinueData playerContinueData;
@@ -9,13 +9,12 @@ public class StartGameManager : MonoBehaviour
     [SerializeField] RangeWeapon iceaxe_RangeWeapon;
     [SerializeField] HPPotion hPPotion_base;
     [SerializeField] MPPotion mPPotion_base;
-
     private void Awake() {
-        
     }
     // Start is called before the first frame update
     void Start()
     {
+
         if(playerContinueData.isContinue){
             //print("continue");
             SaveObject saveObject = SaveManager.LoadGame();

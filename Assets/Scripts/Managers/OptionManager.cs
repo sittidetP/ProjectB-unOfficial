@@ -14,14 +14,16 @@ public class OptionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadVolumeSetting();
     }
 
     public void SetBGM(float vol){
         if(mixer != null){
             mixer.SetFloat("BGM_VOL", vol);
             bgmVol = vol;
-            sliderBGM.value = vol;
+            if(sliderBGM.IsActive()){
+                sliderBGM.value = vol;
+            }
         }
     }
 
@@ -31,8 +33,15 @@ public class OptionManager : MonoBehaviour
             mixer.SetFloat("SE_E_VOL", vol);
             mixer.SetFloat("SE_P_VOL", vol);
             seVol = vol;
-            sliderSFX.value = vol;
+            if(sliderSFX.IsActive()){
+                sliderSFX.value = vol;
+            }
         }
+    }
+
+    public void SetSliders(){
+        sliderBGM.value = bgmVol;
+        sliderSFX.value = seVol;
     }
 
     public void SaveVolumeSetting(){
@@ -44,7 +53,15 @@ public class OptionManager : MonoBehaviour
         SaveSystem.SaveOption(json);
     }
 
-    private void LoadVolumeSetting(){
-        
+    public void LoadVolumeSetting(){
+        //print("Load");
+        string jsonOption = SaveSystem.LoadOption();
+        if(jsonOption != null){
+            SaveOptionObject saveOptionObject = JsonUtility.FromJson<SaveOptionObject>(jsonOption);
+            bgmVol = saveOptionObject.bgmVol;
+            seVol = saveOptionObject.seVol;
+            SetBGM(bgmVol);
+            SetSE(seVol);
+        }
     }
 }
