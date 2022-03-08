@@ -173,8 +173,8 @@ MonoBehaviour:
   facingDiraction: 1
   checkPosition: {fileID: 847998802254151064}
   checkRadius: 0.2
-  shootSFX: {fileID: 0}
-  destroySFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: 92c0c3d6b8ef02547878b777bb503073, type: 3}
+  destroySFX: {fileID: 8300000, guid: 830ebb08365ec0e43ac9d59a3c71434d, type: 3}
 --- !u!82 &-4379262394361204425
 AudioSource:
   m_ObjectHideFlags: 0
