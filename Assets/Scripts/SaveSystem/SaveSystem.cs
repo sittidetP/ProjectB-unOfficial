@@ -6,6 +6,7 @@ using UnityEngine;
 public static class SaveSystem
 {
     private static readonly string SAVE_FOLDER = Application.dataPath + "/Saves/";
+    private static readonly string SAVE_OPTION_FOLDER = Application.dataPath + "/Saves/";
     
     private const string SAVE_EXTENSION = "txt";
 
