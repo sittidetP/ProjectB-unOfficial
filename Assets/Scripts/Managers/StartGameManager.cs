@@ -34,6 +34,7 @@ public class StartGameManager : MonoBehaviour
                 int hpPotionAmount = saveObject.potionsAmount[(int)PotionType.HPPotion];
                 //print("hpPotion" + hpPotionAmount);
                 HPPotion hpPotion = Instantiate(hPPotion_base);
+                hpPotion.SetPlayer(player);
                 hpPotion.SetAmount(hpPotionAmount);
                 player.Inventory.AddPotionsContinue((int)PotionType.HPPotion, hpPotion);
             }
@@ -41,6 +42,7 @@ public class StartGameManager : MonoBehaviour
                 int mpPotionAmount = saveObject.potionsAmount[(int)PotionType.MPPotion];
                 //print("mpPotion" + mpPotionAmount);
                 MPPotion mpPotion = Instantiate(mPPotion_base);
+                mpPotion.SetPlayer(player);
                 mpPotion.SetAmount(mpPotionAmount);
                 player.Inventory.AddPotionsContinue((int)PotionType.MPPotion, mpPotion);
             }
