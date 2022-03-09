@@ -9,10 +9,10 @@ public class ItemOnceSpawer : MonoBehaviour
     Boundaries boundary;
 
     private void OnEnable() {
-        print(transform.position);
+        //print(transform.position);
         boundary = transform.parent.gameObject.GetComponent<Boundaries>();
         if(insItem == null && BoundariesData.isSpawnOnce != null && !BoundariesData.isSpawnOnce[boundary.Index]){
-            print(transform.position);
+            //print(transform.position);
             insItem = Instantiate(item, transform.position, transform.rotation);
             //insItem = Instantiate(item);
             //insItem.gameObject.transform.SetPositionAndRotation(transform.position, transform.rotation);
