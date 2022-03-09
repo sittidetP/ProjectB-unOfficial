@@ -116,6 +116,7 @@ public class CollisionSenses : CoreComponent
         RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, whatIsGround);
         RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, whatIsGround);
 
+        //Debug.Log(slopeHitFront + ", " + slopeHitBack);
         if (slopeHitFront)
         {
             isOnSlope = true;
