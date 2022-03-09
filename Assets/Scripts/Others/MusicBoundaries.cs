@@ -67,6 +67,7 @@ public class MusicBoundaries : MonoBehaviour
 
     private void ShowZoneText(){
         zoneText.gameObject.SetActive(true);
+        zoneText.text = zoneName;
         startShowTime = Time.time;
         startFadeTime = Time.time;
         SetUpAlphaText(0);

@@ -3616,8 +3616,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278244095
+  m_fontColor: {r: 1, g: 0.82530916, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23700,6 +23700,10 @@ PrefabInstance:
     - target: {fileID: 2819686398719429977, guid: 9c2ce30c283768944976e24f9b0d7f5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819686398719429979, guid: 9c2ce30c283768944976e24f9b0d7f5b, type: 3}
+      propertyPath: zoneName
+      value: Forest
       objectReference: {fileID: 0}
     - target: {fileID: 2819686398719429979, guid: 9c2ce30c283768944976e24f9b0d7f5b, type: 3}
       propertyPath: zoneText
