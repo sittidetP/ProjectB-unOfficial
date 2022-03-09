@@ -17903,6 +17903,21 @@ MonoBehaviour:
   iceaxe_RangeWeapon: {fileID: 6006098155663581042, guid: 85bb28f522a6c6f48b053b356e0adc2d, type: 3}
   hPPotion_base: {fileID: 2761272592633676781, guid: 8ac26d752fb80b5469a993781602b690, type: 3}
   mPPotion_base: {fileID: 7128223632016079078, guid: 8c07c73541de03d42b8ee68d5e4095ae, type: 3}
+  onEnableEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2131272830}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1760349664
 Transform:
   m_ObjectHideFlags: 0
@@ -19927,6 +19942,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 240611911237840372, guid: 1832d9ed0a516ba4b903a72221819275, type: 3}
   m_PrefabInstance: {fileID: 2116122960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2131272830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2977889547679574120, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
+  m_PrefabInstance: {fileID: 2977889548111219052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2135422489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20276,7 +20296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574120, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2977889547679574121, guid: 67756aa8a8c03704981fc5166a919f1c, type: 3}
       propertyPath: m_Pivot.x

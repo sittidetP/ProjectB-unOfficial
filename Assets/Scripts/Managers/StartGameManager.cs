@@ -9,6 +9,10 @@ public class StartGameManager : MonoBehaviour
     [SerializeField] RangeWeapon iceaxe_RangeWeapon;
     [SerializeField] HPPotion hPPotion_base;
     [SerializeField] MPPotion mPPotion_base;
+    [SerializeField] UnityEvent onEnableEvent;
+    private void OnEnable() {
+        onEnableEvent?.Invoke();
+    }
     private void Awake() {
     }
     // Start is called before the first frame update
