@@ -7,9 +7,11 @@ public class FloatingItem : MonoBehaviour
     [SerializeField] float swingRadius;
 
     float startTime;
+    float baseY;
     // Start is called before the first frame update
     void Start()
     {
+        baseY = transform.position.y;
         startTime = Time.time;
     }
 
@@ -19,6 +21,6 @@ public class FloatingItem : MonoBehaviour
         float currentTimePass = Time.time - startTime;
         float newY = swingRadius * Mathf.Sin(currentTimePass);
 
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        transform.position = new Vector3(transform.position.x, baseY + newY, transform.position.z);
     }
 }
