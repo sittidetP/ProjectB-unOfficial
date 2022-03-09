@@ -33,6 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     [SerializeField] float inputHoldTime;
 
+    public float InputHoldTime {get => inputHoldTime;}
     private float startJumpHoldTime;
 
     private void Start()

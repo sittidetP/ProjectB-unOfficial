@@ -60,6 +60,13 @@ public class PlayerMidAirState : PlayerState
         //CheckJumpHeld();
         
         //Debug.Log(CheckHigherPosJump());
+        if (player.ExtraPlayer.Ceiling || 
+        (Time.time > startTime + player.InputHandler.InputHoldTime &&
+         player.Core.Movement.RB.velocity.y >= playerStateData.jumpVelocity))
+        {
+            core.Movement.SetVelocityY(0f);
+        }
+
         if (primaryAttackInput)
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
