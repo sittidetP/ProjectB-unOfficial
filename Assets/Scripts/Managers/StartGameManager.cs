@@ -19,7 +19,7 @@ public class StartGameManager : MonoBehaviour
     void Start()
     {
 
-        if(playerContinueData.isContinue){
+        if(playerContinueData.isContinue && SaveSystem.HasSave()){
             //print("continue");
             SaveObject saveObject = SaveManager.LoadGame();
             BoundariesData.isSpawnOnce = saveObject.isSpawnOnces;
