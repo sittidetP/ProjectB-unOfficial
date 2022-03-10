@@ -79,7 +79,6 @@ public class Player : Entity
     public override void Update()
     {
         base.Update();
-
         selectSecondLeftInput = InputHandler.SelectSecondLeftInput;
         selectSecondRigthInput = InputHandler.SelectSecondRightInput;
         hpPotionInput = InputHandler.HPPotionInput;
