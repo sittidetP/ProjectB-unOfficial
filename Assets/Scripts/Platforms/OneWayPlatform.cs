@@ -55,7 +55,9 @@ public class OneWayPlatform : MonoBehaviour
         {
             player.InputHandler.FallThroughInput = false;
             player.InputHandler.UseJumpInput();
-            //player.isOnPlatform = false;
+            player.isOnPlatform = false;
+            player = null;
+            //
             //player.InputHandler.FallThroughInput = false;
             
         }
