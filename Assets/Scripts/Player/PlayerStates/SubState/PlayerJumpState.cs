@@ -59,11 +59,13 @@ public class PlayerJumpState : PlayerAbilityState
         }
         else if (!player.InputHandler.JumpInputHeld)
         {
+            /*
             if(jumpBootsVelocity > 0f)
             {
                 jumpBootsVelocity -= core.Movement.CurrentVelocity.y * playerStateData.jumpBootsMultipiler * Time.deltaTime;
                 core.Movement.SetVelocityY(jumpBootsVelocity);
             }
+            */
             //Debug.Log("JumpInput not Hold");
             isAbilityDone = true;
         }

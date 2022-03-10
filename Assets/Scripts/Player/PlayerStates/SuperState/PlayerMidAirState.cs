@@ -58,9 +58,9 @@ public class PlayerMidAirState : PlayerState
         dashInput = player.InputHandler.DashInput;
 
         //CheckJumpHeld();
-        
+
         //Debug.Log(CheckHigherPosJump());
-        if (player.ExtraPlayer.Ceiling || 
+        if (player.ExtraPlayer.Ceiling ||
         (Time.time > startTime + player.InputHandler.InputHoldTime &&
          player.Core.Movement.RB.velocity.y >= playerStateData.jumpVelocity))
         {
@@ -70,13 +70,15 @@ public class PlayerMidAirState : PlayerState
         if (primaryAttackInput)
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
-        }else if (secondaryAttackInput && player.SecondaryAttackState.CanShootRangeWeapon())
+        }
+        else if (secondaryAttackInput && player.SecondaryAttackState.CanShootRangeWeapon())
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
-        
 
-        if(dashInput && player.DashState.CanDash()){
+
+        if (dashInput && player.DashState.CanDash())
+        {
             stateMachine.ChangeState(player.DashState);
         }
 
@@ -84,15 +86,22 @@ public class PlayerMidAirState : PlayerState
         {
             //Debug.Log("MidAir : isGround");
             stateMachine.ChangeState(player.IdleState);
-        } else if (jumpInput && player.JumpState.CanJump())
+        }
+        else if (jumpInput && player.JumpState.CanJump())
         {
-            if(CheckHigherPosJump()){
+            if (CheckCanCoyote())
+            {
                 stateMachine.ChangeState(player.JumpState);
+            }
+            /*
+            if(CheckHigherPosJump()){
+                
             }else{
                 if(CheckCanCoyote()){
                     stateMachine.ChangeState(player.JumpState);
                 }
             }
+            */
         }
         else
         {
@@ -108,7 +117,7 @@ public class PlayerMidAirState : PlayerState
             core.Movement.SetVelocityXY(xInput * playerStateData.moveVelocity, fallVelocity);
             core.Movement.CheckIfShouldFilp(xInput);
 
-            
+
             player.Animator.SetFloat("yVelocity", core.Movement.RB.velocity.y);
         }
     }
@@ -118,13 +127,14 @@ public class PlayerMidAirState : PlayerState
         base.PhysicsUpdate();
     }
 
-    private bool CheckCanCoyote() {
+    private bool CheckCanCoyote()
+    {
         /*
         Debug.Log("Time : " + Time.time);
         Debug.Log("CT : " + startCoyoteTime + playerStateData.coyoteTime);
         Debug.Log("CheckCoyoteFormDash : " + player.DashState.CheckCoyoteFormDash());
         */
-        if(Time.time > startCoyoteTime + playerStateData.coyoteTime || player.DashState.CheckCoyoteFormDash())
+        if (Time.time > startCoyoteTime + playerStateData.coyoteTime || player.DashState.CheckCoyoteFormDash())
         {
             player.JumpState.DecreaseAmountOfJump();
             return false;
@@ -135,16 +145,23 @@ public class PlayerMidAirState : PlayerState
         }
     }
 
-    private bool CheckHigherPosJump(){
-        if(isGrounded){
+    private bool CheckHigherPosJump()
+    {
+        if (isGrounded)
+        {
             yOnGround = entity.transform.position.y;
-        }else{
+        }
+        else
+        {
             yOnMidAir = entity.transform.position.y;
         }
 
-        if(yOnMidAir > yOnGround){
+        if (yOnMidAir > yOnGround)
+        {
             return true;
-        }else{
+        }
+        else
+        {
             return false;
         }
     }
