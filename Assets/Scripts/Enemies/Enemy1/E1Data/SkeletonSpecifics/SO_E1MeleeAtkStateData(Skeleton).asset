@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3ad7c0010910545839d2c85590e5d7, type: 3}
   m_Name: SO_E1MeleeAtkStateData(Skeleton)
   m_EditorClassIdentifier: 
-  HitboxRadius: 0.6
+  HitboxRadius: 1.05
   attackDamage: 12
   attackVelocity: 0
   cooldownTime: 1
