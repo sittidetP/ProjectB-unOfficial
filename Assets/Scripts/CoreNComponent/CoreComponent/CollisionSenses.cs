@@ -107,14 +107,14 @@ public class CollisionSenses : CoreComponent
     {
         Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
 
-        slopedCheckHorizontal(checkPos);
+        //slopedCheckHorizontal(checkPos);
         slopeCheckVertical(checkPos);
     }
 
     private void slopedCheckHorizontal(Vector2 checkPos)
     {
-        RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, whatIsGround);
-        RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, whatIsGround);
+        RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.position * core.Movement.FacingDirection, slopeCheckDistance, whatIsGround);
+        RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -(transform.position * core.Movement.FacingDirection), slopeCheckDistance, whatIsGround);
 
         //Debug.Log(slopeHitFront + ", " + slopeHitBack);
         if (slopeHitFront)
@@ -143,7 +143,7 @@ public class CollisionSenses : CoreComponent
             slopeNormalPrep = Vector2.Perpendicular(hit.normal).normalized;
 
             slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
-
+            //print(slopeDownAngle);
             if (slopeDownAngle != slopeDownAngleOld)
             {
                 isOnSlope = true;
