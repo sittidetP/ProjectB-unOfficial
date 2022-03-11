@@ -1,1 +1,0 @@
-{"position":{"x":270.92120361328127,"y":11.471572875976563,"z":0.0},"projectilesName":["IceAxe(RangeWeapon)",""],"potionsAmount":[1,0],"unlockJumps":2,"unlockDash":false,"isSpawnOnces":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,true,false,false,false]}
