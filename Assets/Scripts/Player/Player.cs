@@ -79,6 +79,7 @@ public class Player : Entity
     public override void Update()
     {
         base.Update();
+        ExtraPlayer.AlertTextManager.SetTextPosition(transform);
         selectSecondLeftInput = InputHandler.SelectSecondLeftInput;
         selectSecondRigthInput = InputHandler.SelectSecondRightInput;
         hpPotionInput = InputHandler.HPPotionInput;

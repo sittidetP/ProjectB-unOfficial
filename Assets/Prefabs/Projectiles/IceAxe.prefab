@@ -175,8 +175,8 @@ MonoBehaviour:
   facingDiraction: 1
   checkPosition: {fileID: 3448624869884921449}
   checkRadius: 0.5
-  shootSFX: {fileID: 0}
-  destroySFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: 9f8663265e7cf68429a747b91803f178, type: 3}
+  destroySFX: {fileID: 8300000, guid: 22a2ce06455ed9c41a80dfdf24e25ee8, type: 3}
   angle: {x: 1, y: 3}
 --- !u!95 &-822433576185337003
 Animator:

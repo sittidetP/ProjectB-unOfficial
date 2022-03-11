@@ -11,19 +11,22 @@ public class AlertTextManager : MonoBehaviour
     [SerializeField] int fadeRate = 30;
     private float startFadeTime;
     private float startShowTime;
+    private bool isShowing;
+    private float alphaText;
+    private float alphaDelta;
 
     public void SetTextPosition(Transform transform){
         alertText.gameObject.transform.position = transform.position;
     }
-    /*
-    private void ShowText(string text){
+    
+    public void ShowText(string text){
         alertText.gameObject.SetActive(true);
         alertText.text = text;
         startShowTime = Time.time;
         startFadeTime = Time.time;
-        SetUpAlphaText(0);
+        //SetUpAlphaText(0);
         isShowing = true;
-        StartCoroutine(StartFade(0));  
+        //StartCoroutine(StartFade(0));  
     }
 
     private void HideZoneText(){
@@ -33,9 +36,16 @@ public class AlertTextManager : MonoBehaviour
         StartCoroutine(StartFade(1));  
     }
 
+    private void Update() {
+        if(Time.time > startShowTime + showTime && isShowing){
+            isShowing = false;
+            HideZoneText();
+        }
+    }
+
     private void SetUpAlphaText(float alphaImg){
         alphaText = alphaImg;
-        zoneText.color = new Color(zoneText.color.r, zoneText.color.g, zoneText.color.b, alphaImg);
+        alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, alphaImg);
         alphaDelta = ((1 - alphaImg) - alphaText) / ((startFadeTime + fadeTime) - startFadeTime);
     }
 
@@ -44,15 +54,15 @@ public class AlertTextManager : MonoBehaviour
         for(int i = 0 ; i < fadeRate; ++i){
             float passTime = Time.time;
             alphaText = alphaDelta * (passTime - startFadeTime)+  increser;
-            zoneText.color = new Color(zoneText.color.r, zoneText.color.g, zoneText.color.b, alphaText);
+            alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, alphaText);
             yield return new WaitForSecondsRealtime(fadeWaitTime);
         }
         if(increser == 0){
             
         }else{
-            zoneText.gameObject.SetActive(false);
+            alertText.gameObject.SetActive(false);
         }
         //zoneText.gameObject.SetActive(false);
     }
-    */
+    
 }

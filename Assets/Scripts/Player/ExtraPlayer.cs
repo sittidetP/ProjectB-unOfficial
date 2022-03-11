@@ -6,6 +6,7 @@ public class ExtraPlayer : MonoBehaviour
 {
     [SerializeField] Transform ceilingCheck;
     [SerializeField] LayerMask whatIsCeiling;
+    [SerializeField] AlertTextManager alertTextManager;
 
     CollisionSenses playerCollisionSenses;
 
@@ -14,6 +15,7 @@ public class ExtraPlayer : MonoBehaviour
     Player player;
 
     public PlayerMana PlayerMana {get; private set;}
+    public AlertTextManager AlertTextManager {get => alertTextManager;}
 
     private void Start()
     {
