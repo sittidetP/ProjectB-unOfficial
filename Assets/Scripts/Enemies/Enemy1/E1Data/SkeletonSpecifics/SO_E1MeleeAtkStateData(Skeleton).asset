@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_E1MeleeAtkStateData(Skeleton)
   m_EditorClassIdentifier: 
   HitboxRadius: 0.6
-  attackDamage: 5
+  attackDamage: 12
   attackVelocity: 0
   cooldownTime: 1
   attackSFX: {fileID: 8300000, guid: e1f91b186371ac7469654abf43e9ab11, type: 3}
