@@ -77,6 +77,7 @@ public class PlayerGroundedState : PlayerState
         else if(!isGround)
         {
             //Debug.Log("Ground : MidAir");
+            player.MidAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.MidAirState);
         }else  if (dashInput && player.DashState.CanDash())
         {

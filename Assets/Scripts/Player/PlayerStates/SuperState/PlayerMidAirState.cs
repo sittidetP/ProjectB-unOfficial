@@ -17,9 +17,7 @@ public class PlayerMidAirState : PlayerState
 
     private float fallVelocity;
     private float startCoyoteTime;
-
-    private float yOnGround;
-    private float yOnMidAir;
+    private bool canCoyote;
     public PlayerMidAirState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
     {
     }
@@ -35,8 +33,7 @@ public class PlayerMidAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        fallVelocity = 0f;
-        startCoyoteTime = Time.time;
+        fallVelocity = 0f;        
     }
 
     public override void Exit()
@@ -58,7 +55,7 @@ public class PlayerMidAirState : PlayerState
         dashInput = player.InputHandler.DashInput;
 
         //CheckJumpHeld();
-
+        CheckCanCoyote();
         //Debug.Log(CheckHigherPosJump());
         if (player.ExtraPlayer.Ceiling ||
         (Time.time > startTime + player.InputHandler.InputHoldTime &&
@@ -89,10 +86,8 @@ public class PlayerMidAirState : PlayerState
         }
         else if (jumpInput && player.JumpState.CanJump())
         {
-            if (CheckCanCoyote())
-            {
-                stateMachine.ChangeState(player.JumpState);
-            }
+            canCoyote = false;
+            stateMachine.ChangeState(player.JumpState);
             /*
             if(CheckHigherPosJump()){
                 
@@ -127,43 +122,24 @@ public class PlayerMidAirState : PlayerState
         base.PhysicsUpdate();
     }
 
-    private bool CheckCanCoyote()
+    private void CheckCanCoyote()
     {
         /*
         Debug.Log("Time : " + Time.time);
         Debug.Log("CT : " + startCoyoteTime + playerStateData.coyoteTime);
         Debug.Log("CheckCoyoteFormDash : " + player.DashState.CheckCoyoteFormDash());
         */
-        if (Time.time > startCoyoteTime + playerStateData.coyoteTime || player.DashState.CheckCoyoteFormDash())
+        if (canCoyote && (Time.time > startCoyoteTime + playerStateData.coyoteTime || player.DashState.CheckCoyoteFormDash()))
         {
             player.JumpState.DecreaseAmountOfJump();
-            return false;
-        }
-        else
-        {
-            return true;
+            canCoyote = false;
         }
     }
 
-    private bool CheckHigherPosJump()
+    public void StartCoyoteTime()
     {
-        if (isGrounded)
-        {
-            yOnGround = entity.transform.position.y;
-        }
-        else
-        {
-            yOnMidAir = entity.transform.position.y;
-        }
-
-        if (yOnMidAir > yOnGround)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        canCoyote = true;
+        startCoyoteTime = Time.time;
     }
 
 }
