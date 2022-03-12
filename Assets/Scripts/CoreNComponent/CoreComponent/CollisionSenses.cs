@@ -29,6 +29,7 @@ public class CollisionSenses : CoreComponent
     [SerializeField] private Transform wallCheck;
 
     [SerializeField] private float groundCheckDistance;
+    [SerializeField] private float groundCheckSlopeDistance;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private float slopeCheckDistance;
 
@@ -43,9 +44,11 @@ public class CollisionSenses : CoreComponent
 
 
     int localFacing = 1;
+    private float groundCheckDistanceUse = 0.1f;
 
     private void Start()
     {
+        groundCheckDistanceUse = groundCheckDistance;
         entityCollider = GetComponentInParent<BoxCollider2D>();
 
         if (entityCollider != null)
@@ -59,8 +62,8 @@ public class CollisionSenses : CoreComponent
     {
         get
         {
-            bool gLeft = Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsGround);
-            bool gRight = Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, whatIsGround);
+            bool gLeft = Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistanceUse, whatIsGround);
+            bool gRight = Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistanceUse, whatIsGround);
             return gLeft || gRight;
         }
     }
@@ -74,12 +77,12 @@ public class CollisionSenses : CoreComponent
     
     public bool GroundLeft
     {
-        get => Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(groundCheckL.position, Vector2.down, groundCheckDistanceUse, whatIsGround);
     }
 
     public bool GroundRight
     {
-        get => Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(groundCheckR.position, Vector2.down, groundCheckDistanceUse, whatIsGround);
     }
 
     public bool Wall
@@ -102,6 +105,11 @@ public class CollisionSenses : CoreComponent
         base.LogicUpdate();
 
         slopeCheck();
+        if(isOnSlope && Ground){
+            groundCheckDistanceUse = groundCheckSlopeDistance;
+        }else{
+            groundCheckDistanceUse = groundCheckDistance;
+        }
     }
     public void slopeCheck()
     {
@@ -147,6 +155,8 @@ public class CollisionSenses : CoreComponent
             if (slopeDownAngle != slopeDownAngleOld)
             {
                 isOnSlope = true;
+            }else if(slopeDownAngle == 0){
+                isOnSlope = false;
             }
 
             slopeDownAngleOld = slopeDownAngle;
@@ -164,9 +174,9 @@ public class CollisionSenses : CoreComponent
         }
         Gizmos.color = Color.red;
         if (groundCheckL != null)
-            Gizmos.DrawLine(groundCheckL.position, groundCheckL.position + (Vector3)(Vector2.down * groundCheckDistance));
+            Gizmos.DrawLine(groundCheckL.position, groundCheckL.position + (Vector3)(Vector2.down * groundCheckDistanceUse));
         if (groundCheckR != null)
-            Gizmos.DrawLine(groundCheckR.position, groundCheckR.position + (Vector3)(Vector2.down * groundCheckDistance));
+            Gizmos.DrawLine(groundCheckR.position, groundCheckR.position + (Vector3)(Vector2.down * groundCheckDistanceUse));
         Gizmos.color = Color.green;
         if (wallCheck != null)
             Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * localFacing * wallCheckDistance));

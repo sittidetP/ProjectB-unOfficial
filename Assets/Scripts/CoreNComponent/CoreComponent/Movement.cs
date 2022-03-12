@@ -52,6 +52,7 @@ public class Movement : CoreComponent
 
     public void SetVelocityX(float velocity)
     {
+        //print(core.CollisionSenses.isOnSlope);
         if(core.CollisionSenses.isOnSlope && velocity == 0.0f){
             RB.sharedMaterial = withFrictionMat;
         }else{
