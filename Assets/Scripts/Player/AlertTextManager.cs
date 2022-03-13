@@ -21,11 +21,14 @@ public class AlertTextManager : MonoBehaviour
     
     public void ShowText(string text){
         alertText.gameObject.SetActive(true);
+        SetUpAlphaText(0);
+        SetUpAlphaText(1);
+        isShowing = true;
         alertText.text = text;
         startShowTime = Time.time;
         startFadeTime = Time.time;
-        //SetUpAlphaText(0);
-        isShowing = true;
+        
+        
         //StartCoroutine(StartFade(0));  
     }
 
