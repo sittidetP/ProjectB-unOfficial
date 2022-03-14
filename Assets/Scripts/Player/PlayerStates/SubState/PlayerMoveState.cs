@@ -29,7 +29,7 @@ public class PlayerMoveState : PlayerGroundedState
 
         core.Movement.CheckIfShouldFilp(xInput);
 
-        if(core.CollisionSenses.isOnSlope){
+        if(core.CollisionSenses.isOnSlope && !jumpInput){
             core.Movement.SetVelocityXY(playerStateData.moveVelocity * core.CollisionSenses.slopeNormalPrep.x * -xInput,
              playerStateData.moveVelocity * core.CollisionSenses.slopeNormalPrep.y * -xInput);
         }else{
