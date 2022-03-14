@@ -24,6 +24,7 @@ public class PlayerJumpState : PlayerAbilityState
         startJumpTime = Time.time;
         player.OnPlaySFX?.Invoke(playerStateData.jumpSFX);
         player.InputHandler.UseJumpInput();
+        /*
         if (player.DashState.IsJustDash)
         {
             //Debug.Log("dash and jump");
@@ -32,11 +33,13 @@ public class PlayerJumpState : PlayerAbilityState
         }
         else
         {
-            core.Movement.SetVelocityY(playerStateData.jumpVelocity);
+            
         }
-
-        jumpBootsVelocity = playerStateData.jumpVelocity;
+        */
+        core.Movement.SetVelocityY(playerStateData.jumpVelocity);
+        player.MidAirState.SetIsJumping();
         amountOfJumpLeft--;
+        isAbilityDone = true;
     }
 
     public override void Exit()
@@ -49,7 +52,7 @@ public class PlayerJumpState : PlayerAbilityState
         base.LogicUpdate();
 
         //Debug.Log(jumpBootsVelocity);
-
+        /*
         if (player.InputHandler.JumpInputHeld)
         {
             //Debug.Log("JumpInput Hold");
@@ -59,22 +62,24 @@ public class PlayerJumpState : PlayerAbilityState
         }
         else if (!player.InputHandler.JumpInputHeld)
         {
-            /*
+            
             if(jumpBootsVelocity > 0f)
             {
                 jumpBootsVelocity -= core.Movement.CurrentVelocity.y * playerStateData.jumpBootsMultipiler * Time.deltaTime;
                 core.Movement.SetVelocityY(jumpBootsVelocity);
             }
-            */
+            
             //Debug.Log("JumpInput not Hold");
             isAbilityDone = true;
         }
-
+        */
+        /*
         if (player.ExtraPlayer.Ceiling)
         {
             core.Movement.SetVelocityY(0f);
             isAbilityDone = true;
         }
+        */
 
     }
 

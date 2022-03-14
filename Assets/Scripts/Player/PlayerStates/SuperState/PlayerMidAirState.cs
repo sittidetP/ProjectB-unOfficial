@@ -6,6 +6,7 @@ public class PlayerMidAirState : PlayerState
 {
     protected int xInput;
     protected bool jumpInput;
+    protected bool jumpInputHeld;
     protected bool primaryAttackInput;
     protected bool dashInput;
     protected bool secondaryAttackInput;
@@ -50,19 +51,23 @@ public class PlayerMidAirState : PlayerState
 
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
+        jumpInputHeld = player.InputHandler.JumpInputHeld;
         primaryAttackInput = player.InputHandler.PrimaryAttackInput;
         secondaryAttackInput = player.InputHandler.SecondaryAttackInput;
         dashInput = player.InputHandler.DashInput;
 
         //CheckJumpHeld();
+        CheckJumpMultipiler();
         CheckCanCoyote();
         //Debug.Log(CheckHigherPosJump());
+        /*
         if (player.ExtraPlayer.Ceiling ||
         (Time.time > startTime + player.InputHandler.InputHoldTime &&
          player.Core.Movement.RB.velocity.y >= playerStateData.jumpVelocity))
         {
             core.Movement.SetVelocityY(0f);
         }
+        */
 
         if (primaryAttackInput)
         {
@@ -100,6 +105,7 @@ public class PlayerMidAirState : PlayerState
         }
         else
         {
+            /*
             if (core.Movement.RB.velocity.y < playerStateData.jumpVelocityFalloffs && !isJumping)
             {
                 fallVelocity += Physics2D.gravity.y * playerStateData.fallMultipiler * Time.deltaTime;
@@ -108,8 +114,10 @@ public class PlayerMidAirState : PlayerState
             {
                 fallVelocity = core.Movement.CurrentVelocity.y;
             }
+            */
 
-            core.Movement.SetVelocityXY(xInput * playerStateData.moveVelocity, fallVelocity);
+            //core.Movement.SetVelocityXY(xInput * playerStateData.moveVelocity, fallVelocity);
+            core.Movement.SetVelocityX(xInput * playerStateData.moveVelocity);
             core.Movement.CheckIfShouldFilp(xInput);
 
 
@@ -140,6 +148,24 @@ public class PlayerMidAirState : PlayerState
     {
         canCoyote = true;
         startCoyoteTime = Time.time;
+    }
+
+    public void SetIsJumping() => isJumping = true;
+
+    private void CheckJumpMultipiler()
+    {
+        if (isJumping)
+        {
+            if (jumpInputHeld)
+            {
+                core.Movement.SetVelocityY(core.Movement.CurrentVelocity.y * playerStateData.jumpBootsMultipiler);
+                isJumping = false;
+            }
+            else if (core.Movement.CurrentVelocity.y < 0.01f)
+            {
+                isJumping = false;
+            }
+        }
     }
 
 }

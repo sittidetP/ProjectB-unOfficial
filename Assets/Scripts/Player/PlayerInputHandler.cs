@@ -70,14 +70,14 @@ public class PlayerInputHandler : MonoBehaviour
             {
 
                 JumpInput = true;
-                JumpInputHeld = true;
+                JumpInputHeld = false;
                 startJumpHoldTime = Time.time;
             }
 
             if (callbackContext.canceled)
             {
-                JumpInput = false;
-                JumpInputHeld = false;
+                //JumpInput = false;
+                JumpInputHeld = true;
             }
         }
     }
@@ -91,7 +91,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (Time.time > startJumpHoldTime + inputHoldTime)
         {
-            JumpInputHeld = false;
+            JumpInput = false;
         }
     }
 
