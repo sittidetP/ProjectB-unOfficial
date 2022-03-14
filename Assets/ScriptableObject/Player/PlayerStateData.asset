@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PlayerStateData
   m_EditorClassIdentifier: 
   moveVelocity: 6
-  jumpVelocity: 15
-  jumpBootsMultipiler: 0.475
-  amountOfJump: 1
+  jumpVelocity: 18
+  jumpBootsMultipiler: 0.45
+  amountOfJump: 2
   jumpSFX: {fileID: 8300000, guid: 91cd1b2f8fa10f144b8809345854514a, type: 3}
   jumpVelocityFalloffs: 4
   fallMultipiler: 4
