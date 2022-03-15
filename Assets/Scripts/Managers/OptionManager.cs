@@ -14,6 +14,7 @@ public class OptionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SaveSystem.InitOption();
         LoadVolumeSetting();
     }
 

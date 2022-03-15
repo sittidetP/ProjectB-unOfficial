@@ -17,6 +17,11 @@ public static class SaveSystem
             Directory.CreateDirectory(SAVE_FOLDER);
         }
     }
+    public static void InitOption() {
+        if(!Directory.Exists(SAVE_OPTION_FOLDER)){
+            Directory.CreateDirectory(SAVE_OPTION_FOLDER);
+        }
+    }
 
     public static void Save(string saveString){
         File.WriteAllText(SAVE_FOLDER + "save" + "." + SAVE_EXTENSION, saveString);
