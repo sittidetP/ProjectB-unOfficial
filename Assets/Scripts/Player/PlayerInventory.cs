@@ -45,6 +45,10 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public int getRangeWeaponLength(){
+        return projectiles.Count(s => s != null);
+    }
+
     public GameObject getSelectedProjectile(){
         return projectiles[indexSelectedProjectile].Projectile;
     }

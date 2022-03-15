@@ -24,6 +24,7 @@ public class Player : Entity
 
     [SerializeField] PlayerStateData playerStateData;
     [SerializeField] Transform rangeAttackPos;
+    [SerializeField] AudioClip changeRangeWeapon;
     [SerializeField] UnityEvent<AudioClip> onPlaySFX;
     public UnityEvent<AudioClip> OnPlaySFX {get => onPlaySFX;}
     public PlayerStateData PlayerStateData { get => playerStateData; private set => playerStateData = value; }
@@ -90,12 +91,18 @@ public class Player : Entity
 
         if (selectSecondLeftInput)
         {
+            if(Inventory.getRangeWeaponLength() > 1){
+                onPlaySFX?.Invoke(changeRangeWeapon);
+            }
             Inventory.SelectSecondLeft();
             InputHandler.UseSelectSecondLeftInput();
             //Debug.Log(Inventory.getSelectedProjectile().name);
         }
         else if (selectSecondRigthInput)
         {
+            if(Inventory.getRangeWeaponLength() > 1){
+                onPlaySFX?.Invoke(changeRangeWeapon);
+            }
             Inventory.SelectSecondRigth();
             InputHandler.UseSelectSecondRightInput();
             //Debug.Log(Inventory.getSelectedProjectile().name);
