@@ -16,7 +16,7 @@ public class PlayerMidAirState : PlayerState
 
     private bool isJumping;
 
-    private float fallVelocity;
+    //private float fallVelocity;
     private float startCoyoteTime;
     private bool canCoyote;
     public PlayerMidAirState(Player entity, FiniteStateMachine stateMachine, string animBoolName, PlayerStateData playerData) : base(entity, stateMachine, animBoolName, playerData)
@@ -34,7 +34,7 @@ public class PlayerMidAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        fallVelocity = 0f;        
+        //fallVelocity = 0f;        
     }
 
     public override void Exit()
