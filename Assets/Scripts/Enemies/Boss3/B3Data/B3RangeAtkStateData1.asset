@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: B3RangeAtkStateData1
   m_EditorClassIdentifier: 
   projectile: {fileID: 580863908086967442, guid: f7a9da5cb3e698e4cab8ce2dc314aeb4, type: 3}
-  cooldownTime: 0.6
+  cooldownTime: 1.5

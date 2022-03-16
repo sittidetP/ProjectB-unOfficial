@@ -5,8 +5,8 @@ using UnityEngine;
 public class BaseJumpState : BaseArgoState
 {
     protected BaseJumpStateData jumpStateData;
-    private bool isJumpOver;
-    private bool isGrounded;
+    protected bool isJumpOver;
+    protected bool isGrounded;
     public BaseJumpState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye, BaseJumpStateData jumpStateData) : base(entity, stateMachine, animBoolName, argoStateData, enemyEye)
     {
         this.jumpStateData = jumpStateData;

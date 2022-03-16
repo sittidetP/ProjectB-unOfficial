@@ -13,8 +13,10 @@ public class B3_MoveState : BaseMoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if(distanceFromPlayer <= argoStateData.minArgoDistance){
+        
+        if(Time.time > startTime + stateData.moveDuration && distanceFromPlayer > argoStateData.minArgoDistance){ // && distanceFromPlayer <= argoStateData.maxArgoDistance
+            stateMachine.ChangeState(boss3.JumpState);
+        }else if(distanceFromPlayer <= argoStateData.minArgoDistance){
             stateMachine.ChangeState(boss3.IdleState);
         }else if((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x) 
         || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x)){
