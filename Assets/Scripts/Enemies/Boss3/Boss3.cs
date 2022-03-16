@@ -8,6 +8,7 @@ public class Boss3 : Enemy
     public B3_MoveState MoveState {get; private set;}
     public B3_MeleeAttackState MeleeAttackState {get; private set;}
     public B3_RangeAttackState RangeAttackState1 {get; private set;}
+    public B3_RangeAttackState RangeAttackState2 {get; private set;}
     public B3_DeadState DeadState {get; private set;}
     [Header("States Data")]
     [SerializeField] BaseArgoStateData argoStateData;
@@ -19,6 +20,7 @@ public class Boss3 : Enemy
     
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
     [SerializeField] BaseRangeAttackStateData rangeAttackState1Data;
+    [SerializeField] BaseRangeAttackStateData rangeAttackState2Data;
     /*
     [SerializeField] BaseMeleeAttackStateData tackleStateData;
     */
@@ -42,6 +44,7 @@ public class Boss3 : Enemy
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
         MeleeAttackState = new B3_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         RangeAttackState1 = new B3_RangeAttackState(this, StateMachine, "shoot", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState1Data, rangeAttackPosition, this);
+        RangeAttackState2 = new B3_RangeAttackState(this, StateMachine, "shoot", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState2Data, rangeAttackPosition, this);
         DeadState = new B3_DeadState(this, StateMachine, "dead", itemDroper, this);
         /*
         MeleeAttackState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
