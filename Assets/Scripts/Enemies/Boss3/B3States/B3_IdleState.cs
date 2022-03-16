@@ -14,18 +14,37 @@ public class B3_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
-        if(isIdleOver && !canPerformCloseRangeAction){
-            if(boss3.RangeAttackState1.getCanAttack()){
-                stateMachine.ChangeState(boss3.RangeAttackState1);
+        if (isIdleOver && !canPerformCloseRangeAction)
+        {
+            int randInt = Random.Range(0, 2);
+            if (randInt == 0)
+            {
+                if (boss3.RangeAttackState1.getCanAttack())
+                {
+                    stateMachine.ChangeState(boss3.RangeAttackState1);
+                }
             }
-            
-        }else if(canPerformCloseRangeAction && boss3.MeleeAttackState.getCanAttack()){
+            else if (randInt == 1)
+            {
+                if (boss3.RangeAttackState2.getCanAttack())
+                {
+                    stateMachine.ChangeState(boss3.RangeAttackState2);
+                }
+            }
+
+        }
+        else if (canPerformCloseRangeAction && boss3.MeleeAttackState.getCanAttack())
+        {
             stateMachine.ChangeState(boss3.MeleeAttackState);
-        }else if(distanceFromPlayer > argoStateData.minArgoDistance){
+        }
+        else if (distanceFromPlayer > argoStateData.minArgoDistance)
+        {
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss3.MoveState);
-        }else if((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x) 
-        || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x)){
+        }
+        else if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
+       || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x))
+        {
             //Debug.Log("player on behind");
             entity.Core.Movement.Filp();
             //stateMachine.ChangeState(boss1.MoveState);
