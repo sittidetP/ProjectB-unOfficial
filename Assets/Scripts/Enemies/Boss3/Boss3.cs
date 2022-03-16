@@ -7,6 +7,7 @@ public class Boss3 : Enemy
     public B3_IdleState IdleState {get; private set;}
     public B3_MoveState MoveState {get; private set;}
     public B3_MeleeAttackState MeleeAttackState {get; private set;}
+    public B3_RangeAttackState RangeAttackState1 {get; private set;}
     public B3_DeadState DeadState {get; private set;}
     [Header("States Data")]
     [SerializeField] BaseArgoStateData argoStateData;
@@ -17,12 +18,14 @@ public class Boss3 : Enemy
     [SerializeField] BaseHurtStateData hurtStateData;
     
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
+    [SerializeField] BaseRangeAttackStateData rangeAttackState1Data;
     /*
     [SerializeField] BaseMeleeAttackStateData tackleStateData;
     */
     [Header("Other Objects")]
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
+    [SerializeField] Transform rangeAttackPosition;
     [SerializeField] int debugFacing = 1;
     [SerializeField] AudioClip deadSFX;
     public AudioClip DeadSFX {get => deadSFX;}
@@ -38,6 +41,7 @@ public class Boss3 : Enemy
         IdleState = new B3_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
         MeleeAttackState = new B3_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
+        RangeAttackState1 = new B3_RangeAttackState(this, StateMachine, "shoot", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState1Data, rangeAttackPosition, this);
         DeadState = new B3_DeadState(this, StateMachine, "dead", itemDroper, this);
         /*
         MeleeAttackState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
