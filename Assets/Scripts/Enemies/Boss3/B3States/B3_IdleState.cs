@@ -14,7 +14,9 @@ public class B3_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
-        if(distanceFromPlayer > argoStateData.minArgoDistance){
+        if(canPerformCloseRangeAction && boss3.MeleeAttackState.getCanAttack()){
+            stateMachine.ChangeState(boss3.MeleeAttackState);
+        }else if(distanceFromPlayer > argoStateData.minArgoDistance){
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss3.MoveState);
         }else if((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x) 
