@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Boss3 : Enemy
 {
+    public B3_IdleState IdleState {get; private set;}
+    public B3_MoveState MoveState {get; private set;}
+    [Header("States Data")]
+    [SerializeField] BaseArgoStateData argoStateData;
+    [SerializeField] BaseIdleStateData idleStateData;
+    
+    [SerializeField] BaseMoveStateData moveStateData;
+    /*
+    [SerializeField] BaseHurtStateData hurtStateData;
+    [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
+    [SerializeField] BaseMeleeAttackStateData tackleStateData;
+    */
     [Header("Other Objects")]
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
@@ -14,10 +26,24 @@ public class Boss3 : Enemy
     Material normalMaterial;
     bool isHurt;
     float startTime;
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        IdleState = new B3_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
+        MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
+        /*
+        MeleeAttackState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
+        TackleState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, tackleStateData, this);
+        HurtState = new B1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
+        DeadState = new B1_DeadState(this, StateMachine, "dead", itemDroper, this);
+        */
+    }
     void Start()
     {
         normalMaterial = SpriteRenderer.material;
-        //StateMachine.Initialize(MoveState);
+        StateMachine.Initialize(MoveState);
     }
 
     private void BlinkWhenDamaged(){
@@ -43,13 +69,13 @@ public class Boss3 : Enemy
         if(Core != null){
             debugFacing = Core.Movement.FacingDirection;
         }
-        /*
+        
         Gizmos.color = Color.white;
         if(enemyEye != null){
             Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.minArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
             Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.maxArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
         }
-        
+        /*
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(meleeHitboxPosition.position, meleeAttackStateData.HitboxRadius);
         
