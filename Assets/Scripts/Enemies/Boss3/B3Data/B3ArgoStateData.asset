@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aadab9e56c584d47a84b60d2fd196f0, type: 3}
   m_Name: B3ArgoStateData
   m_EditorClassIdentifier: 
-  minArgoDistance: 3
+  minArgoDistance: 4
   maxArgoDistance: 6
   closeToPlayerDistance: 0.5
   whatIsPlayer:

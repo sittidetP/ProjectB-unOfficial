@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: B3HurtStateData
   m_EditorClassIdentifier: 
   hurtDuration: 1
-  hurtMaterial: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hurtMaterial: {fileID: 2100000, guid: bb007f2469dc90c47ad08441ca573b08, type: 2}
+  hitSFX: {fileID: 8300000, guid: fe2cdda21792a084ab9be8035776f909, type: 3}

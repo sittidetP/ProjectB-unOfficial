@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fe29a84643ee641b0073e860a1a1ad, type: 3}
   m_Name: B3MoveStateData
   m_EditorClassIdentifier: 
-  moveVelocity: 3
+  moveVelocity: 6.25
   moveDuration: 1.5

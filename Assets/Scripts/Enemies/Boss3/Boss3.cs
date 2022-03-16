@@ -6,6 +6,7 @@ public class Boss3 : Enemy
 {
     public B3_IdleState IdleState {get; private set;}
     public B3_MoveState MoveState {get; private set;}
+    public B3_DeadState DeadState {get; private set;}
     [Header("States Data")]
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseIdleStateData idleStateData;
@@ -34,11 +35,12 @@ public class Boss3 : Enemy
 
         IdleState = new B3_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
+        DeadState = new B3_DeadState(this, StateMachine, "dead", itemDroper, this);
         /*
         MeleeAttackState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         TackleState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, tackleStateData, this);
         HurtState = new B1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
-        DeadState = new B1_DeadState(this, StateMachine, "dead", itemDroper, this);
+        
         */
     }
     void Start()
@@ -52,7 +54,7 @@ public class Boss3 : Enemy
         base.Update();
 
         if(Core.Stats.getIsDead()){
-            //StateMachine.ChangeState(DeadState);
+            StateMachine.ChangeState(DeadState);
         }else if(Core.Combat.getIsDamaged()){
             BlinkWhenDamaged();
             //StateMachine.ChangeState(HurtState);
