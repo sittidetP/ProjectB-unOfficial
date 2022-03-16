@@ -11,8 +11,9 @@ public class Boss3 : Enemy
     [SerializeField] BaseIdleStateData idleStateData;
     
     [SerializeField] BaseMoveStateData moveStateData;
-    /*
+    
     [SerializeField] BaseHurtStateData hurtStateData;
+    /*
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
     [SerializeField] BaseMeleeAttackStateData tackleStateData;
     */
@@ -46,8 +47,19 @@ public class Boss3 : Enemy
         StateMachine.Initialize(MoveState);
     }
 
+    public override void Update()
+    {
+        base.Update();
+
+        if(Core.Stats.getIsDead()){
+            //StateMachine.ChangeState(DeadState);
+        }else if(Core.Combat.getIsDamaged()){
+            BlinkWhenDamaged();
+            //StateMachine.ChangeState(HurtState);
+        }
+    }
+
     private void BlinkWhenDamaged(){
-        /*
         if(!isHurt){
             AudioSource.PlayOneShot(hurtStateData.hitSFX);
             startTime = Time.time;
@@ -60,7 +72,6 @@ public class Boss3 : Enemy
         }else if(isHurt && Time.time <= startTime + hurtStateData.hurtDuration) {
             SpriteRenderer.material = hurtStateData.hurtMaterial;
         }
-        */
     }
 
     private void OnDrawGizmos() {
