@@ -8,6 +8,8 @@ public class BaseRangeAttackState : BaseAttackState
     BaseRangeAttackStateData rangeAttackStateData;
     protected bool canAttack;
     protected float stopAttactTime;
+
+    protected GameObject projectile;
     public BaseRangeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye, Transform attackPosition, BaseRangeAttackStateData rangeAttackStateData, Transform rangeAttackPosition) : base(entity, stateMachine, animBoolName, stateData, enemyEye, attackPosition)
     {
         this.rangeAttackStateData = rangeAttackStateData;
@@ -27,7 +29,7 @@ public class BaseRangeAttackState : BaseAttackState
     {
         base.AnimationTrigger();
 
-        GameObject projectile = GameObject.Instantiate(rangeAttackStateData.Projectile, rangeAttackPosition.position, rangeAttackStateData.Projectile.transform.rotation);
+        projectile = GameObject.Instantiate(rangeAttackStateData.Projectile, rangeAttackPosition.position, rangeAttackStateData.Projectile.transform.rotation);
         Projectile projectileScript = projectile.GetComponent<Projectile>();
         projectileScript.SetUpProjectile(core.Movement.FacingDirection, argoStateData.whatIsPlayer, entity.gameObject.layer);
         

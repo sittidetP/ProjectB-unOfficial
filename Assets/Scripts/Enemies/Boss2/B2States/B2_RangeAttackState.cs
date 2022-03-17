@@ -10,6 +10,15 @@ public class B2_RangeAttackState : BaseRangeAttackState
         this.boss2 = boss2;
     }
 
+    public override void AnimationTrigger()
+    {
+        base.AnimationTrigger();
+
+        if(playerTransform != null){
+            projectile.transform.position = new Vector3(playerTransform.position.x, projectile.transform.position.y, 0.0f);
+        }
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
