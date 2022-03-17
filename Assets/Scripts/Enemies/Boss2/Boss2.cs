@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Boss2 : Enemy
 {
+    public B2_IdleState IdleState {get; private set;}
+    [Header("States Data")]
+    [SerializeField] BaseArgoStateData argoStateData;
+    [SerializeField] BaseIdleStateData idleStateData;
+
     [Header("Other Objects")]
     [SerializeField] Transform enemyEye;
     [SerializeField] Transform meleeHitboxPosition;
@@ -14,6 +19,26 @@ public class Boss2 : Enemy
     Material normalMaterial;
     bool isHurt;
     float startTime;
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        IdleState = new B2_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
+        /*
+        MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
+        JumpState = new B3_JumpState(this, StateMachine, "jump", argoStateData, enemyEye, jumpStateData, this);
+        MeleeAttackState = new B3_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
+        RangeAttackState1 = new B3_RangeAttackState(this, StateMachine, "shoot", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState1Data, rangeAttackPosition, this);
+        RangeAttackState2 = new B3_RangeAttackState(this, StateMachine, "shoot", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState2Data, rangeAttackPosition, this);
+        DeadState = new B3_DeadState(this, StateMachine, "dead", itemDroper, this);
+        
+        MeleeAttackState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
+        TackleState = new B1_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, tackleStateData, this);
+        HurtState = new B1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
+        
+        */
+    }
     /*
     private void BlinkWhenDamaged()
     {

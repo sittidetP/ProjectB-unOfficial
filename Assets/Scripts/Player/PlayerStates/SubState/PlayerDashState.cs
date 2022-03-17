@@ -68,6 +68,8 @@ public class PlayerDashState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
+        core.Movement.RB.gravityScale = playerGScale;
+        core.Movement.RB.drag = 0f;
     }
 
     public override void LogicUpdate()
