@@ -23,6 +23,7 @@ public class RedOrb : MonoBehaviour
         if(collectRedOrb && !allClearBGM.isPlaying && !isEnd){
             isEnd = true;
             UIFade.Instance.FadeOut();
+            PauseManager.resume();
             StartCoroutine(ChangeScene(sceneName));
         }
     }
