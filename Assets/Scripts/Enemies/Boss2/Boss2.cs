@@ -6,6 +6,7 @@ public class Boss2 : Enemy
 {
     public B2_IdleState IdleState {get; private set;}
     public B2_MoveState MoveState {get; private set;}
+    public B2_DeadState DeadState {get; private set;}
     [Header("States Data")]
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseIdleStateData idleStateData;
@@ -28,6 +29,7 @@ public class Boss2 : Enemy
 
         IdleState = new B2_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
         MoveState = new B2_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
+        DeadState = new B2_DeadState(this, StateMachine, "dead", itemDroper, this);
         /*
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
         JumpState = new B3_JumpState(this, StateMachine, "jump", argoStateData, enemyEye, jumpStateData, this);
@@ -47,6 +49,18 @@ public class Boss2 : Enemy
     {
         normalMaterial = SpriteRenderer.material;
         StateMachine.Initialize(MoveState);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if(Core.Stats.getIsDead()){
+            StateMachine.ChangeState(DeadState);
+        }else if(Core.Combat.getIsDamaged()){
+            //BlinkWhenDamaged();
+            //StateMachine.ChangeState(HurtState);
+        }
     }
     /*
     private void BlinkWhenDamaged()
