@@ -8,16 +8,14 @@ public class Projectile : CoreProjectile, IDamageable
     private List<IDamageable> detectedDamageable = new List<IDamageable>();
     public void Damage(float amount)
     {
-        if(canDamaged){
-            BeingHit();
-        }
+
+        BeingHit();
     }
 
     public void Damage(float amount, int attackedDirection)
     {
-        if(canDamaged){
-            BeingHit();
-        }
+
+        BeingHit();
     }
 
     public override void Update()
@@ -76,9 +74,13 @@ public class Projectile : CoreProjectile, IDamageable
 
     private void BeingHit()
     {
-        animator?.SetTrigger("isHit");
-        if(destroySFX != null){
-            audioSource.PlayOneShot(destroySFX);
+        if (canDamaged)
+        {
+            animator?.SetTrigger("isHit");
+            if (destroySFX != null)
+            {
+                audioSource.PlayOneShot(destroySFX);
+            }
         }
         RB.velocity = Vector2.zero;
     }
