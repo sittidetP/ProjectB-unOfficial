@@ -10,6 +10,13 @@ public class B2_MeleeAttackState : BaseMeleeAttackState
         this.boss2 = boss2;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

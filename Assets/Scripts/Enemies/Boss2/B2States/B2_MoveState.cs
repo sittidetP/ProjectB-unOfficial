@@ -13,11 +13,21 @@ public class B2_MoveState : BaseMoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
-        if(distanceFromPlayer <= argoStateData.minArgoDistance){
+
+        if (distanceFromPlayer > argoStateData.minArgoDistance && distanceFromPlayer <= argoStateData.maxArgoDistance)
+        {
+            if (boss2.RangeAttackState.getCanAttack())
+            {
+                stateMachine.ChangeState(boss2.RangeAttackState);
+            }
+        }
+        else if (distanceFromPlayer <= argoStateData.minArgoDistance)
+        {
             stateMachine.ChangeState(boss2.IdleState);
-        }else if((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x) 
-        || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x)){
+        }
+        else if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
+       || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x))
+        {
             //Debug.Log("player on behind");
             entity.Core.Movement.Filp();
             //stateMachine.ChangeState(boss1.MoveState);

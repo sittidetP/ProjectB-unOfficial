@@ -47,4 +47,20 @@ public class BaseArgoState : State
         playerTransform = GameObject.FindObjectOfType<Player>().transform;
         distanceFromPlayer = Mathf.Abs(playerTransform.position.x - entity.gameObject.transform.position.x);
     }
+
+    protected bool IsPlayerBehind(){
+        if(core.Movement.FacingDirection == 1){
+            if(playerTransform.position.x <= entity.transform.position.x){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            if(playerTransform.position.x >= entity.transform.position.x){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
 }

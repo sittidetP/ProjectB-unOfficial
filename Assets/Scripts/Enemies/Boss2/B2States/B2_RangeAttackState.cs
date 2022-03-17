@@ -14,8 +14,20 @@ public class B2_RangeAttackState : BaseRangeAttackState
     {
         base.LogicUpdate();
 
+        
         if(!canAttack){
             stateMachine.ChangeState(boss2.MoveState);
         }
     }
+
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+
+        if(IsPlayerBehind()){
+            core.Movement.Filp();
+        }
+    }
+
+    
 }

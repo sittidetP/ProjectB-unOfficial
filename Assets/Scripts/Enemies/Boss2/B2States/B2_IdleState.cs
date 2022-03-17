@@ -13,6 +13,7 @@ public class B2_IdleState : BaseIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        
 
         if (canPerformCloseRangeAction && boss2.MeleeAttackState.getCanAttack())
         {
