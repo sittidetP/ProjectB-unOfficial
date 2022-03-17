@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e58ca8f6754b747abe58abe29926e3, type: 3}
   m_Name: B3JumpStateData
   m_EditorClassIdentifier: 
-  jumpVelocity: 12
+  jumpVelocity: 15
   jumpTime: 0.2
   jumpCooldown: 2
   jumpDirection: 1
-  jumpAngle: {x: 2, y: 3}
+  jumpAngle: {x: 4, y: 5}

@@ -5,9 +5,11 @@ using UnityEngine;
 public class Boss2 : Enemy
 {
     public B2_IdleState IdleState {get; private set;}
+    public B2_MoveState MoveState {get; private set;}
     [Header("States Data")]
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseIdleStateData idleStateData;
+    [SerializeField] BaseMoveStateData moveStateData;
 
     [Header("Other Objects")]
     [SerializeField] Transform enemyEye;
@@ -25,6 +27,7 @@ public class Boss2 : Enemy
         base.Awake();
 
         IdleState = new B2_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
+        MoveState = new B2_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
         /*
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
         JumpState = new B3_JumpState(this, StateMachine, "jump", argoStateData, enemyEye, jumpStateData, this);
@@ -38,6 +41,12 @@ public class Boss2 : Enemy
         HurtState = new B1_HurtState(this, StateMachine, "hurt", hurtStateData, SpriteRenderer, this);
         
         */
+    }
+
+    void Start()
+    {
+        normalMaterial = SpriteRenderer.material;
+        StateMachine.Initialize(MoveState);
     }
     /*
     private void BlinkWhenDamaged()
@@ -59,7 +68,7 @@ public class Boss2 : Enemy
             SpriteRenderer.material = hurtStateData.hurtMaterial;
         }
     }
-
+    */
     private void OnDrawGizmos()
     {
 
@@ -76,14 +85,16 @@ public class Boss2 : Enemy
             Gizmos.DrawWireSphere(enemyEye.position + new Vector3(argoStateData.maxArgoDistance * debugFacing, 0.0f, 0.0f), gizmosDrawRadius);
         }
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(meleeHitboxPosition.position, meleeAttackStateData.HitboxRadius);
-
         Gizmos.color = Color.blue;
         if (enemyEye != null)
         {
             Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * debugFacing * argoStateData.closeToPlayerDistance);
         }
+        /*
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(meleeHitboxPosition.position, meleeAttackStateData.HitboxRadius);
+
+        
+        */
     }
-    */
 }

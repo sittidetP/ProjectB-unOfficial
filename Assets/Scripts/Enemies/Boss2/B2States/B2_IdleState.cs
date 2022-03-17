@@ -13,5 +13,13 @@ public class B2_IdleState : BaseIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
+       || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x))
+        {
+            //Debug.Log("player on behind");
+            entity.Core.Movement.Filp();
+            //stateMachine.ChangeState(boss1.MoveState);
+        }
     }
 }
