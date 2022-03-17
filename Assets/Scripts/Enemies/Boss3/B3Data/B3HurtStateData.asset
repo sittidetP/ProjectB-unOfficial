@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2679ffad7dfd45b0fe94d5b6a195d, type: 3}
   m_Name: B3HurtStateData
   m_EditorClassIdentifier: 
-  hurtDuration: 1
+  hurtDuration: 0.6
   hurtMaterial: {fileID: 2100000, guid: bb007f2469dc90c47ad08441ca573b08, type: 2}
   hitSFX: {fileID: 8300000, guid: fe2cdda21792a084ab9be8035776f909, type: 3}

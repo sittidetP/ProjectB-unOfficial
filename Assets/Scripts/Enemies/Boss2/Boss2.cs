@@ -11,6 +11,7 @@ public class Boss2 : Enemy
     [SerializeField] BaseArgoStateData argoStateData;
     [SerializeField] BaseIdleStateData idleStateData;
     [SerializeField] BaseMoveStateData moveStateData;
+    [SerializeField] BaseHurtStateData hurtStateData;
 
     [Header("Other Objects")]
     [SerializeField] Transform enemyEye;
@@ -58,11 +59,11 @@ public class Boss2 : Enemy
         if(Core.Stats.getIsDead()){
             StateMachine.ChangeState(DeadState);
         }else if(Core.Combat.getIsDamaged()){
-            //BlinkWhenDamaged();
+            BlinkWhenDamaged();
             //StateMachine.ChangeState(HurtState);
         }
     }
-    /*
+    
     private void BlinkWhenDamaged()
     {
         if (!isHurt)
@@ -81,8 +82,9 @@ public class Boss2 : Enemy
         {
             SpriteRenderer.material = hurtStateData.hurtMaterial;
         }
+        
     }
-    */
+    
     private void OnDrawGizmos()
     {
 
