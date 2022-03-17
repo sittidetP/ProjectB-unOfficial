@@ -109,11 +109,8 @@ public class Boss2 : Enemy
         {
             Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * debugFacing * argoStateData.closeToPlayerDistance);
         }
-        /*
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(meleeHitboxPosition.position, meleeAttackStateData.HitboxRadius);
-
-        
-        */
     }
 }

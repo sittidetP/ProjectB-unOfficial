@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Projectile : CoreProjectile, IDamageable
 {
+    [SerializeField] bool canDamaged = true;
     private List<IDamageable> detectedDamageable = new List<IDamageable>();
     public void Damage(float amount)
     {
-        BeingHit();
+        if(canDamaged){
+            BeingHit();
+        }
     }
 
     public void Damage(float amount, int attackedDirection)
     {
-        BeingHit();
+        if(canDamaged){
+            BeingHit();
+        }
     }
 
     public override void Update()
