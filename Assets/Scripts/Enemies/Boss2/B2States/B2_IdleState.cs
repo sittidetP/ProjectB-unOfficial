@@ -14,7 +14,12 @@ public class B2_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
-        if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
+        if (distanceFromPlayer > argoStateData.minArgoDistance)
+        {
+            //Debug.Log(distanceFromPlayer);
+            stateMachine.ChangeState(boss2.MoveState);
+        }
+        else  if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
        || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x))
         {
             //Debug.Log("player on behind");
