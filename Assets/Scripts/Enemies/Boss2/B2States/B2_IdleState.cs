@@ -14,6 +14,10 @@ public class B2_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
+        if (canPerformCloseRangeAction && boss2.MeleeAttackState.getCanAttack())
+        {
+            stateMachine.ChangeState(boss2.MeleeAttackState);
+        }
         if (distanceFromPlayer > argoStateData.minArgoDistance)
         {
             //Debug.Log(distanceFromPlayer);
