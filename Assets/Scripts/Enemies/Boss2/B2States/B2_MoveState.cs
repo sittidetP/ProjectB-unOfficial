@@ -16,9 +16,9 @@ public class B2_MoveState : BaseMoveState
 
         if (distanceFromPlayer > argoStateData.minArgoDistance && distanceFromPlayer <= argoStateData.maxArgoDistance)
         {
-            if (boss2.RangeAttackState.getCanAttack())
+            if (boss2.RangeAttackState1.getCanAttack())
             {
-                stateMachine.ChangeState(boss2.RangeAttackState);
+                stateMachine.ChangeState(boss2.RangeAttackState1);
             }
         }
         else if (distanceFromPlayer <= argoStateData.minArgoDistance)
