@@ -151,7 +151,7 @@ MonoBehaviour:
   facingDiraction: 0
   checkPosition: {fileID: 0}
   checkRadius: 0.5
-  shootSFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: e8695ec96a30cf1438149ee0d2ea1e34, type: 3}
   destroySFX: {fileID: 0}
   canDamaged: 0
 --- !u!50 &6002720090614590056
