@@ -23,7 +23,7 @@ public class B3_DeadState : BaseDeadState
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
-        //itemDroper.DropItem(boss1.transform);
+        itemDroper.DropItem(boss3.transform);
         //entity.gameObject.SetActive(false);
         GameObject.Destroy(entity.gameObject);
     }
