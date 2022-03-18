@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 146163003730411598}
   - component: {fileID: 146163003730411599}
   - component: {fileID: 146163003730411601}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SummonBigSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 15
-  projectileVelocity: 10
+  projectileVelocity: 15
   lifeTime: 10
   facingDiraction: -1
   checkPosition: {fileID: 0}

@@ -39,7 +39,8 @@ public class Boss2 : Enemy
         IdleState = new B2_IdleState(this, StateMachine, "idle", argoStateData, enemyEye, idleStateData, this);
         MoveState = new B2_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);
         MeleeAttackState = new B2_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
-        RangeAttackState1 = new B2_RangeAttackState(this, StateMachine, "cast", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState1Data, rangeAttackPosition1, this);
+        RangeAttackState1 = new B2_RangeAttackState(this, StateMachine, "cast", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState1Data, rangeAttackPosition1, this,true);
+        RangeAttackState2 = new B2_RangeAttackState(this, StateMachine, "cast", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState2Data, rangeAttackPosition2, this, false);
         DeadState = new B2_DeadState(this, StateMachine, "dead", itemDroper, this);
         /*
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);

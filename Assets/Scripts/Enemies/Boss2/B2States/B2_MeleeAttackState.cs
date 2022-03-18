@@ -22,7 +22,7 @@ public class B2_MeleeAttackState : BaseMeleeAttackState
         base.LogicUpdate();
 
         if(!canAttack){
-            stateMachine.ChangeState(boss2.MoveState);
+            stateMachine.ChangeState(boss2.IdleState);
         }
     }
 

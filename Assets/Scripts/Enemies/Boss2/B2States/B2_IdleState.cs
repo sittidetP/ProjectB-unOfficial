@@ -13,19 +13,27 @@ public class B2_IdleState : BaseIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
 
-        if (canPerformCloseRangeAction && boss2.MeleeAttackState.getCanAttack())
+
+        if (canPerformCloseRangeAction)
         {
-            stateMachine.ChangeState(boss2.MeleeAttackState);
+            if (boss2.MeleeAttackState.getCanAttack())
+            {
+                stateMachine.ChangeState(boss2.MeleeAttackState);
+            }else if (distanceFromPlayer < argoStateData.closeToPlayerDistance)
+            {
+                if(boss2.RangeAttackState2.getCanAttack()){
+                    stateMachine.ChangeState(boss2.RangeAttackState2);
+                }
+            }
         }
-        if (distanceFromPlayer > argoStateData.minArgoDistance)
+        else if (distanceFromPlayer > argoStateData.minArgoDistance)
         {
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss2.MoveState);
         }
-        else  if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
-       || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x))
+        else if ((entity.Core.Movement.FacingDirection == 1 && playerTransform.position.x < entity.transform.position.x)
+      || (entity.Core.Movement.FacingDirection == -1 && playerTransform.position.x >= entity.transform.position.x))
         {
             //Debug.Log("player on behind");
             entity.Core.Movement.Filp();
