@@ -76,6 +76,10 @@ public abstract class CoreProjectile : MonoBehaviour
         //SetVelocity(projectileVelocity, angle, facingDiraction);
     }
 
+    public virtual void AnimationTrigger(){
+        
+    }
+
     public virtual void AnimationFinishTrigger(){
         isAnimationFinished = true;
     }
