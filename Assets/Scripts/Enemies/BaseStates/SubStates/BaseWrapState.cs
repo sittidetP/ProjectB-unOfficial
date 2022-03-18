@@ -12,6 +12,8 @@ public class BaseWrapState : BaseArgoState
     {
         base.Enter();
 
-        entity.transform.position = playerTransform.position;
+        if(playerTransform != null){
+            entity.transform.position = playerTransform.position;
+        }
     }
 }
