@@ -22,14 +22,15 @@ public class RedOrb : MonoBehaviour
 
         if(collectRedOrb && !allClearBGM.isPlaying && !isEnd){
             isEnd = true;
-            UIFade.Instance.FadeOut();
-            PauseManager.resume();
+            
+            //PauseManager.resume();
             StartCoroutine(ChangeScene(sceneName));
         }
     }
 
     IEnumerator ChangeScene(string sceneName){
-        yield return new WaitForSeconds(UIFade.Instance.FadeTime);
+        UIFade.Instance.FadeOut();
+        yield return new WaitForSecondsRealtime(UIFade.Instance.FadeTime);
         SceneManager.LoadScene(sceneName);
     }
 }
