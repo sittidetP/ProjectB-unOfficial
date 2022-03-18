@@ -17,13 +17,18 @@ public class B2_IdleState : BaseIdleState
 
         if (canPerformCloseRangeAction)
         {
-            if (boss2.MeleeAttackState.getCanAttack())
+            if (distanceFromPlayer < argoStateData.closeToPlayerDistance - 1.2f)
             {
-                stateMachine.ChangeState(boss2.MeleeAttackState);
-            }else if (distanceFromPlayer < argoStateData.closeToPlayerDistance)
-            {
-                if(boss2.RangeAttackState2.getCanAttack()){
+                if (boss2.RangeAttackState2.getCanAttack())
+                {
                     stateMachine.ChangeState(boss2.RangeAttackState2);
+                }
+            }
+            else
+            {
+                if (boss2.MeleeAttackState.getCanAttack())
+                {
+                    stateMachine.ChangeState(boss2.MeleeAttackState);
                 }
             }
         }
