@@ -5,6 +5,7 @@ using UnityEngine;
 public class B2_MoveState : BaseMoveState
 {
     Boss2 boss2;
+    int startCount = 0;
     public B2_MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye, BaseMoveStateData moveStateData, Boss2 boss2) : base(entity, stateMachine, animBoolName, argoStateData, enemyEye, moveStateData)
     {
         this.boss2 = boss2;
@@ -15,7 +16,13 @@ public class B2_MoveState : BaseMoveState
         base.LogicUpdate();
 
         if (distanceFromPlayer > argoStateData.maxArgoDistance){
-            stateMachine.ChangeState(boss2.WrapState);
+            startCount++;
+            if(startCount == 1){
+                boss2.WrapState.StartCountdownTime();
+            }
+            if(boss2.WrapState.getCountdown()){
+                stateMachine.ChangeState(boss2.WrapState);
+            }
         }else if (distanceFromPlayer > argoStateData.minArgoDistance && distanceFromPlayer <= argoStateData.maxArgoDistance)
         {
             if (boss2.RangeAttackState1.getCanAttack())
@@ -34,5 +41,15 @@ public class B2_MoveState : BaseMoveState
             entity.Core.Movement.Filp();
             //stateMachine.ChangeState(boss1.MoveState);
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        ResetCount();
+    }
+
+    public void ResetCount(){
+        startCount = 0;
     }
 }

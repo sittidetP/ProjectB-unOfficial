@@ -18,6 +18,7 @@ public class Boss2 : Enemy
     [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
     [SerializeField] BaseRangeAttackStateData rangeAttackState1Data;
     [SerializeField] BaseRangeAttackStateData rangeAttackState2Data;
+    [SerializeField] BaseWrapStateData wrapStateData;
     [SerializeField] BaseHurtStateData hurtStateData;
 
     [Header("Other Objects")]
@@ -42,7 +43,7 @@ public class Boss2 : Enemy
         MeleeAttackState = new B2_MeleeAttackState(this, StateMachine, "attack", argoStateData, enemyEye, meleeHitboxPosition, meleeAttackStateData, this);
         RangeAttackState1 = new B2_RangeAttackState(this, StateMachine, "cast", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState1Data, rangeAttackPosition1, this, true);
         RangeAttackState2 = new B2_RangeAttackState(this, StateMachine, "cast", argoStateData, enemyEye, meleeHitboxPosition, rangeAttackState2Data, rangeAttackPosition2, this, false);
-        WrapState = new B2_WrapState(this, StateMachine, "wrap", argoStateData, enemyEye, this);
+        WrapState = new B2_WrapState(this, StateMachine, "wrap", argoStateData, enemyEye, wrapStateData, this);
         DeadState = new B2_DeadState(this, StateMachine, "dead", itemDroper, this);
         /*
         MoveState = new B3_MoveState(this, StateMachine, "move", argoStateData, enemyEye, moveStateData, this);

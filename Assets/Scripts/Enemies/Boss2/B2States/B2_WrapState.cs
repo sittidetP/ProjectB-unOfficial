@@ -5,7 +5,7 @@ using UnityEngine;
 public class B2_WrapState : BaseWrapState
 {
     Boss2 boss2;
-    public B2_WrapState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye, Boss2 boss2) : base(entity, stateMachine, animBoolName, argoStateData, enemyEye)
+    public B2_WrapState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData argoStateData, Transform enemyEye, BaseWrapStateData wrapStateData, Boss2 boss2) : base(entity, stateMachine, animBoolName, argoStateData, enemyEye, wrapStateData)
     {
         this.boss2 = boss2;
     }
