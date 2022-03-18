@@ -12,6 +12,13 @@ public class B2_RangeAttackState : BaseRangeAttackState
         spawnOnPlayer = sOnP;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        boss2.AudioSource.PlayOneShot(boss2.CastSFX);
+    }
+
     public override void AnimationTrigger()
     {
         base.AnimationTrigger();

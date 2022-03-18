@@ -8,4 +8,5 @@ public class BaseWrapStateData : ScriptableObject
     public float CountdownTime => countdownTime;
     [SerializeField] float cooldownTime = 2f;
     public float CooldownTime => cooldownTime;
+    public AudioClip wrapSFX;
 }

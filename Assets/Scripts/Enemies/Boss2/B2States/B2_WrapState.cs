@@ -10,6 +10,15 @@ public class B2_WrapState : BaseWrapState
         this.boss2 = boss2;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        if(wrapStateData.wrapSFX != null){
+            boss2.AudioSource.PlayOneShot(wrapStateData.wrapSFX);
+        }
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

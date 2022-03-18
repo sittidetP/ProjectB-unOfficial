@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseWrapState : BaseArgoState
 {
-    BaseWrapStateData wrapStateData;
+    protected BaseWrapStateData wrapStateData;
     private float wrapTime;
     private float startCountdown;
     protected bool canWrap;
@@ -18,18 +18,10 @@ public class BaseWrapState : BaseArgoState
     {
         base.Enter();
         wrapTime = Time.time;
+        
         if(playerTransform != null){
             entity.transform.position = playerTransform.position;
         }
-    }
-
-    public bool getCanWrap(){
-        if(Time.time > wrapTime + wrapStateData.CooldownTime){
-            canWrap = true;
-        }else{
-            canWrap = false;
-        }
-        return canWrap;
     }
 
     public bool getCountdown(){

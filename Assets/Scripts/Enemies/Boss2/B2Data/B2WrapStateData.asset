@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownTime: 1
   cooldownTime: 2
+  wrapSFX: {fileID: 8300000, guid: aeab327ff325b2d45b1020397ea1f237, type: 3}

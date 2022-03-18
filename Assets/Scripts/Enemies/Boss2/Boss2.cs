@@ -27,8 +27,10 @@ public class Boss2 : Enemy
     [SerializeField] Transform rangeAttackPosition1;
     [SerializeField] Transform rangeAttackPosition2;
     [SerializeField] int debugFacing = 1;
+    [SerializeField] AudioClip castSFX;
     [SerializeField] AudioClip deadSFX;
     public AudioClip DeadSFX { get => deadSFX; }
+    public AudioClip CastSFX { get => castSFX; }
     float gizmosDrawRadius = 0.25f;
     Material normalMaterial;
     bool isHurt;
