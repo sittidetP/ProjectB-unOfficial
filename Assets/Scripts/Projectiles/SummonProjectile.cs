@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SummonProjectile : Projectile
 {
-    public override void AnimationTrigger()
+    public override void Fire()
     {
-        base.AnimationTrigger();
+        base.Fire();
 
         RB.velocity = Vector2.right * facingDiraction * projectileVelocity;
     }

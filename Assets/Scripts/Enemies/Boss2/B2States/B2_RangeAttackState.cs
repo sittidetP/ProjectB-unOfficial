@@ -15,10 +15,11 @@ public class B2_RangeAttackState : BaseRangeAttackState
     public override void AnimationTrigger()
     {
         base.AnimationTrigger();
-
+        
         if(playerTransform != null && spawnOnPlayer){
             projectile.transform.position = new Vector3(playerTransform.position.x, projectile.transform.position.y, 0.0f);
         }
+        
     }
 
     public override void LogicUpdate()
