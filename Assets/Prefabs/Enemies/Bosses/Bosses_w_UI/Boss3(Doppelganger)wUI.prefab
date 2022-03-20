@@ -312,6 +312,7 @@ MonoBehaviour:
   meleeHitboxPosition: {fileID: 7255227580334022404}
   rangeAttackPosition: {fileID: 7255227579432681704}
   debugFacing: 1
+  delayTime: 0.5
   deadSFX: {fileID: 8300000, guid: 348b73c127fd3f948930661f7908f672, type: 3}
 --- !u!50 &7255227578998106371
 Rigidbody2D:
@@ -710,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c78e374ad4abe54083d68ad73c74da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 220
+  maxHealth: 160
 --- !u!1001 &8055589291761398637
 PrefabInstance:
   m_ObjectHideFlags: 0

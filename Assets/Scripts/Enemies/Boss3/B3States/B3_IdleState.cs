@@ -5,6 +5,7 @@ using UnityEngine;
 public class B3_IdleState : BaseIdleState
 {
     Boss3 boss3;
+    
     public B3_IdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye, BaseIdleStateData idleStateData, Boss3 boss3) : base(entity, stateMachine, animBoolName, stateData, enemyEye, idleStateData)
     {
         this.boss3 = boss3;
@@ -14,7 +15,14 @@ public class B3_IdleState : BaseIdleState
     {
         base.LogicUpdate();
 
-        if (isIdleOver && !canPerformCloseRangeAction)
+        if (canPerformCloseRangeAction)
+        {
+            if(Time.time > startTime + boss3.DelayTime){
+                
+                stateMachine.ChangeState(boss3.MeleeAttackState);
+            }
+            
+        }else if (isIdleOver && !canPerformCloseRangeAction)
         {
             int randInt = Random.Range(0, 2);
             if (randInt == 0)
@@ -32,12 +40,7 @@ public class B3_IdleState : BaseIdleState
                 }
             }
 
-        }
-        else if (canPerformCloseRangeAction && boss3.MeleeAttackState.getCanAttack())
-        {
-            stateMachine.ChangeState(boss3.MeleeAttackState);
-        }
-        else if (distanceFromPlayer > argoStateData.minArgoDistance)
+        }else if (distanceFromPlayer > argoStateData.minArgoDistance)
         {
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss3.MoveState);

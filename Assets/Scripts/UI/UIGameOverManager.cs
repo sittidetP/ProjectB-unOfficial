@@ -17,9 +17,11 @@ public class UIGameOverManager : UISceneChanger
     }
 
     private void Update() {
+        /*
         if(!gameOverAudio.isPlaying){
             onEndMusic?.Invoke();
         }
+        */
     }
     public void QuitButton(){
         UIFade.Instance.FadeOut();

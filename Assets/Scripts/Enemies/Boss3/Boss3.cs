@@ -17,7 +17,7 @@ public class Boss3 : Enemy
     [SerializeField] BaseMoveStateData moveStateData;
     [SerializeField] BaseJumpStateData jumpStateData;
     [SerializeField] BaseHurtStateData hurtStateData;
-    [SerializeField] BaseMeleeAttackStateData meleeAttackStateData;
+    public BaseMeleeAttackStateData meleeAttackStateData;
     [SerializeField] BaseRangeAttackStateData rangeAttackState1Data;
     [SerializeField] BaseRangeAttackStateData rangeAttackState2Data;
     /*
@@ -28,8 +28,10 @@ public class Boss3 : Enemy
     [SerializeField] Transform meleeHitboxPosition;
     [SerializeField] Transform rangeAttackPosition;
     [SerializeField] int debugFacing = 1;
+    [SerializeField] float delayTime = 1.5f;
     [SerializeField] AudioClip deadSFX;
     public AudioClip DeadSFX {get => deadSFX;}
+    public float DelayTime {get => delayTime;}
     float gizmosDrawRadius = 0.25f;
     Material normalMaterial;
     bool isHurt;

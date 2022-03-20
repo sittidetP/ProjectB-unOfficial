@@ -432,6 +432,7 @@ MonoBehaviour:
   meleeHitboxPosition: {fileID: 4614438549658746256}
   rangeAttackPosition: {fileID: 4614438550503023228}
   debugFacing: 1
+  delayTime: 0.1
   deadSFX: {fileID: 8300000, guid: 348b73c127fd3f948930661f7908f672, type: 3}
 --- !u!50 &4614438551011363735
 Rigidbody2D:
