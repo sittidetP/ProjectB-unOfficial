@@ -16,4 +16,6 @@ MonoBehaviour:
   attackDamage: 13
   attackVelocity: 2
   cooldownTime: 0
+  knockbackAngle: {x: 1, y: 1}
+  knockbackVelocity: 15
   attackSFX: {fileID: 8300000, guid: e1f91b186371ac7469654abf43e9ab11, type: 3}

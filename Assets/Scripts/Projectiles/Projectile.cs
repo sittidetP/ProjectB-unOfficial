@@ -82,6 +82,7 @@ public class Projectile : CoreProjectile, IDamageable
                 audioSource.PlayOneShot(destroySFX);
             }
         }
+        gameObject.layer = 14; //Layer : ProjectileHit
         RB.velocity = Vector2.zero;
     }
 
