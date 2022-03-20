@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemOnceSpawer : MonoBehaviour
 {
     [SerializeField] GameObject item;
+    [SerializeField] UnityEvent onCollected;
     GameObject insItem;
     Boundaries boundary;
 
@@ -27,6 +29,9 @@ public class ItemOnceSpawer : MonoBehaviour
             //print("item : " + item.name + " still here");
         }else{
             //print("item : " + item.name + " not here");
+            if(!BoundariesData.isSpawnOnce[boundary.Index]){
+                onCollected?.Invoke();
+            }
             BoundariesData.isSpawnOnce[boundary.Index] = true;
         }
     }
