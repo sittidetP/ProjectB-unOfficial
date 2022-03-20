@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour
     int indexWeapon = 0;
     int indexProjectile = 0;
     int indexSelectedProjectile = 0;
-
+    bool isEnoughMP;
     private void Start() {
         if(projectiles.Count(s => s != null) == 0){
             UIRangeWeapIcon.Instance.SetIcon(null);
@@ -24,7 +24,8 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update() {
         if(projectiles.Count(s => s != null) > 0){
-            UIRangeWeapIcon.Instance.SetIcon(projectiles[indexSelectedProjectile].WeaponSprite);
+            
+            UIRangeWeapIcon.Instance.SetIcon(projectiles[indexSelectedProjectile].WeaponSprite, isEnoughMP ? 1 : 0.5f);
         }
         if(potions.ContainsKey((int) PotionType.HPPotion)){
             UIManager.Instance.UpdateHPPotionAmount(potions[(int)PotionType.HPPotion].Amount);
@@ -116,5 +117,9 @@ public class PlayerInventory : MonoBehaviour
         foreach(KeyValuePair<int, Potion> p in potions){
             Debug.Log(p.Key + ", " + p.Value.name + " : " + p.Value.Amount);
         }
+    }
+
+    public void SetIsEnoughMP(bool value){
+        isEnoughMP = value;
     }
 }

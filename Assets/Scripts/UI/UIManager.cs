@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image pauseImage;
     [SerializeField] TMP_Text hpPotionText;
     [SerializeField] TMP_Text mpPotionText;
+    [SerializeField] Image rangeWeaponIcon;
     private float originalMaskHpBarSize;
     private float originalMaskMpBarSize;
 
@@ -51,5 +52,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateMPPotionAmount(int amount){
         mpPotionText.text = amount.ToString();
+    }
+
+    public void SetRangeWeaponIconAlpha(float alpha){
+        rangeWeaponIcon.color = new Color(rangeWeaponIcon.color.r, rangeWeaponIcon.color.g, rangeWeaponIcon.color.b, alpha);
     }
 }

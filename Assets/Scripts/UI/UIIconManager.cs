@@ -21,4 +21,13 @@ public abstract class UIIconManager : MonoBehaviour
             icon.color = new Color(255,255,255,1);
         }
     }
+
+    public void SetIcon(Sprite setIcon, float alpha){
+        if(setIcon == null){
+            icon.color = new Color(1,1,1,0);
+        }else{
+            icon.sprite = setIcon;
+            icon.color = new Color(255, 255, 255, alpha);
+        }
+    }
 }

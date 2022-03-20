@@ -89,6 +89,16 @@ public class Player : Entity
         UIManager.Instance.SetHPBarValue(Core.Stats.getHPRatio());
         UIManager.Instance.SetMPBarValue(ExtraPlayer.PlayerMana.getMPRatio());
 
+        Inventory.SetIsEnoughMP(SecondaryAttackState.CanShootRangeWeapon());
+        /*
+        if(SecondaryAttackState.CanShootRangeWeapon()){
+            UIManager.Instance.SetRangeWeaponIconAlpha(1);
+        }else{
+            if(Inventory.getSelectedProjectile() != null){
+                UIManager.Instance.SetRangeWeaponIconAlpha(0.5f);
+            }
+        }
+        */
         if (selectSecondLeftInput)
         {
             if(Inventory.getRangeWeaponLength() > 1){
