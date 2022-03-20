@@ -29,10 +29,12 @@ public class BaseMeleeAttackState : BaseAttackState
 
         foreach(Collider2D obj in detectedObject){
             IDamageable damageable = obj.GetComponentInChildren<IDamageable>();
-
+            IKnockbackable knockbackable = obj.GetComponentInChildren<IKnockbackable>();
+            Player player = obj.GetComponent<Player>();
             if(damageable != null){
                 //Debug.Log("player not null");
                 damageable.Damage(meleeAttackData.attackDamage);
+                knockbackable.Knockback(meleeAttackData.knockbackAngle, meleeAttackData.knockbackVelocity, player.Core.Movement.FacingDirection * -1);
             }else{
                 //Debug.Log("player null");
             }

@@ -17,8 +17,9 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     private float damageTime;
 
     private bool isAttackedFromBehind = false;
-    
-    public override void LogicUpdate(){
+
+    public override void LogicUpdate()
+    {
         CheckKnockback();
         CheckCanDamage();
     }
@@ -26,69 +27,91 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     public void Damage(float amount)
     {
         //print(canDamage);   
-        if(canDamage){
+        if (canDamage)
+        {
             damageTime = Time.time;
             //Debug.Log("Can Hit");
             isDamged = true;
             core.Stats.DecreaseHealth(amount);
             canDamage = false;
-        }else{
+        }
+        else
+        {
             //isDamged = false;
             //Debug.Log("Can't Hit");
         }
     }
 
-    public void CheckCanDamage(){
-        if(Time.time > damageTime + damageCooldown){
+    public void CheckCanDamage()
+    {
+        if (Time.time > damageTime + damageCooldown)
+        {
             canDamage = true;
-        }else{
+        }
+        else
+        {
             canDamage = false;
         }
     }
 
-    public void Damage(float amount, int attackedDirection){
+    public void Damage(float amount, int attackedDirection)
+    {
         Damage(amount);
-        if(attackedDirection == core.Movement.FacingDirection){
+        if (attackedDirection == core.Movement.FacingDirection)
+        {
             //Debug.Log("Behind true");
             isAttackedFromBehind = true;
-        }else{
+        }
+        else
+        {
             //Debug.Log("Behind false");
             isAttackedFromBehind = false;
         }
     }
 
-    public void knockback(Vector2 angle, float strength, int direction)
+    public void Knockback(Vector2 angle, float strength, int direction)
     {
-        core.Movement.SetVelocity(strength, angle, direction);
-        core.Movement.CanSetVelocity = false;
-        isKnockbackActive = true;
-        knockbackStartTime = Time.time;
+        if (isDamged)
+        {
+            core.Movement.SetVelocity(strength, angle, direction);
+            core.Movement.CanSetVelocity = false;
+            isKnockbackActive = true;
+            knockbackStartTime = Time.time;
+        }
+
     }
 
-    public void CheckKnockback(){
-        if(isKnockbackActive && core.Movement.CurrentVelocity.y <= 0.01f && core.CollisionSenses.Ground || Time.time >= knockbackStartTime + knockbackTime){
+    public void CheckKnockback()
+    {
+        if (isKnockbackActive && core.Movement.CurrentVelocity.y <= 0.01f && core.CollisionSenses.Ground || Time.time >= knockbackStartTime + knockbackTime)
+        {
             isKnockbackActive = false;
             core.Movement.CanSetVelocity = true;
         }
     }
 
-    public void setCanDamage(bool value){
+    public void setCanDamage(bool value)
+    {
         canDamage = value;
     }
 
-    public void setIsNotDamage(){
+    public void setIsNotDamage()
+    {
         isDamged = false;
     }
 
-    public bool getIsDamaged(){
+    public bool getIsDamaged()
+    {
         return isDamged;
     }
 
-    public bool getIsAttackedFormBehind(){
+    public bool getIsAttackedFormBehind()
+    {
         return isAttackedFromBehind;
     }
 
-    public float getDamageCoolDown(){
+    public float getDamageCoolDown()
+    {
         return damageCooldown;
     }
 }

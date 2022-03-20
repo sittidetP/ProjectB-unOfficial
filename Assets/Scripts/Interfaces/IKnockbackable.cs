@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IKnockbackable
 {
-    void knockback(Vector2 angle, float strength, int direction);
+    void Knockback(Vector2 angle, float strength, int direction);
 }
