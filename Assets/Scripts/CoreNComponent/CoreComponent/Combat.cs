@@ -71,7 +71,7 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 
     public void Knockback(Vector2 angle, float strength, int direction)
     {
-        if (isDamged)
+        if (!core.Stats.getIsDead() && isDamged)
         {
             core.Movement.SetVelocity(strength, angle, direction);
             core.Movement.CanSetVelocity = false;

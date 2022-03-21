@@ -84,7 +84,7 @@ public class PlayerMidAirState : PlayerState
             stateMachine.ChangeState(player.DashState);
         }
 
-        if (isGrounded && yVelocity < 0.01f)
+        if (isGrounded && yVelocity < 2.5f) // 
         {
             //Debug.Log("MidAir : isGround");
             stateMachine.ChangeState(player.IdleState);
