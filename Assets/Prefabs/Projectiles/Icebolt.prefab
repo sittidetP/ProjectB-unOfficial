@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd3bee58408aec4793a02a156682086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 6
+  damageAmount: 10
   projectileVelocity: 10
   lifeTime: 5
   facingDiraction: 1
@@ -175,6 +175,7 @@ MonoBehaviour:
   checkRadius: 0.2
   shootSFX: {fileID: 8300000, guid: 9f8663265e7cf68429a747b91803f178, type: 3}
   destroySFX: {fileID: 8300000, guid: 22a2ce06455ed9c41a80dfdf24e25ee8, type: 3}
+  canDamaged: 1
 --- !u!82 &-18732518914526905
 AudioSource:
   m_ObjectHideFlags: 0

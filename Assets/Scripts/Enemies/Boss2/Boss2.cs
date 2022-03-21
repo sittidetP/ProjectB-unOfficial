@@ -26,11 +26,13 @@ public class Boss2 : Enemy
     [SerializeField] Transform meleeHitboxPosition;
     [SerializeField] Transform rangeAttackPosition1;
     [SerializeField] Transform rangeAttackPosition2;
+    [SerializeField] float rangeAttack2Distance;
     [SerializeField] int debugFacing = 1;
     [SerializeField] AudioClip castSFX;
     [SerializeField] AudioClip deadSFX;
     public AudioClip DeadSFX { get => deadSFX; }
     public AudioClip CastSFX { get => castSFX; }
+    public float RangeAttack2Distance {get => rangeAttack2Distance;}
     float gizmosDrawRadius = 0.25f;
     Material normalMaterial;
     bool isHurt;
@@ -121,6 +123,8 @@ public class Boss2 : Enemy
         if (enemyEye != null)
         {
             Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * debugFacing * argoStateData.closeToPlayerDistance);
+            Gizmos.color = Color.gray;
+            Gizmos.DrawLine(enemyEye.position, enemyEye.position + (Vector3)Vector2.right * debugFacing * rangeAttack2Distance);
         }
         
         Gizmos.color = Color.red;

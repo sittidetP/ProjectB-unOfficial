@@ -26,7 +26,7 @@ public class Player : Entity
     [SerializeField] Transform rangeAttackPos;
     [SerializeField] AudioClip changeRangeWeapon;
     [SerializeField] UnityEvent<AudioClip> onPlaySFX;
-    public UnityEvent<AudioClip> OnPlaySFX {get => onPlaySFX;}
+    public UnityEvent<AudioClip> OnPlaySFX { get => onPlaySFX; }
     public PlayerStateData PlayerStateData { get => playerStateData; private set => playerStateData = value; }
 
     public PlayerInventory Inventory { get; private set; }
@@ -40,7 +40,7 @@ public class Player : Entity
     private bool mpPotionInput;
 
     private int unlockJumps = 1;
-    public int UnlockJumps {get => unlockJumps;}
+    public int UnlockJumps { get => unlockJumps; }
 
     public override void Awake()
     {
@@ -99,25 +99,6 @@ public class Player : Entity
             }
         }
         */
-        if (selectSecondLeftInput)
-        {
-            if(Inventory.getRangeWeaponLength() > 1){
-                onPlaySFX?.Invoke(changeRangeWeapon);
-            }
-            Inventory.SelectSecondLeft();
-            InputHandler.UseSelectSecondLeftInput();
-            //Debug.Log(Inventory.getSelectedProjectile().name);
-        }
-        else if (selectSecondRigthInput)
-        {
-            if(Inventory.getRangeWeaponLength() > 1){
-                onPlaySFX?.Invoke(changeRangeWeapon);
-            }
-            Inventory.SelectSecondRigth();
-            InputHandler.UseSelectSecondRightInput();
-            //Debug.Log(Inventory.getSelectedProjectile().name);
-        }
-
         if (Core.Stats.getIsDead())
         {
             StateMachine.ChangeState(DeadState);
@@ -128,21 +109,45 @@ public class Player : Entity
             StateMachine.ChangeState(HurtState);
         }
 
-        if (hpPotionInput)
+        if (!Core.Stats.getIsDead())
         {
-            if (Inventory.potions.ContainsKey((int)PotionType.HPPotion))
+            if (selectSecondLeftInput)
             {
-                Inventory.potions[(int)PotionType.HPPotion].UsePotion();
-                InputHandler.UseHPPotionInput();
+                if (Inventory.getRangeWeaponLength() > 1)
+                {
+                    onPlaySFX?.Invoke(changeRangeWeapon);
+                }
+                Inventory.SelectSecondLeft();
+                InputHandler.UseSelectSecondLeftInput();
+                //Debug.Log(Inventory.getSelectedProjectile().name);
             }
-        }
-
-        if (mpPotionInput)
-        {
-            if (Inventory.potions.ContainsKey((int)PotionType.MPPotion))
+            else if (selectSecondRigthInput)
             {
-                Inventory.potions[(int)PotionType.MPPotion].UsePotion();
-                InputHandler.UseMPPotionInput();
+                if (Inventory.getRangeWeaponLength() > 1)
+                {
+                    onPlaySFX?.Invoke(changeRangeWeapon);
+                }
+                Inventory.SelectSecondRigth();
+                InputHandler.UseSelectSecondRightInput();
+                //Debug.Log(Inventory.getSelectedProjectile().name);
+            }
+
+            if (hpPotionInput)
+            {
+                if (Inventory.potions.ContainsKey((int)PotionType.HPPotion))
+                {
+                    Inventory.potions[(int)PotionType.HPPotion].UsePotion();
+                    InputHandler.UseHPPotionInput();
+                }
+            }
+
+            if (mpPotionInput)
+            {
+                if (Inventory.potions.ContainsKey((int)PotionType.MPPotion))
+                {
+                    Inventory.potions[(int)PotionType.MPPotion].UsePotion();
+                    InputHandler.UseMPPotionInput();
+                }
             }
         }
     }
@@ -173,7 +178,8 @@ public class Player : Entity
         playerStateData.amountOfJump = unlockJumps;
     }
 
-    public void PlayCollectSFX(AudioClip audioClip){
+    public void PlayCollectSFX(AudioClip audioClip)
+    {
         onPlaySFX?.Invoke(audioClip);
     }
 

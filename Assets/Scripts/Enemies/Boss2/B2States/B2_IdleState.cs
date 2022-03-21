@@ -17,14 +17,14 @@ public class B2_IdleState : BaseIdleState
 
         if (canPerformCloseRangeAction)
         {
-            if (distanceFromPlayer < argoStateData.closeToPlayerDistance - 1.2f)
+            if (distanceFromPlayer <= boss2.RangeAttack2Distance)
             {
                 if (boss2.RangeAttackState2.getCanAttack())
                 {
                     stateMachine.ChangeState(boss2.RangeAttackState2);
                 }
             }
-            else
+            else if(distanceFromPlayer > boss2.RangeAttack2Distance && distanceFromPlayer <= argoStateData.closeToPlayerDistance)
             {
                 if (boss2.MeleeAttackState.getCanAttack())
                 {
@@ -32,7 +32,7 @@ public class B2_IdleState : BaseIdleState
                 }
             }
         }
-        else if (distanceFromPlayer > argoStateData.minArgoDistance)
+        else if (distanceFromPlayer > argoStateData.closeToPlayerDistance)
         {
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss2.MoveState);

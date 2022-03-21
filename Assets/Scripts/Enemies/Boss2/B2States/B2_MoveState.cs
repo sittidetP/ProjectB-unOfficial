@@ -23,7 +23,7 @@ public class B2_MoveState : BaseMoveState
             if(boss2.WrapState.getCountdown()){
                 stateMachine.ChangeState(boss2.WrapState);
             }
-        }else if (distanceFromPlayer > argoStateData.minArgoDistance && distanceFromPlayer <= argoStateData.maxArgoDistance)
+        }else if (distanceFromPlayer > argoStateData.closeToPlayerDistance && distanceFromPlayer <= argoStateData.maxArgoDistance)
         {
             if (boss2.RangeAttackState1.getCanAttack())
             {

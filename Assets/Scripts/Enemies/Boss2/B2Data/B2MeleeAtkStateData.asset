@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitboxRadius: 1.21
   attackDamage: 18
-  attackVelocity: 3
+  attackVelocity: 0
   cooldownTime: 0.5
-  knockbackAngle: {x: 1, y: 1}
-  knockbackVelocity: 10
+  knockbackAngle: {x: 2, y: 1}
+  knockbackVelocity: 18
   attackSFX: {fileID: 8300000, guid: d29b40d8584e8d545bda1b16a967a29c, type: 3}

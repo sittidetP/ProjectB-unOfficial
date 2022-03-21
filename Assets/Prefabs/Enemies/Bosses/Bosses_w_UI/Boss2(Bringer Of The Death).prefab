@@ -128,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560556738430556305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.37, y: -0.45, z: 0}
+  m_LocalPosition: {x: -4.39, y: -0.9, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children: []
   m_Father: {fileID: 560556738692738699}
@@ -329,6 +329,7 @@ MonoBehaviour:
   meleeHitboxPosition: {fileID: 560556738430556304}
   rangeAttackPosition1: {fileID: 560556739532162940}
   rangeAttackPosition2: {fileID: 7562683042952347872}
+  rangeAttack2Distance: 3.13
   debugFacing: -1
   castSFX: {fileID: 8300000, guid: b1025f97e9091ea4aa58917063436b51, type: 3}
   deadSFX: {fileID: 8300000, guid: 137c2f0c8bf6542459c9cbf6520ad730, type: 3}
@@ -738,7 +739,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7562683042952347887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: -0.5, z: 0}
+  m_LocalPosition: {x: 1.336, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 560556738692738699}
