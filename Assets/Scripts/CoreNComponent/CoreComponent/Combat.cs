@@ -46,10 +46,12 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     {
         if (Time.time > damageTime + damageCooldown)
         {
+            //isDamged = false;
             canDamage = true;
         }
         else
         {
+            
             canDamage = false;
         }
     }

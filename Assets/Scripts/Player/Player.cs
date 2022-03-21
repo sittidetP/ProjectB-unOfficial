@@ -150,7 +150,7 @@ public class Player : Entity
 
     private IEnumerator FlashAfterDamage()
     {
-        float flashDelay = (Core.Combat.getDamageCoolDown()) / playerStateData.amountOfBlinks;
+        float flashDelay = (0.4f) / playerStateData.amountOfBlinks;
         //yield return new WaitForSeconds(flashDelay);
         //yield return new WaitForSeconds(0.2f);
 
