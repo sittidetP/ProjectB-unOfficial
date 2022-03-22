@@ -5,10 +5,17 @@ using UnityEngine;
 public class B3_IdleState : BaseIdleState
 {
     Boss3 boss3;
-    
+    private int useRangeAttack = 0;
+
     public B3_IdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, BaseArgoStateData stateData, Transform enemyEye, BaseIdleStateData idleStateData, Boss3 boss3) : base(entity, stateMachine, animBoolName, stateData, enemyEye, idleStateData)
     {
         this.boss3 = boss3;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        
     }
 
     public override void LogicUpdate()
@@ -17,30 +24,42 @@ public class B3_IdleState : BaseIdleState
 
         if (canPerformCloseRangeAction)
         {
-            if(Time.time > startTime + boss3.DelayTime){
-                
+            if (Time.time > startTime + boss3.DelayTime)
+            {
+
                 stateMachine.ChangeState(boss3.MeleeAttackState);
             }
-            
-        }else if (isIdleOver && !canPerformCloseRangeAction)
+
+        }
+        else if (isIdleOver && !canPerformCloseRangeAction)
         {
-            int randInt = Random.Range(0, 2);
-            if (randInt == 0)
+            if (useRangeAttack < 2)
             {
-                if (boss3.RangeAttackState1.getCanAttack())
+                int randInt = Random.Range(0, 2);
+                if (randInt == 0)
                 {
-                    stateMachine.ChangeState(boss3.RangeAttackState1);
+                    if (boss3.RangeAttackState1.getCanAttack())
+                    {
+                        useRangeAttack++;
+                        stateMachine.ChangeState(boss3.RangeAttackState1);
+                    }
                 }
-            }
-            else if (randInt == 1)
-            {
-                if (boss3.RangeAttackState2.getCanAttack())
+                else if (randInt == 1)
                 {
-                    stateMachine.ChangeState(boss3.RangeAttackState2);
+                    if (boss3.RangeAttackState2.getCanAttack())
+                    {
+                        useRangeAttack++;
+                        stateMachine.ChangeState(boss3.RangeAttackState2);
+                    }
                 }
+            }else{
+                useRangeAttack = 0;
+                stateMachine.ChangeState(boss3.JumpState);
             }
 
-        }else if (distanceFromPlayer > argoStateData.minArgoDistance)
+
+        }
+        else if (distanceFromPlayer > argoStateData.minArgoDistance)
         {
             //Debug.Log(distanceFromPlayer);
             stateMachine.ChangeState(boss3.MoveState);
